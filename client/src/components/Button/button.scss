@@ -1,0 +1,28 @@
+$corLaranja: #fe7f4a;
+$corRosa: #ff3f64; 
+$corRoxo: #5b1788; 
+$corAzul: #0f499d;
+$corAzulClaro: #0197c3;
+$corBranco: #fff;
+$corPreto: #000;
+$cinza: #fdfdfe;
+$cinzaTexto: #aaa;
+$cinzaShadow: #444;
+$degrade: linear-gradient(to left, #ffbe46, #f43e4b);
+
+.button{
+    background: $degrade;
+    color: $corBranco;
+    width: 100%;
+    margin-top: 20px;
+    padding: .8rem 3rem;
+    border-radius: 5px;
+    font-weight: 600;
+    position: relative;
+    
+
+    &:hover{
+        box-shadow: inset 0px 200px 0 $corAzulClaro;
+        transition: 1s;
+    }
+}

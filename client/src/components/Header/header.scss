@@ -1,0 +1,35 @@
+$corLaranja: #fe7f4a;
+$corRosa: #ff3f64; 
+$corRoxo: #5b1788; 
+$corAzul: #0f499d;
+$corAzulClaro: #0197c3;
+$corBranco: #fff;
+$corPreto: #000;
+$cinza: #fdfdfe;
+$cinzaTexto: #aaa;
+$cinzaShadow: #444;
+$degrade: linear-gradient(to right, #ffbe46, #f43e4b);
+
+.header{
+    position: sticky;
+    top: 0;
+    right: 0;
+    background-color: $cinza;
+    width: 100%;
+    display: flex;   
+    padding: 1rem 2rem;
+    border-bottom: 1px solid #eee;
+    z-index: 999;
+
+    &__message{
+        h4{
+            font-size: 1.2rem;
+        }
+
+        h6{
+            color: $cinzaTexto;
+            font-size: .9rem;
+        }
+    }
+    
+}

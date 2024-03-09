@@ -1,0 +1,41 @@
+$corLaranja: #fe7f4a;
+$corRosa: #ff3f64; 
+$corRoxo: #5b1788; 
+$corAzul: #0f499d;
+$corAzulClaro: #0197c3;
+$corBranco: #fff;
+$corPreto: #000;
+$cinza: #fdfdfe;
+$cinzaTexto: #aaa;
+$cinzaShadow: #444;
+$degrade: linear-gradient(to right, #ffbe46, #f43e4b);
+
+.card-prof{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    border-radius: 5px;
+    padding: .5rem 1rem;
+    cursor: pointer;
+
+    &:hover{
+        
+    }
+
+    &__esquerdo{
+        display: flex;
+        align-items: center;
+        gap: 10px;
+
+        &__foto{
+            height: 30px;
+            width: 30px;
+            border-radius: 50%;
+        }
+        
+        &__nome{
+            font-size: 1rem;
+        }
+    }  
+}

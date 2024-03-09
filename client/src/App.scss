@@ -1,0 +1,45 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500;600&display=swap');
+
+
+/*SCSS componentes*/
+@import './components/Aside/aside.scss';
+@import './components/Button/button.scss';
+
+
+/*SCSS páginas*/
+@import './scss/login-cadastro.scss';
+@import './pages/Home/home.scss';
+@import './pages/Teachers/teacher.scss';
+
+$corLaranja: #fe7f4a;
+$corRosa: #ff3f64; 
+$corRoxo: #5b1788; 
+$corAzul: #0f499d;
+$corAzulClaro: #0197c3;
+$corBranco: #fff;
+$corPreto: #000;
+$cinza: #fdfdfe;
+$cinzaTexto: #aaa;
+$cinzaShadow: #444;
+$degrade: linear-gradient(to left, #ffbe46, #f43e4b);
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  transition: .3s;
+  font-family: 'Poppins', sans-serif;
+}
+
+a{
+  text-decoration: none;
+}
+
+ul{
+  list-style: none;
+}
+
+button{
+  border: none;
+  cursor: pointer;
+}
