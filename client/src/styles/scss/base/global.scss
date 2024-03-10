@@ -4,18 +4,21 @@
     box-sizing: border-box;
     transition: .3s;
     font-family: 'Poppins', sans-serif;
-  }
+}
+
+a{
+  text-decoration: none;
+}
+
+ul{
+  list-style: none;
+}
+
+button{
+  border: none;
+  cursor: pointer;
+}
   
-  a{
-    text-decoration: none;
-  }
-  
-  ul{
-    list-style: none;
-  }
-  
-  button{
-    border: none;
-    cursor: pointer;
-  }
-  
+.bg-transparent{
+  background-color: transparent;
+}

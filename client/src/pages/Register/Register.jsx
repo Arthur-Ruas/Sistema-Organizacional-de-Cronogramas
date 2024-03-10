@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
-import logo from '../../assets/logo branca.png';
-
+import React, { useState } from 'react'
+import { Link, useNavigate } from 'react-router-dom';
 import API from '../../API';
 
+import Logo from '../../assets/logo branca.png';
 import { MdEmail } from 'react-icons/md';
 import { PiBarcodeBold } from 'react-icons/pi';
 import { BiSolidUser } from 'react-icons/bi';
@@ -10,10 +10,25 @@ import { RiLockPasswordLine } from 'react-icons/ri';
 import { RiLockPasswordFill } from 'react-icons/ri';
 import { GrFormView } from 'react-icons/gr';
 import { GrFormViewHide } from 'react-icons/gr';
-import { Link } from 'react-router-dom';
+
 import Button from '../../components/Button/Button';
 
 const Register = () => {
+
+  const navigation = useNavigate()
+
+  const [inputType, setInputType] = useState("password")
+  const [inputPasswordIcon, setInputPasswordIcon] = useState(<GrFormViewHide className='form__items__icones'/>)
+
+  function showHiddenPassword(){
+    setInputType("text")
+    setInputPasswordIcon(<GrFormView className='form__items__icones'/>)
+
+    if(inputType == "text"){
+      setInputType("password")
+      setInputPasswordIcon(<GrFormViewHide className='form__items__icones'/>)
+    }
+  }
 
   const [userEmail, setUserEmail] = useState(null);
   const [idEtec, setIdEtec] = useState(null);
@@ -24,6 +39,7 @@ const Register = () => {
   async function handleRegister(e) {
     e.preventDefault();
 
+    /*Verificação da Senha*/
     if (userPassword !== confirmUserPassword) {
       return alert("Senhas não coincidem!")
     }
@@ -32,6 +48,12 @@ const Register = () => {
       return alert("Insira uma senha com mais de 8 digitos!")
     }
 
+    /*Verificação do Email*/
+    var verificarEmail = /\S+@\S+\.\S+/;
+    if(verificarEmail.test(userEmail) == false){
+      return alert("Email Inválido")
+    }
+      
     const dataUser = {userEmail, idEtec, userLogin, userPassword}
 
     try {
@@ -43,6 +65,8 @@ const Register = () => {
       setUserLogin("");
       setUserPassword("");
       setConfirmUserPassword("");
+
+      navigation('/home')
       
     } catch(err) {
       alert(`Erro ao cadastrar. ${err}`)
@@ -85,7 +109,7 @@ const Register = () => {
                 <div className="form__items senhaInput">
                   <RiLockPasswordLine className='form__items__icones'/>
                   <div className="form__items__input">
-                    <input  name="" id="" required
+                    <input type={inputType} name="" id="" required
                     value={userPassword} onChange={(event)=> setUserPassword(event.target.value)}/>
                     <p className='form__items__placeholder'>Senha min. 8 caracteres</p>
                   </div>
@@ -93,10 +117,11 @@ const Register = () => {
                 <div className="form__items repetirSenhaInput">
                   <RiLockPasswordFill className='form__items__icones'/>
                   <div className="form__items__input">
-                    <input  name="" id="" required
+                    <input type={inputType} name="" id="" required
                     value={confirmUserPassword} onChange={(event)=> setConfirmUserPassword(event.target.value)}/>
                     <p className='form__items__placeholder'>Repetir Senha</p>
                   </div>
+                  <button className='bg-transparent' onClick={showHiddenPassword} type="button">{inputPasswordIcon}</button>
                 </div>
                 <Link className="form__link" to="/"><p>Já tem uma conta? Entre agora mesmo</p></Link>
                 <Button type="submit" btnText="Criar conta"/>
@@ -105,7 +130,7 @@ const Register = () => {
           </div>
           <div className="form__direito">
             <header className='form__direito__header'>
-              <img src={logo}/>
+              <img src={Logo}/>
             </header>
             <div className='form__direito__conteudo'>
               <h1 className='form__direito__texto'>Seja Bem Vindo <br />

@@ -21,6 +21,10 @@ button {
   cursor: pointer;
 }
 
+.bg-transparent {
+  background-color: transparent;
+}
+
 /*SCSS Utilities*/
 /*SCSS Pages*/
 .login, .register {
@@ -216,6 +220,14 @@ button {
   width: 100%;
 }
 
+.teachers {
+  min-height: 100vh;
+  display: flex;
+}
+.teachers .container {
+  width: 100%;
+}
+
 /*SCSS Layout*/
 .aside {
   position: sticky;
@@ -284,6 +296,56 @@ button {
 .header__message h6 {
   color: #aaa;
   font-size: 0.9rem;
+}
+
+.teacher {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+}
+.teacher .container {
+  background-color: #fdfdfe;
+  width: 100%;
+}
+.teacher__content {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 1rem 2rem;
+}
+.teacher__search {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.teacher__search__title {
+  font-size: 1.2rem;
+}
+.teacher__search__direito {
+  display: flex;
+  gap: 1rem;
+}
+.teacher__search__button-filtro {
+  background-color: #fff;
+  color: #000;
+  padding: 0.5rem 1rem;
+  border-radius: 50px;
+  box-shadow: 0px 2px 2px #aaa;
+}
+.teacher__search__button-criar {
+  background: linear-gradient(to left, #ffbe46, #f43e4b);
+  color: #fff;
+  padding: 0.5rem 1rem;
+  border-radius: 50px;
+}
+.teacher__wrapper {
+  height: 75vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  padding: 1rem 2rem 1rem 1rem;
+  overflow-y: scroll;
 }
 
 /*SCSS Components*/

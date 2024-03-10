@@ -9,10 +9,6 @@ const Home = () => {
         <Aside />
         <div className="container">
             <Header />
-
-            <div className='home__content'>
-                <button className='button-criar'>+ Criar Horario</button>    
-            </div>
         </div>
     </div>
   )

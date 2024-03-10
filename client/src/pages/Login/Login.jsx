@@ -1,25 +1,37 @@
 import React, { useState } from 'react'
-import Logo from '../../assets/logo branca.png';
-
+import { Link, useNavigate } from 'react-router-dom';
 import API from '../../API';
 
+import Logo from '../../assets/logo branca.png';
 import { PiBarcodeBold } from 'react-icons/pi';
 import { BiSolidUser } from 'react-icons/bi';
 import { RiLockPasswordLine } from 'react-icons/ri';
 import { GrFormView } from 'react-icons/gr';
 import { GrFormViewHide } from 'react-icons/gr';
-import { Link, useNavigate } from 'react-router-dom';
-
 import { FaGithub } from "react-icons/fa";
+
 import Button from '../../components/Button/Button';
 
 const Login = () => {
 
+  const navigation = useNavigate()
+
+  const [inputType, setInputType] = useState("password")
+  const [inputPasswordIcon, setInputPasswordIcon] = useState(<GrFormViewHide className='form__items__icones'/>)
+
+  function showHiddenPassword(){
+    setInputType("text")
+    setInputPasswordIcon(<GrFormView className='form__items__icones'/>)
+
+    if(inputType == "text"){
+      setInputType("password")
+      setInputPasswordIcon(<GrFormViewHide className='form__items__icones'/>)
+    }
+  }
+
   const [idEtec, setIdEtec] = useState('')
   const [userLogin, setUserLogin] = useState('')
   const [userPassword, setUserPassword] = useState('')
-
-  const navigation = useNavigate()
 
   async function handleLogin(event) {
     event.preventDefault()
@@ -62,11 +74,11 @@ const Login = () => {
                 <div className="form__items input-senha">
                   <RiLockPasswordLine className='form__items__icones'/>
                   <div className='form__items__input'>
-                    <input type='' name="" id="" required 
+                    <input type={inputType} name="" id="" required 
                     onChange={(event)=> setUserPassword(event.target.value)}/>
                     <p className='form__items__placeholder'>Senha</p>
                   </div>
-                  <button className='btnTransparente' type="button"></button>
+                  <button className='bg-transparent' onClick={showHiddenPassword} type="button">{inputPasswordIcon}</button>
                 </div>
                 <Link className="form__link" to="/register">
                   <p>Não tem uma conta? Crie agora mesmo</p>

@@ -24,7 +24,7 @@ const Aside = () => {
                     </Link>                  
                 </li>
                 <li className='aside__items'>
-                    <Link to="/teacher" className='aside__items__link'>
+                    <Link to="/teachers" className='aside__items__link'>
                     <FaChalkboardTeacher className='aside__icons'/> 
                     <p>Professores</p>
                     </Link>                  
