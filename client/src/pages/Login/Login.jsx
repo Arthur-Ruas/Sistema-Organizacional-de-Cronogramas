@@ -1,6 +1,7 @@
-import React from 'react';
-import '../../css/styles.css';
+import React, { useState } from 'react'
 import Logo from '../../assets/logo branca.png';
+
+import API from '../../API';
 
 import { PiBarcodeBold } from 'react-icons/pi';
 import { BiSolidUser } from 'react-icons/bi';
@@ -14,10 +15,23 @@ import Button from '../../components/Button/Button';
 
 const Login = () => {
 
+  const [userName, setUserName] = useState('')
+  const [userPassword, setUserPassword] = useState('')
+  const [idEtec, setIdEtec] = useState('')
+
   const navigation = useNavigate()
 
-  async function handleLogin(event){
-    navigation('/home')
+  async function handleLogin(event) {
+    event.preventDefault()
+
+    const dataUser = { userName, userPassword, idEtec }
+    try {
+      await API.post('/login', dataUser)
+      navigation('/home')
+
+    } catch (error) {
+      alert(`Login invalido!`)
+    }
   }
 
   return (
@@ -32,7 +46,7 @@ const Login = () => {
                     <PiBarcodeBold className='form__items__icones'/>
                     <div className='form__items__input'>
                       <input type="text" name="" id="" required 
-                      />
+                      onChange={(event)=> setIdEtec(event.target.value)}/>
                       <p className='form__items__placeholder'>Cód. ETEC</p>
                     </div>             
                   </div>
@@ -40,7 +54,7 @@ const Login = () => {
                     <BiSolidUser className='form__items__icones'/>
                     <div className='form__items__input'>
                       <input type="text" name="" id="" required
-                      />
+                      onChange={(event)=> setUserName(event.target.value)}/>
                       <p className='form__items__placeholder'>Nome Usuário</p>
                     </div>
                   </div>
@@ -49,7 +63,7 @@ const Login = () => {
                   <RiLockPasswordLine className='form__items__icones'/>
                   <div className='form__items__input'>
                     <input type='' name="" id="" required 
-                    />
+                    onChange={(event)=> setUserPassword(event.target.value)}/>
                     <p className='form__items__placeholder'>Senha</p>
                   </div>
                   <button className='btnTransparente' type="button"></button>
@@ -65,7 +79,7 @@ const Login = () => {
                   <p>Conheça mais</p>
                 </div>
                 <div className="form__redes-sociais">
-                  <a target="_blank" href="https://github.com/AurorinhaBoreal/SOC">
+                  <a target="_blank" href="https://github.com/Arthur-Ruas/Sistema-Organizacional-de-Cronogramas.git">
                     <FaGithub className='form__redes-sociais__icon'/>
                   </a>
                 </div>

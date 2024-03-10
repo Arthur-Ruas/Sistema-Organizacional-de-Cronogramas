@@ -1,5 +1,4 @@
 import React from 'react';
-import '../../css/styles.css';
 
 import Aside from '../../components/Aside/Aside';
 import Header from '../../components/Header/Header';

@@ -1,20 +1,25 @@
+/*SCSS Base*/
 @import './styles/scss/base/global.scss';
 @import './styles/scss/base/typography.scss';
-@import './styles/scss/components/button.scss';
-@import './styles/scss/components/cardTeacher.scss';
+
+
+/*SCSS Utilities*/
+@import './styles/scss/utilities/variables.scss';
+
+
+/*SCSS Pages*/
+@import './styles/scss/pages/login-register.scss';
+@import './styles/scss/pages/home.scss';
+@import './styles/scss/pages/teacher.scss';
+
+
+/*SCSS Layout*/
 @import './styles/scss/layout/aside.scss';
 @import './styles/scss/layout/header.scss';
-@import './styles/scss/pages/login-register.scss';
-@import './styles/scss/utilities/';
 
-$corLaranja: #fe7f4a;
-$corRosa: #ff3f64; 
-$corRoxo: #5b1788; 
-$corAzul: #0f499d;
-$corAzulClaro: #0197c3;
-$corBranco: #fff;
-$corPreto: #000;
-$cinza: #fdfdfe;
-$cinzaTexto: #aaa;
-$cinzaShadow: #444;
-$degrade: linear-gradient(to left, #ffbe46, #f43e4b);
+
+/*SCSS Components*/
+@import './styles/scss/components/button.scss';
+@import './styles/scss/components/cardTeacher.scss';
+
+

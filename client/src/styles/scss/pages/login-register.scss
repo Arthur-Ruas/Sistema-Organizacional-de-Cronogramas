@@ -1,17 +1,5 @@
-$corLaranja: #fe7f4a;
-$corRosa: #ff3f64; 
-$corRoxo: #5b1788; 
-$corAzul: #0f499d;
-$corAzulClaro: #0197c3;
-$corBranco: #fff;
-$corPreto: #000;
-$cinza: #fdfdfe;
-$cinzaTexto: #aaa;
-$cinzaShadow: #444;
-$degrade: linear-gradient(to left, #ffbe46, #f43e4b);
-
 .login, .register{
-    background-image: url(../assets/blob-scene-haikei.png);
+    background-image: url(../../assets/blob-scene-haikei.png);
     background-size: cover;    
     background-repeat: no-repeat;
     min-height: 100vh;
@@ -55,7 +43,7 @@ $degrade: linear-gradient(to left, #ffbe46, #f43e4b);
 
         &__direito{
             position: relative;
-            background-image: url(../assets/formBG.jpg);
+            background-image: url(../../assets/formBG.jpg);
             background-size: cover;
             background-position: right;
             height: 100%;

@@ -9,13 +9,3 @@ $cinza: #fdfdfe;
 $cinzaTexto: #aaa;
 $cinzaShadow: #444;
 $degrade: linear-gradient(to left, #ffbe46, #f43e4b);
-
-.home{
-    position: relative;
-    min-height: 100vh;
-    display: flex;
-
-    .container{
-        width: 100%;
-    }
-}

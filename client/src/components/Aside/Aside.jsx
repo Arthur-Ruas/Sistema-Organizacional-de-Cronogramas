@@ -1,5 +1,4 @@
 import React from 'react';
-import '../../css/styles.css';
 import Logo from '../../assets/Logo SOC ROSA2.png';
 
 import { FaChalkboardTeacher } from 'react-icons/fa';
