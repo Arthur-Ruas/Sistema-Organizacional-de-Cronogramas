@@ -15,18 +15,18 @@ import Button from '../../components/Button/Button';
 
 const Login = () => {
 
-  const [userName, setUserName] = useState('')
-  const [userPassword, setUserPassword] = useState('')
   const [idEtec, setIdEtec] = useState('')
+  const [userLogin, setUserLogin] = useState('')
+  const [userPassword, setUserPassword] = useState('')
 
   const navigation = useNavigate()
 
   async function handleLogin(event) {
     event.preventDefault()
 
-    const dataUser = { userName, userPassword, idEtec }
+    const dataLogin = { idEtec, userLogin, userPassword }
     try {
-      await API.post('/login', dataUser)
+      await API.post('/login', dataLogin)
       navigation('/home')
 
     } catch (error) {
@@ -54,7 +54,7 @@ const Login = () => {
                     <BiSolidUser className='form__items__icones'/>
                     <div className='form__items__input'>
                       <input type="text" name="" id="" required
-                      onChange={(event)=> setUserName(event.target.value)}/>
+                      onChange={(event)=> setUserLogin(event.target.value)}/>
                       <p className='form__items__placeholder'>Nome Usuário</p>
                     </div>
                   </div>
@@ -71,7 +71,7 @@ const Login = () => {
                 <Link className="form__link" to="/register">
                   <p>Não tem uma conta? Crie agora mesmo</p>
                 </Link>
-                <Button btnText="Entrar" btnType='submit'/>
+                <Button type="submit" btnText="Entrar"/>
               </form>
               <div className="form__extra">
                 <div className="form__extra__hr">

@@ -56,11 +56,11 @@ const Register = () => {
             <div className='form__form'>
               <h1 className='form__title'>Cadastro</h1>
               <form onSubmit={handleRegister}>
-                <div className='form__items emailInput'>
+              <div className='form__items emailInput'>
                   <MdEmail className='form__items__icones'/>
                   <div className="form__items__input">
                       <input type="text" name="" id="" required
-                      onChange={(event)=> setUserEmail(event.target.value)}/>
+                      value={userEmail} onChange={(event)=> setUserEmail(event.target.value)}/>
                       <p className='form__items__placeholder'>Email</p>
                   </div>
                 </div>
@@ -69,7 +69,7 @@ const Register = () => {
                     <PiBarcodeBold className='form__items__icones'/>
                     <div className="form__items__input">
                       <input type="text" name="" id="" required
-                      onChange={(event)=> setIdEtec(event.target.value)}/>
+                      value={idEtec} onChange={(event)=> setIdEtec(event.target.value)}/>
                       <p className='form__items__placeholder'>Cód. ETEC</p>
                     </div>
                   </div>
@@ -77,7 +77,7 @@ const Register = () => {
                     <BiSolidUser className='form__items__icones'/>
                     <div className="form__items__input">
                       <input type="text" name="" id="" required
-                      onChange={(event)=> setUserLogin(event.target.value)}/>
+                      value={userLogin} onChange={(event)=> setUserLogin(event.target.value)}/>
                       <p className='form__items__placeholder'>Nome Usuário</p>
                     </div>             
                   </div>
@@ -85,22 +85,21 @@ const Register = () => {
                 <div className="form__items senhaInput">
                   <RiLockPasswordLine className='form__items__icones'/>
                   <div className="form__items__input">
-                    <input name="" id="" required
-                    onChange={(event)=> setUserPassword(event.target.value)}/>
+                    <input  name="" id="" required
+                    value={userPassword} onChange={(event)=> setUserPassword(event.target.value)}/>
                     <p className='form__items__placeholder'>Senha min. 8 caracteres</p>
                   </div>
                 </div>
                 <div className="form__items repetirSenhaInput">
                   <RiLockPasswordFill className='form__items__icones'/>
                   <div className="form__items__input">
-                    <input name="" id="" required
-                    onChange={(event)=> setConfirmUserPassword(event.target.value)}/>
+                    <input  name="" id="" required
+                    value={confirmUserPassword} onChange={(event)=> setConfirmUserPassword(event.target.value)}/>
                     <p className='form__items__placeholder'>Repetir Senha</p>
                   </div>
-                  <button className='btnTransparente' type="button"></button>
                 </div>
                 <Link className="form__link" to="/"><p>Já tem uma conta? Entre agora mesmo</p></Link>
-                <Button btnText='Criar Conta' btnType='submit'/>
+                <Button type="submit" btnText="Criar conta"/>
               </form>
             </div>
           </div>
