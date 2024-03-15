@@ -1,6 +1,210 @@
 .form-teacher{
     position: absolute;
-    top: 50%;
+    top: 50vh;
     left: 50%;
     transform: translate(-50%, -50%);
+    background-color: #fff;
+    padding: 2rem 2rem;
+    border-radius: 5px;
+    z-index: 1000;
+
+    & > form{
+        display: flex;
+        gap: 30px;
+    }
+
+    .select-text{
+        color: $cinzaTexto;
+    }
+
+    &__esquerdo{
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    &__input-foto{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        gap: 10px;
+
+        input[type=file]{
+            display: none;
+        }
+
+        label{                
+            background: $degrade;
+            color: $corBranco;
+            padding: .3rem .8rem;
+            border-radius: 5px;
+            font-size: .8rem;
+            cursor: pointer;
+        }
+                
+        img{
+            height: 120px;
+            width: 120px;
+            border-radius: 50%;
+        }   
+    }
+
+    &__input{
+        position: relative;
+        width: 100%;
+        padding: .2rem .5rem;
+        box-shadow: 0 3px 3px -3px $cinzaShadow;
+
+        input{
+            width: 100%;                   
+            border: none;
+            font-size: 1rem;
+
+            &:focus{
+                outline: none;
+            }
+
+            &:valid + p{
+                transform: translateY(-160%);
+                font-size: .8rem;
+            }                                       
+        }                      
+    }
+
+    &__placeholder{
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        color: $cinzaTexto;
+        pointer-events: none;
+    }  
+
+    &__select-cores{
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+
+        &__wrapper{
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        &__items{
+            height: 25px;
+            width: 25px;
+            border-radius: 5px;
+            cursor: pointer;
+
+            &:hover{
+                transform: translateY(-3px);
+            }
+        }
+    }
+
+    &__btns{
+        width: 100%;
+        display: flex;
+        gap: 60px;
+
+        button{
+            width: 100px;
+            padding: 0.3rem 0;
+            border-radius: 5px;
+
+            &:hover{
+                transform: translateY(-3px);
+            }
+        }
+
+        &__cancelar{
+            background-color: $cinzaTexto;
+            color: $corBranco;             
+        }
+
+        &__submit{
+            background: $degrade;
+            color: $corBranco;
+        }
+    }
+
+    &__direito{
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+    }
+
+    &__select-dias{
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    &__div-dias{
+        display: flex;
+        gap: 20px;
+    }
+
+    &__input-dia{
+                    
+        input[type=checkbox]{
+            display: none;
+        }
+
+        input[type=checkbox]:checked + label{
+            background: $corAzulClaro;
+            color: $corBranco;
+            border: 1px solid $corAzulClaro;
+            transition: 0s;
+        }
+
+        label{
+            color: $corLaranja;
+            padding: .1rem .8rem;
+            border: 1px solid $corLaranja;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+    }
+
+    &__select-materias{
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    &__div-materias{
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+
+    &__input-materias{
+        input[type=checkbox]{
+            display: none;
+        }
+
+        input[type=checkbox]:checked + label{
+            background: $corAzulClaro;
+            color: $corBranco;
+            border: 1px solid $corAzulClaro;
+            transition: 0s;
+        }
+
+        label{
+            color: $corLaranja;
+            padding: .1rem .8rem;
+            border: 1px solid $corLaranja;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+    }
+
+    &__observacao{
+        input{
+            height: 40px;
+            width: 100%;
+        }
+    }
 }

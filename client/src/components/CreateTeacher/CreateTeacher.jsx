@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 
 import Image from '../../assets/profile.png'
 
-const CreateTeacher = ({show}) => {
+const CreateTeacher = ({showModal, closeModal}) => {
 
     {/*Carregar imagem no card*/ }
     const [file, setFile] = useState(Image)
@@ -23,7 +23,7 @@ const CreateTeacher = ({show}) => {
     const [colorCard, setColorCard] = useState(null);
 
   return (
-    <div className="form-teacher" style={{ border: `5px solid ${colorCard}`, display: `${show}` }}>
+    <div className="form-teacher" style={{ border: `5px solid ${colorCard}`, display: showModal}}> 
         <form>
           <div className='form-teacher__esquerdo'>
             <div className='form-teacher__input-foto'>
@@ -51,7 +51,7 @@ const CreateTeacher = ({show}) => {
               </div>
             </div>
             <div className='form-teacher__btns'>
-              <button className='form-teacher__btns__cancelar' type='button'>Cancelar</button>
+              <button className='form-teacher__btns__cancelar' type='button' onClick={() => closeModal()}>Cancelar</button>
               <button className='form-teacher__btns__submit' type='submit'>Salvar</button>
             </div>
           </div>

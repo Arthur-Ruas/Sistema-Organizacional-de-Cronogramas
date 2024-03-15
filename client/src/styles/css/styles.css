@@ -25,6 +25,11 @@ button {
   background-color: transparent;
 }
 
+.container {
+  background-color: #fff;
+  width: 100%;
+}
+
 /*SCSS Utilities*/
 /*SCSS Pages*/
 .login, .register {
@@ -216,9 +221,6 @@ button {
   min-height: 100vh;
   display: flex;
 }
-.home .container {
-  width: 100%;
-}
 
 .teachers {
   min-height: 100vh;
@@ -303,10 +305,6 @@ button {
   min-height: 100vh;
   display: flex;
 }
-.teacher .container {
-  background-color: #fdfdfe;
-  width: 100%;
-}
 .teacher__content {
   display: flex;
   flex-direction: column;
@@ -350,9 +348,173 @@ button {
 
 .form-teacher {
   position: absolute;
-  top: 50%;
+  top: 50vh;
   left: 50%;
   transform: translate(-50%, -50%);
+  background-color: #fff;
+  padding: 2rem 2rem;
+  border-radius: 5px;
+  z-index: 1000;
+}
+.form-teacher > form {
+  display: flex;
+  gap: 30px;
+}
+.form-teacher .select-text {
+  color: #aaa;
+}
+.form-teacher__esquerdo {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.form-teacher__input-foto {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 10px;
+}
+.form-teacher__input-foto input[type=file] {
+  display: none;
+}
+.form-teacher__input-foto label {
+  background: linear-gradient(to left, #ffbe46, #f43e4b);
+  color: #fff;
+  padding: 0.3rem 0.8rem;
+  border-radius: 5px;
+  font-size: 0.8rem;
+  cursor: pointer;
+}
+.form-teacher__input-foto img {
+  height: 120px;
+  width: 120px;
+  border-radius: 50%;
+}
+.form-teacher__input {
+  position: relative;
+  width: 100%;
+  padding: 0.2rem 0.5rem;
+  box-shadow: 0 3px 3px -3px #444;
+}
+.form-teacher__input input {
+  width: 100%;
+  border: none;
+  font-size: 1rem;
+}
+.form-teacher__input input:focus {
+  outline: none;
+}
+.form-teacher__input input:valid + p {
+  transform: translateY(-160%);
+  font-size: 0.8rem;
+}
+.form-teacher__placeholder {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #aaa;
+  pointer-events: none;
+}
+.form-teacher__select-cores {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.form-teacher__select-cores__wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+.form-teacher__select-cores__items {
+  height: 25px;
+  width: 25px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.form-teacher__select-cores__items:hover {
+  transform: translateY(-3px);
+}
+.form-teacher__btns {
+  width: 100%;
+  display: flex;
+  gap: 60px;
+}
+.form-teacher__btns button {
+  width: 100px;
+  padding: 0.3rem 0;
+  border-radius: 5px;
+}
+.form-teacher__btns button:hover {
+  transform: translateY(-3px);
+}
+.form-teacher__btns__cancelar {
+  background-color: #aaa;
+  color: #fff;
+}
+.form-teacher__btns__submit {
+  background: linear-gradient(to left, #ffbe46, #f43e4b);
+  color: #fff;
+}
+.form-teacher__direito {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+.form-teacher__select-dias {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.form-teacher__div-dias {
+  display: flex;
+  gap: 20px;
+}
+.form-teacher__input-dia input[type=checkbox] {
+  display: none;
+}
+.form-teacher__input-dia input[type=checkbox]:checked + label {
+  background: #0197c3;
+  color: #fff;
+  border: 1px solid #0197c3;
+  transition: 0s;
+}
+.form-teacher__input-dia label {
+  color: #fe7f4a;
+  padding: 0.1rem 0.8rem;
+  border: 1px solid #fe7f4a;
+  border-radius: 10px;
+  cursor: pointer;
+}
+.form-teacher__select-materias {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.form-teacher__div-materias {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.form-teacher__input-materias input[type=checkbox] {
+  display: none;
+}
+.form-teacher__input-materias input[type=checkbox]:checked + label {
+  background: #0197c3;
+  color: #fff;
+  border: 1px solid #0197c3;
+  transition: 0s;
+}
+.form-teacher__input-materias label {
+  color: #fe7f4a;
+  padding: 0.1rem 0.8rem;
+  border: 1px solid #fe7f4a;
+  border-radius: 10px;
+  cursor: pointer;
+}
+.form-teacher__observacao input {
+  height: 40px;
+  width: 100%;
 }
 
 /*SCSS Components*/

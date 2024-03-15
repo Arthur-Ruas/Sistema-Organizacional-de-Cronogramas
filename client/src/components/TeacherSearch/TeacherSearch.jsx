@@ -1,17 +1,7 @@
 import React, { useState } from 'react';
 import TeacherCard from '../TeacherCard/TeacherCard';
-import CreateTeacher from '../CreateTeacher/CreateTeacher';
 
-const TeacherSearch = () => {
-
-    const [show, setShow] = useState("none")
-
-    function showHidden(){
-        setShow("block")
-        if(show == "block"){
-            setShow("none")
-        }
-    }
+const TeacherSearch = ({openModal}) => {
 
   return (
     <div className='teacher__content'>
@@ -21,16 +11,14 @@ const TeacherSearch = () => {
             </div>
             <div className='teacher__search__direito'>
                 <button className='teacher__search__button-filtro'>Filtrar</button>
-                <button className='teacher__search__button-criar' onClick={showHidden}
+                <button className='teacher__search__button-criar' onClick={() => openModal()}
                 >+ Criar Professor</button>
             </div>
         </div>
         <div className='teacher__wrapper'>
             <TeacherCard teacherCardColor="#00beef" teacherName={"ai"}/>
-        </div>
-        <CreateTeacher show={show}/>
-    </div>
-          
+        </div>       
+    </div>         
   )
 }
 
