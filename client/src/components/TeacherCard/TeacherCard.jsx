@@ -1,7 +1,7 @@
 import React from 'react';
 import teacherPicture from '../../assets/profile.png';
 
-const TeacherCard = ({teacherCardColor, teacherName}) => {
+const TeacherCard = ({teacherCardColor, teacherName, teacherId}) => {
   return (
       <div className='card-prof' style={{backgroundColor: `${teacherCardColor}`}}>
           <div className='card-prof__esquerdo'>

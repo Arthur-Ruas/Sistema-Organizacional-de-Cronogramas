@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react'
+import API from '../../API';
 
 import Image from '../../assets/profile.png'
+
 
 const CreateTeacher = ({showModal, closeModal}) => {
 
@@ -13,18 +15,62 @@ const CreateTeacher = ({showModal, closeModal}) => {
 
 
     {/*Seleção de Cor*/ }
-    const cores =
+    const colors =
     [
         "#f44336", "#e91e63", "#9c27b0", "#673ab7",
         "#3f51b5", "#2196f3", "#00bcd4", "#009688",
         "#4caf50", "#ffeb3b", "#ff9800", "#ff5722"
-    ]
+    ];
 
-    const [colorCard, setColorCard] = useState(null);
+
+    {/*Select das matérias*/}
+    const [subjects, setSubjects] = useState([])
+
+    async function getSubjects() {
+      const res = await API.get("/subjects");
+      setSubjects(res.data.message)
+    }
+
+    useEffect(() => {
+      getSubjects();
+    }, [setSubjects])
+
+    
+
+    const [teacherName, setTeacherName] = useState(null);
+    const [teacherColorCard, setTeacherColorCard] = useState(null);
+    const [teacherArraySubjects, setArraySubjects] = useState([]);
+    // const [arrayDias, setArrayDias] = useState([]);
+    const [teacherNote, setTeacherNote] = useState(null);
+
+    console.log(teacherArraySubjects)
+
+    async function handleTeacherCreation(event) {
+      event.preventDefault();
+      if (teacherName < 1) {
+        return alert("Insira um nome!")
+      }
+  
+      else if (teacherColorCard == undefined || teacherColorCard == "#fff") {
+        return alert("Selecione uma cor")
+      }
+  
+      const dataTeacher = { teacherName, teacherColorCard, teacherArraySubjects, teacherNote}
+  
+      try {
+        API.post('/teacher', dataTeacher);
+        alert("Professor Cadastrado com sucesso!")
+  
+        window.location.reload(false);
+  
+      } catch (err) {
+        alert(`Erro ao cadastrar. ${err}`)
+      }
+    }
 
   return (
-    <div className="form-teacher" style={{ border: `5px solid ${colorCard}`, display: showModal}}> 
-        <form>
+    <div className="form-teacher" style={{ border: `5px solid ${teacherColorCard}`, display: showModal}}> 
+        <form onSubmit={handleTeacherCreation}>
           <div className='form-teacher__esquerdo'>
             <div className='form-teacher__input-foto'>
               <input type="file" id='foto' onChange={getFile} />
@@ -33,16 +79,16 @@ const CreateTeacher = ({showModal, closeModal}) => {
             </div>
             <div className="form-teacher__input">
               <input type='text' required
-                />
+              value={teacherName} onChange={(event) => setTeacherName(event.target.value)}/>
               <p className='form-teacher__placeholder'>Nome</p>
             </div>
             <div className='form-teacher__select-cores'>
               <h4 className='select-text'>Selecione a cor do card</h4>
               <div className='form-teacher__select-cores__wrapper'>
                 {
-                  cores.map((cor) => {
+                  colors.map((color) => {
                     return (
-                      <div className='form-teacher__select-cores__items' style={{ backgroundColor: `${cor}` }} onClick={() => setColorCard(cor)}>
+                      <div className='form-teacher__select-cores__items' style={{ backgroundColor: `${color}` }} onClick={() => setTeacherColorCard(color)}>
 
                       </div>
                     )
@@ -65,13 +111,24 @@ const CreateTeacher = ({showModal, closeModal}) => {
             <div className='form-teacher__select-materias'>
               <h4 className='select-text'>Selecione as matérias</h4>
               <div className='form-teacher__div-materias'>
-                
+              {
+                  subjects.map((subject) => {
+                    return (
+                      <div className='form-teacher__input-materias'>
+                        <input type="checkbox" name={subject.nome} id={subject.id} onClick={(() => {
+                          setArraySubjects(arr => [...arr, subject.id])
+                        })} />
+                        <label for={subject.id}>{subject.nome}</label>
+                      </div>
+                    )
+                  })
+                }
               </div>
             </div>
             <div className='form-teacher__observacao'>
                 <h4 className='select-text'>Observações</h4>
                 <input type="text" maxlength="150"
-                />
+                value={teacherNote} onChange={(event) => setTeacherNote(event.target.value)}/>
             </div>
           </div>
         </form>
