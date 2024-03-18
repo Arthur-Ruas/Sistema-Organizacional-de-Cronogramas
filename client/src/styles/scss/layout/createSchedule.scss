@@ -1,0 +1,40 @@
+.form-schedule{
+    position: absolute;
+    top: 50vh;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    padding: 2rem 2rem;
+    border-radius: 5px;
+    z-index: 1000;
+
+    &__input{
+        position: relative;
+        width: 100%;
+        padding: .2rem .5rem;
+        box-shadow: 0 3px 3px -3px $cinzaShadow;
+
+        input{
+            width: 100%;                   
+            border: none;
+            font-size: 1rem;
+
+            &:focus{
+                outline: none;
+            }
+
+            &:valid + p{
+                transform: translateY(-160%);
+                font-size: .8rem;
+            }                                       
+        }                      
+    }
+
+    &__placeholder{
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        color: $cinzaTexto;
+        pointer-events: none;
+    }  
+}

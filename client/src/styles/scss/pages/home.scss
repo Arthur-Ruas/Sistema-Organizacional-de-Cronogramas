@@ -1,5 +1,8 @@
 .home{
-    position: relative;
     min-height: 100vh;
-    display: flex;
+    display: flex; 
+
+    .container{
+        width: 100%;
+    }
 }

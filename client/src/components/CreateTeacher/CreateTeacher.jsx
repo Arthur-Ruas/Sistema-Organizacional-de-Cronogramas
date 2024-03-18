@@ -97,7 +97,7 @@ const CreateTeacher = ({showModal, closeModal}) => {
               </div>
             </div>
             <div className='form-teacher__btns'>
-              <button className='form-teacher__btns__cancelar' type='button' onClick={() => closeModal()}>Cancelar</button>
+              <button className='form-teacher__btns-cancelar' type='button' onClick={() => closeModal()}>Cancelar</button>
               <button className='form-teacher__btns__submit' type='submit'>Salvar</button>
             </div>
           </div>

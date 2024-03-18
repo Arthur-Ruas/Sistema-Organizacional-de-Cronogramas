@@ -224,9 +224,11 @@ button {
 }
 
 .home {
-  position: relative;
   min-height: 100vh;
   display: flex;
+}
+.home .container {
+  width: 100%;
 }
 
 .teachers {
@@ -516,6 +518,66 @@ button {
 .form-teacher__observacao input {
   height: 40px;
   width: 100%;
+}
+
+.home {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+}
+.home__content {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 1rem 2rem;
+}
+.home__search {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.home__search__title {
+  font-size: 1.2rem;
+}
+.home__search__direito {
+  display: flex;
+  gap: 1rem;
+}
+
+.form-schedule {
+  position: absolute;
+  top: 50vh;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #fff;
+  padding: 2rem 2rem;
+  border-radius: 5px;
+  z-index: 1000;
+}
+.form-schedule__input {
+  position: relative;
+  width: 100%;
+  padding: 0.2rem 0.5rem;
+  box-shadow: 0 3px 3px -3px #444;
+}
+.form-schedule__input input {
+  width: 100%;
+  border: none;
+  font-size: 1rem;
+}
+.form-schedule__input input:focus {
+  outline: none;
+}
+.form-schedule__input input:valid + p {
+  transform: translateY(-160%);
+  font-size: 0.8rem;
+}
+.form-schedule__placeholder {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #aaa;
+  pointer-events: none;
 }
 
 /*SCSS Components*/
