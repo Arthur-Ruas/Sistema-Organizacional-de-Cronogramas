@@ -1,15 +1,32 @@
 import React, { useState } from 'react';
+import API from '../../API';
 
 const CreateSchedule = ({showModal, closeModal}) => {
 
   const [scheduleName, setScheduleName] = useState(null);
-  const [classDividion, setClassDivision] = useState("Sim");
+  const [classDivision, setClassDivision] = useState("Sim");
   const [classModule, setClassModule] = useState("Módulo 1")
 
-  console.log(scheduleName, classDividion, classModule)
+  console.log(scheduleName, classDivision, classModule)
 
   async function handleScheduleCreation(event){
     event.preventDefault()
+
+    if (scheduleName < 1) {
+      return alert("Insira um nome!")
+    }
+
+    const dataSchedule = {scheduleName, classDivision, classModule}
+
+    try {
+      API.post('/schedule', dataSchedule);
+      alert("Horário Cadastrado com sucesso!")
+
+      window.location.reload(false);
+
+    } catch (err) {
+      alert(`Erro ao cadastrar. ${err}`)
+    }
   }
 
   return (
@@ -20,7 +37,7 @@ const CreateSchedule = ({showModal, closeModal}) => {
           <div className="form-teacher__input">
             <input type='text' required
             value={scheduleName} onChange={(event) => setScheduleName(event.target.value)}/>
-            <p className='form-teacher__placeholder' >Nome do Horário</p>
+            <p className='form-teacher__placeholder'>Nome do Horário</p>
           </div>
           <div>
             <h4>Divisão de Turma</h4>

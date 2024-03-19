@@ -55,7 +55,7 @@ const CreateTeacher = ({showModal, closeModal}) => {
         return alert("Selecione uma cor")
       }
   
-      const dataTeacher = { teacherName, teacherColorCard, teacherArraySubjects, teacherNote}
+      const dataTeacher = {teacherName, teacherColorCard, teacherArraySubjects, teacherNote}
   
       try {
         API.post('/teacher', dataTeacher);

@@ -3,7 +3,6 @@ import API from '../../API';
 
 import TeacherCard from '../TeacherCard/TeacherCard';
 
-
 const TeacherSearch = ({openModal}) => {
 
     const [teachers, setTeachers] = useState([])
@@ -15,7 +14,7 @@ const TeacherSearch = ({openModal}) => {
     }
 
     useEffect(() => {
-        getTeachers()
+      getTeachers()
     }, [setTeachers])
 
   return (
