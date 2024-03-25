@@ -224,19 +224,25 @@ button {
 }
 
 .home {
+  background-color: #999;
   min-height: 100vh;
   display: flex;
+  gap: 1rem;
+  padding: 1rem;
 }
 .home .container {
   width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
 }
 
 .teachers {
+  background-color: #999;
   min-height: 100vh;
   display: flex;
-}
-.teachers .container {
-  width: 100%;
+  gap: 1rem;
+  padding: 1rem;
 }
 
 /*SCSS Layout*/
@@ -250,6 +256,8 @@ button {
   gap: 40px;
   padding: 1.5rem 1rem;
   border-right: 1px solid #eee;
+  border-top-left-radius: 15px;
+  border-bottom-left-radius: 15px;
   z-index: 1000;
 }
 .aside__logo {
@@ -294,7 +302,6 @@ button {
   position: sticky;
   top: 0;
   right: 0;
-  background-color: #fdfdfe;
   width: 100%;
   display: flex;
   padding: 1rem 2rem;
@@ -315,15 +322,18 @@ button {
   display: flex;
 }
 .teacher__content {
+  width: 100%;
   display: flex;
+  justify-content: space-between;
   flex-direction: column;
-  gap: 1rem;
-  padding: 1rem 2rem;
 }
 .teacher__search {
+  background-color: #fff;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  padding: 1rem;
+  border-top-right-radius: 15px;
 }
 .teacher__search__title {
   font-size: 1.2rem;
@@ -340,12 +350,14 @@ button {
   box-shadow: 0px 2px 2px #aaa;
 }
 .teacher__wrapper {
-  height: 75vh;
+  background-color: #fff;
+  height: 85vh;
   width: 100%;
   display: flex;
   flex-direction: column;
   gap: 15px;
   padding: 1rem 2rem 1rem 1rem;
+  border-bottom-right-radius: 15px;
   overflow-y: scroll;
 }
 
@@ -354,22 +366,25 @@ button {
   top: 50vh;
   left: 50%;
   transform: translate(-50%, -50%);
-  background-color: #fff;
-  padding: 2rem 2rem;
+  background-color: #999;
+  padding: 1rem;
   border-radius: 5px;
   z-index: 1000;
 }
-.form-teacher > form {
+.form-teacher__wrapper {
   display: flex;
-  gap: 30px;
 }
 .form-teacher .select-text {
   color: #aaa;
 }
-.form-teacher__esquerdo {
+.form-teacher__left {
   display: flex;
   flex-direction: column;
   gap: 20px;
+}
+.form-teacher__left__top {
+  background-color: #fff;
+  border-top-left-radius: 15px;
 }
 .form-teacher__input-foto {
   display: flex;
@@ -420,6 +435,7 @@ button {
   pointer-events: none;
 }
 .form-teacher__select-cores {
+  background-color: #fff;
   display: flex;
   flex-direction: column;
   gap: 10px;
@@ -438,36 +454,25 @@ button {
 .form-teacher__select-cores__items:hover {
   transform: translateY(-3px);
 }
-.form-teacher__btns {
+.form-teacher__observation {
+  background-color: #fff;
+  border-bottom-left-radius: 15px;
+}
+.form-teacher__observation input {
+  height: 40px;
   width: 100%;
+}
+.form-teacher__right {
   display: flex;
-  gap: 60px;
-}
-.form-teacher__btns button {
-  width: 100px;
-  padding: 0.3rem 0;
-  border-radius: 5px;
-}
-.form-teacher__btns button:hover {
-  transform: translateY(-3px);
-}
-.form-teacher__btns__cancelar {
-  background-color: #aaa;
-  color: #fff;
-}
-.form-teacher__btns__submit {
-  background: linear-gradient(to left, #ffbe46, #f43e4b);
-  color: #fff;
-}
-.form-teacher__direito {
-  display: flex;
+  justify-content: space-between;
   flex-direction: column;
-  gap: 30px;
 }
 .form-teacher__select-dias {
+  background-color: #fff;
   display: flex;
   flex-direction: column;
   gap: 10px;
+  border-top-right-radius: 15px;
 }
 .form-teacher__div-dias {
   display: flex;
@@ -489,42 +494,57 @@ button {
   border-radius: 10px;
   cursor: pointer;
 }
-.form-teacher__select-materias {
+.form-teacher__select-schedules {
+  background-color: #fff;
   display: flex;
   flex-direction: column;
   gap: 10px;
+  border-bottom-right-radius: 15px;
 }
-.form-teacher__div-materias {
+.form-teacher__div-schedules {
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
 }
-.form-teacher__input-materias input[type=checkbox] {
+.form-teacher__input-schedules input[type=checkbox] {
   display: none;
 }
-.form-teacher__input-materias input[type=checkbox]:checked + label {
+.form-teacher__input-schedules input[type=checkbox]:checked + label {
   background: #0197c3;
   color: #fff;
   border: 1px solid #0197c3;
   transition: 0s;
 }
-.form-teacher__input-materias label {
+.form-teacher__input-schedules label {
   color: #fe7f4a;
   padding: 0.1rem 0.8rem;
   border: 1px solid #fe7f4a;
   border-radius: 10px;
   cursor: pointer;
 }
-.form-teacher__observacao input {
-  height: 40px;
+.form-teacher__btns {
   width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 60px;
+}
+.form-teacher__btns button {
+  width: 100px;
+  padding: 0.3rem 0;
+  border-radius: 5px;
+}
+.form-teacher__btns button:hover {
+  transform: scale(1.02);
+}
+.form-teacher__btns__cancelar {
+  background-color: #aaa;
+  color: #fff;
+}
+.form-teacher__btns__submit {
+  background: linear-gradient(to left, #ffbe46, #f43e4b);
+  color: #fff;
 }
 
-.home {
-  position: relative;
-  min-height: 100vh;
-  display: flex;
-}
 .home__content {
   display: flex;
   flex-direction: column;

@@ -1,8 +1,7 @@
 .teachers{
+    background-color: #999;
     min-height: 100vh;
-    display: flex; 
-
-    .container{
-        width: 100%;
-    }
+    display: flex;
+    gap: 1rem; 
+    padding: 1rem;
 }

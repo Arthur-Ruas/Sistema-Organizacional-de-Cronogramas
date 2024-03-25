@@ -24,10 +24,7 @@ const Teachers = ({}) => {
     <>
       <div className='teachers' style={{filter: modalState}}>
           <Aside />
-          <div className="container">
-            <Header />
-            <TeacherSearch openModal = {handleState}/>
-          </div>
+          <TeacherSearch openModal = {handleState}/>
       </div>
       <CreateTeacher showModal={modalOpen} closeModal = {handleState}/>
     </>
