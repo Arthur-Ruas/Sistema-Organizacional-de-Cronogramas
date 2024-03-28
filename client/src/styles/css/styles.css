@@ -332,6 +332,8 @@ button {
   background-color: #fff;
   height: 100%;
   width: 100%;
+  padding: 1rem 2rem;
+  border-bottom-right-radius: 15px;
 }
 .teacher-search__wrapper-teacher-search {
   display: flex;

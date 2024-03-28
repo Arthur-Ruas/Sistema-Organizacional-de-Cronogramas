@@ -118,7 +118,7 @@ const Register = () => {
               <div className="register__input">
                 <input type={inputType} name="" id="" required
                 value={confirmUserPassword} onChange={(event)=> setConfirmUserPassword(event.target.value)}/>
-                <p className='register__input'>Repetir Senha</p>
+                <p className='register__placeholder'>Repetir Senha</p>
               </div>
               <button className='bg-transparent login__icon' onClick={showHiddenPassword} type="button">{inputPasswordIcon}</button>
             </div>
