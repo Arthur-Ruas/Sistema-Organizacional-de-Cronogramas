@@ -48,66 +48,60 @@ const Login = () => {
 
   return (
     <div className='login'>
-        <div className='form'>
-          <div className="form__esquerdo">
-            <div className='form__form'>
-              <h1 className='form__title'>Login</h1>
-              <form onSubmit={handleLogin}>
-                <div className='form__div'>
-                  <div className='form__items input-cod'>
-                    <PiBarcodeBold className='form__items__icones'/>
-                    <div className='form__items__input'>
-                      <input type="text" name="" id="" required 
-                      onChange={(event)=> setIdEtec(event.target.value)}/>
-                      <p className='form__items__placeholder'>Cód. ETEC</p>
-                    </div>             
-                  </div>
-                  <div className='form__items input-login'>
-                    <BiSolidUser className='form__items__icones'/>
-                    <div className='form__items__input'>
-                      <input type="text" name="" id="" required
-                      onChange={(event)=> setUserLogin(event.target.value)}/>
-                      <p className='form__items__placeholder'>Nome Usuário</p>
-                    </div>
-                  </div>
+        <div className='login__card'>
+          <div className="login__left">
+            <h1 className='login__title'>Login</h1>
+            <form class='login__form' onSubmit={handleLogin}>
+              <div className='login__wrapper-input'>
+                <div className='login__item'>
+                  <PiBarcodeBold className='login__icon'/>
+                  <div className='login__input'>
+                    <input type="text" name="" id="" required 
+                    onChange={(event)=> setIdEtec(event.target.value)}/>
+                    <p className='login__placeholder'>Cód. ETEC</p>
+                  </div>             
                 </div>
-                <div className="form__items input-senha">
-                  <RiLockPasswordLine className='form__items__icones'/>
-                  <div className='form__items__input'>
-                    <input type={inputType} name="" id="" required 
-                    onChange={(event)=> setUserPassword(event.target.value)}/>
-                    <p className='form__items__placeholder'>Senha</p>
-                  </div>
-                  <button className='bg-transparent' onClick={showHiddenPassword} type="button">{inputPasswordIcon}</button>
-                </div>
-                <Link className="form__link" to="/register">
-                  <p>Não tem uma conta? Crie agora mesmo</p>
-                </Link>
-                <Button type="submit" btnText="Entrar"/>
-              </form>
-              <div className="form__extra">
-                <div className="form__extra__hr">
-                  <hr className='form__hr'/>
-                  <p>Conheça mais</p>
-                </div>
-                <div className="form__redes-sociais">
-                  <a target="_blank" href="https://github.com/Arthur-Ruas/Sistema-Organizacional-de-Cronogramas.git">
-                    <FaGithub className='form__redes-sociais__icon'/>
-                  </a>
+              <div className='login__item'>
+                <BiSolidUser className='login__icon'/>
+                <div className='login__input'>
+                  <input type="text" name="" id="" required
+                  onChange={(event)=> setUserLogin(event.target.value)}/>
+                  <p className='login__placeholder'>Nome Usuário</p>
                 </div>
               </div>
             </div>
-          </div>
-          <div className="form__direito">
-            <header className='form__direito__header'>
-              <img src={Logo}/>
-            </header>
-            <div className='form__direito__conteudo'>
-              <h1 className='form__direito__texto'>Seja Bem Vindo <br />
-              ao SOC</h1>
+            <div className="login__item">
+              <RiLockPasswordLine className='login__icon'/>
+              <div className='login__input'>
+                <input type={inputType} name="" id="" required 
+                onChange={(event)=> setUserPassword(event.target.value)}/>
+                <p className='login__placeholder'>Senha</p>
+              </div>
+              <button className='bg-transparent login__icon' onClick={showHiddenPassword} type="button">{inputPasswordIcon}</button>
+            </div>
+            <Link className="login__link" to="/register">
+              <p>Não tem uma conta? Crie agora mesmo</p>
+            </Link>
+            <Button type="submit" btnText="Entrar"/>
+          </form>
+          <div className="login__extra">
+            <div className="login__hr">
+              <hr/>
+              <p>Conheça mais</p>
+            </div>
+            <div className="login__social-midia">
+              <a target="_blank" href="https://github.com/Arthur-Ruas/Sistema-Organizacional-de-Cronogramas.git">
+                <FaGithub className='login__icon--social-midia'/>
+              </a>
             </div>
           </div>
-     </div>
+        </div>
+        <div className="login__right">
+            <img class='login__logo' src={Logo}/>
+            <h1 className='login__gretings'>Seja Bem Vindo <br />
+            ao SOC</h1>
+        </div>
+      </div>
     </div>
   )
 }

@@ -18,31 +18,34 @@ const TeacherSearch = ({openModal}) => {
     }, [setTeachers])
 
   return (
-    <div className='teacher__content'>
-        <div className='teacher__search'>
-            <div className='teacher__search__esquerdo'>
-                <h4 className='teacher__search__title'>Professores</h4>
+    <div className='teacher-search'>
+        <header className='teacher-search__header'>
+            <div className='teacher-search__left'>
+                <h4 className='teacher-search__title'>Professores</h4>
             </div>
-            <div className='teacher__search__direito'>
-                <button className='teacher__search__button-filtro'>Filtrar</button>
+            <div className='teacher-search__right'>
+                <button className='teacher-search__button-filter'>Filtrar</button>
                 <button className='button-criar' onClick={() => openModal()}
                 >+ Criar Professor</button>
             </div>
+        </header>
+        <div className='teacher-search__content'>
+          <p>Nome</p>
+          <div className='teacher-search__wrapper-teacher-search'>
+              {
+                  teachers.map((teacher) => {
+                    return (
+                      <div>
+                        <TeacherCard
+                          teacherId={teacher.Id}
+                          teacherName={teacher.Nome}
+                          teacherCardColor={teacher.corCard} />
+                      </div>
+                    )
+                  })
+                }
+          </div>       
         </div>
-        <div className='teacher__wrapper'>
-            {
-                teachers.map((teacher) => {
-                  return (
-                    <div>
-                      <TeacherCard
-                        teacherId={teacher.Id}
-                        teacherName={teacher.Nome}
-                        teacherCardColor={teacher.corCard} />
-                    </div>
-                  )
-                })
-              }
-        </div>       
     </div>         
   )
 }

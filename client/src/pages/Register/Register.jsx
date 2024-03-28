@@ -75,69 +75,63 @@ const Register = () => {
 
   return (
     <div className='register'>
-        <div className='form'>
-          <div className="form__esquerdo">
-            <div className='form__form'>
-              <h1 className='form__title'>Cadastro</h1>
-              <form onSubmit={handleRegister}>
-              <div className='form__items emailInput'>
-                  <MdEmail className='form__items__icones'/>
-                  <div className="form__items__input">
-                      <input type="text" name="" id="" required
-                      value={userEmail} onChange={(event)=> setUserEmail(event.target.value)}/>
-                      <p className='form__items__placeholder'>Email</p>
-                  </div>
-                </div>
-                <div className='form__div'>
-                  <div className='form__items codInput'>
-                    <PiBarcodeBold className='form__items__icones'/>
-                    <div className="form__items__input">
-                      <input type="text" name="" id="" required
-                      value={idEtec} onChange={(event)=> setIdEtec(event.target.value)}/>
-                      <p className='form__items__placeholder'>Cód. ETEC</p>
-                    </div>
-                  </div>
-                  <div className='form__items rmInput'>
-                    <BiSolidUser className='form__items__icones'/>
-                    <div className="form__items__input">
-                      <input type="text" name="" id="" required
-                      value={userLogin} onChange={(event)=> setUserLogin(event.target.value)}/>
-                      <p className='form__items__placeholder'>Nome Usuário</p>
-                    </div>             
-                  </div>
-                </div>
-                <div className="form__items senhaInput">
-                  <RiLockPasswordLine className='form__items__icones'/>
-                  <div className="form__items__input">
-                    <input type={inputType} name="" id="" required
-                    value={userPassword} onChange={(event)=> setUserPassword(event.target.value)}/>
-                    <p className='form__items__placeholder'>Senha min. 8 caracteres</p>
-                  </div>
-                </div>
-                <div className="form__items repetirSenhaInput">
-                  <RiLockPasswordFill className='form__items__icones'/>
-                  <div className="form__items__input">
-                    <input type={inputType} name="" id="" required
-                    value={confirmUserPassword} onChange={(event)=> setConfirmUserPassword(event.target.value)}/>
-                    <p className='form__items__placeholder'>Repetir Senha</p>
-                  </div>
-                  <button className='bg-transparent' onClick={showHiddenPassword} type="button">{inputPasswordIcon}</button>
-                </div>
-                <Link className="form__link" to="/"><p>Já tem uma conta? Entre agora mesmo</p></Link>
-                <Button type="submit" btnText="Criar conta"/>
-              </form>
+      <div className="register__card">
+        <div className='register__left'>
+          <h1 className='register__title'>Cadastro</h1>
+          <form className='login__form' onSubmit={handleRegister}>
+          <div className='register__item'>
+              <MdEmail className='register__icon'/>
+              <div className="register__input">
+                  <input type="text" name="" id="" required
+                  value={userEmail} onChange={(event)=> setUserEmail(event.target.value)}/>
+                  <p className='register__placeholder'>Email</p>
+              </div>
             </div>
-          </div>
-          <div className="form__direito">
-            <header className='form__direito__header'>
-              <img src={Logo}/>
-            </header>
-            <div className='form__direito__conteudo'>
-              <h1 className='form__direito__texto'>Seja Bem Vindo <br />
-              ao SOC</h1>
+            <div className='register__wrapper-input'>
+              <div className='register__item'>
+                <PiBarcodeBold className='register__icon'/>
+                <div className="register__input">
+                  <input type="text" name="" id="" required
+                  value={idEtec} onChange={(event)=> setIdEtec(event.target.value)}/>
+                  <p className='register__placeholder'>Cód. ETEC</p>
+                </div>
+              </div>
+              <div className='register__item'>
+                <BiSolidUser className='register__icon'/>
+                <div className="register__input">
+                  <input type="text" name="" id="" required
+                  value={userLogin} onChange={(event)=> setUserLogin(event.target.value)}/>
+                  <p className='register__placeholder'>Nome Usuário</p>
+                </div>             
+              </div>
             </div>
-          </div>
+            <div className="register__item">
+              <RiLockPasswordLine className='register__icon'/>
+              <div className="register__input">
+                <input type={inputType} name="" id="" required
+                value={userPassword} onChange={(event)=> setUserPassword(event.target.value)}/>
+                <p className='register__placeholder'>Senha min. 8 caracteres</p>
+              </div>
+            </div>
+            <div className="register__item">
+              <RiLockPasswordFill className='register__icon'/>
+              <div className="register__input">
+                <input type={inputType} name="" id="" required
+                value={confirmUserPassword} onChange={(event)=> setConfirmUserPassword(event.target.value)}/>
+                <p className='register__input'>Repetir Senha</p>
+              </div>
+              <button className='bg-transparent login__icon' onClick={showHiddenPassword} type="button">{inputPasswordIcon}</button>
+            </div>
+            <Link className="register__link" to="/"><p>Já tem uma conta? Entre agora mesmo</p></Link>
+            <Button type="submit" btnText="Criar conta"/>
+          </form>
         </div>
+        <div className="register__right">
+          <img className='register__logo' src={Logo}/>
+          <h1 className='login__gretings'>Seja Bem Vindo <br />
+          ao SOC</h1>
+      </div>
+      </div>
     </div>
   )
 }

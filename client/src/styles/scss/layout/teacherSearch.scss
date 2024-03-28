@@ -1,45 +1,49 @@
-.teacher{
+.teacher-search{
     position: relative;
-    min-height: 100vh;
+    max-height: 100vh;
+    width: 100%;
     display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    gap: 1rem;
 
-    &__content{
-        width: 100%;
-        display: flex;
-        justify-content: space-between;
-        flex-direction: column;
-    }
-
-    &__search{
+    &__header{
         background-color: #fff;
         display: flex;
         align-items: center;
         justify-content: space-between;
         padding: 1rem;
-        border-top-right-radius: 15px;
-
-        &__title{
-            font-size: 1.2rem;
-        }
-
-        &__direito{
-            display: flex;
-            gap: 1rem;
-        }
-        
-        &__button-filtro{
-            background-color: $corBranco;
-            color: $corPreto;
-            padding: .5rem 1rem;
-            border-radius: 50px;
-            box-shadow: 0px 2px 2px $cinzaTexto;
-        }      
+        border-top-right-radius: 15px;    
     }
 
-    &__wrapper{
+    &__title{
+        font-size: 1.2rem;
+    }
+
+    &__right{
+        display: flex;
+        gap: 1rem;
+    }
+    
+    &__button-filter{
+        background-color: $corBranco;
+        color: $corPreto;
+        padding: .5rem 1rem;
+        border-radius: 50px;
+        box-shadow: 0px 2px 2px $cinzaTexto;
+    }  
+
+    &__button-new{
+
+    }
+
+    &__content{
         background-color: #fff;
-        height: 85vh;
+        height: 100%;
         width: 100%;
+    }
+
+    &__wrapper-teacher-search{
         display: flex;
         flex-direction: column;
         gap: 15px;

@@ -18,44 +18,43 @@
         padding-left: 10px;
         font-size: 1.2rem;
         
-        &>img{
+        & > img{
             height: 30px;
         }
-    }
-
-    &__div{
-        display: flex;
-        flex-direction: column;
-        gap: 10px;
     }
 
     &__list{
         height: 100%;
         width: fit-content;
         display: flex;
-        justify-content: space-between;
         flex-direction: column;
-    }
- 
-    &__items{
-
-        &__link{
-            color: $corPreto;
-            width: 100%;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            padding: .5rem 1rem;
-            border-radius: 5px;
-            cursor: pointer;
-    
-            &:hover{
-                background-color: $cinzaTexto;
-            }
-        }           
+        gap: 15px;
     }
 
-    &__icons{
+    &__item{
+              
+    }
+
+    &__link{
+        color: $corPreto;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        padding: .5rem 1rem;
+        border-radius: 5px;
+        cursor: pointer;
+
+        &:hover{
+            background-color: $cinzaTexto;
+        }
+    }  
+
+    &__icon{
+        font-size: 1.2rem;
+    }
+
+    &__text{
         font-size: 1.2rem;
     }
 }

@@ -16,32 +16,28 @@ const Aside = () => {
             OC
         </h1>
         <ul className='aside__list'>
-            <div className='aside__div'>
-                <li className='aside__items'>
-                    <Link to="/home" className='aside__items__link'>
-                    <IoHome className='aside__icons'/> 
-                    <p>Inicio</p>
-                    </Link>                  
-                </li>
-                <li className='aside__items'>
-                    <Link to="/teachers" className='aside__items__link'>
-                    <FaChalkboardTeacher className='aside__icons'/> 
-                    <p>Professores</p>
-                    </Link>                  
-                </li>
-                <li className='aside__items'>
-                    <Link className='aside__items__link'>
-                        <FaCircleUser className='aside__icons'/>
-                        <p>Conta</p>
-                    </Link>
-                </li>
-            </div>
-            <div className='aside__div'>
-                <li className='aside__items__link'>
-                    <CgLogOut className='aside__icons'/> 
-                    <p>Sair</p>
-                </li>
-            </div>
+            <li className='aside__item'>
+                <Link to="/home" className='aside__link'>
+                    <IoHome className='aside__icon'/> 
+                    <p className='aside__text'>Inicio</p>
+                </Link>                  
+            </li>
+            <li className='aside__item'>
+                <Link to="/teachers" className='aside__link'>
+                    <FaChalkboardTeacher className='aside__icon'/> 
+                    <p className='aside__text'>Professores</p>
+                </Link>                  
+            </li>
+            <li className='aside__item'>
+                <Link className='aside__link'>
+                    <FaCircleUser className='aside__icon'/>
+                    <p className='aside__text'>Conta</p>
+                </Link>
+            </li>
+            <li className='aside__link'>
+                <CgLogOut className='aside__icon'/> 
+                <p className='aside__text'>Sair</p>
+            </li>
         </ul>
     </aside>
   )

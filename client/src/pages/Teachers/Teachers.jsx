@@ -4,6 +4,7 @@ import Aside from '../../components/Aside/Aside';
 import Header from '../../components/Header/Header';
 import TeacherSearch from '../../components/TeacherSearch/TeacherSearch';
 import CreateTeacher from '../../components/CreateTeacher/CreateTeacher';
+import TeacherInfo from '../../components/TeacherInfo/TeacherInfo';
 
 const Teachers = ({}) => {
 
@@ -27,6 +28,7 @@ const Teachers = ({}) => {
           <TeacherSearch openModal = {handleState}/>
       </div>
       <CreateTeacher showModal={modalOpen} closeModal = {handleState}/>
+      <TeacherInfo />
     </>
   )
 }
