@@ -3,7 +3,7 @@ import API from '../../API';
 
 import TeacherCard from '../TeacherCard/TeacherCard';
 
-const TeacherSearch = ({openModal}) => {
+const TeacherSearch = ({openModal, getID}) => {
 
     const [teachers, setTeachers] = useState([])
 
@@ -16,16 +16,6 @@ const TeacherSearch = ({openModal}) => {
     useEffect(() => {
       getTeachers()
     }, [setTeachers])
-
-    async function getTeacherInfo(teacherID){
-      console.log(teacherID)
-
-      const resTeacherInfo = await API.get("/teacherInfo/" + teacherID)
-      const resTeacherSubjects = await API.get("/teacherInfo/subjects/" + teacherID)
-
-      console.log(resTeacherInfo)
-      console.log(resTeacherSubjects)
-    }
 
   return (
     <div className='teacher-search'>
@@ -45,7 +35,7 @@ const TeacherSearch = ({openModal}) => {
               {
                   teachers.map((teacher) => {
                     return (
-                      <div onClick={() => getTeacherInfo(teacher.Id)}>
+                      <div onClick={() => getID(teacher.Id)}>
                         <TeacherCard
                           teacherId={teacher.Id}
                           teacherName={teacher.Nome}

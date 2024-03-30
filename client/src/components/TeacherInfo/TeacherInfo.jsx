@@ -1,8 +1,19 @@
 import React from 'react';
 
-const TeacherInfo = () => {
+const TeacherInfo = ({name, color, observation, subjects}) => {
   return (
-    <div>TeacherInfo</div>
+    <div>
+      <h1>{name}</h1>
+      <h1>{color}</h1>
+      <h1>{observation}</h1>
+      {
+        subjects.map((subject) =>{
+          return(
+            <p>{subject.Nome}</p>
+          )
+        })
+      }
+    </div>
   )
 }
 
