@@ -207,60 +207,44 @@ button {
 }
 
 .home {
-  background-color: #999;
+  background-color: #fff;
   min-height: 100vh;
   display: flex;
-  gap: 1rem;
-  padding: 1rem;
-}
-.home .container {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
   gap: 1rem;
 }
 
 .teachers {
-  background-color: #999;
+  background-color: #fff;
   min-height: 100vh;
   display: flex;
   gap: 1rem;
-  padding: 1rem;
 }
 
 /*SCSS Layout*/
-.aside {
+.sidebar {
   position: sticky;
   top: 0;
-  background-color: #fff;
+  background-color: #0F499D;
   max-height: 100vh;
+  width: fit-content;
   display: flex;
   flex-direction: column;
   gap: 40px;
   padding: 1.5rem 1rem;
-  border-right: 1px solid #eee;
-  border-top-left-radius: 15px;
-  border-bottom-left-radius: 15px;
   z-index: 1000;
 }
-.aside__logo {
-  color: #fe7f4a;
-  gap: 2px;
-  padding-left: 10px;
-  font-size: 1.2rem;
+.sidebar__logo {
+  width: 50px;
 }
-.aside__logo > img {
-  height: 30px;
-}
-.aside__list {
+.sidebar__list {
   height: 100%;
   width: fit-content;
   display: flex;
   flex-direction: column;
   gap: 15px;
 }
-.aside__link {
-  color: #000;
+.sidebar__link {
+  color: #fff;
   width: 100%;
   display: flex;
   align-items: center;
@@ -269,32 +253,14 @@ button {
   border-radius: 5px;
   cursor: pointer;
 }
-.aside__link:hover {
-  background-color: #aaa;
+.sidebar__link:hover {
+  background-color: #173D81;
 }
-.aside__icon {
+.sidebar__icon {
   font-size: 1.2rem;
 }
-.aside__text {
+.sidebar__text {
   font-size: 1.2rem;
-}
-
-.header {
-  position: sticky;
-  top: 0;
-  right: 0;
-  width: 100%;
-  display: flex;
-  padding: 1rem 2rem;
-  border-bottom: 1px solid #eee;
-  z-index: 999;
-}
-.header__message h4 {
-  font-size: 1.2rem;
-}
-.header__message h6 {
-  color: #aaa;
-  font-size: 0.9rem;
 }
 
 .teacher-search {
@@ -305,6 +271,7 @@ button {
   justify-content: space-between;
   flex-direction: column;
   gap: 1rem;
+  padding: 1rem 0.5rem;
 }
 .teacher-search__header {
   background-color: #fff;
@@ -312,7 +279,8 @@ button {
   align-items: center;
   justify-content: space-between;
   padding: 1rem;
-  border-top-right-radius: 15px;
+  border-radius: 15px;
+  box-shadow: 0px 2px 5px #aaa;
 }
 .teacher-search__title {
   font-size: 1.2rem;
@@ -328,12 +296,20 @@ button {
   border-radius: 50px;
   box-shadow: 0px 2px 2px #aaa;
 }
+.teacher-search__tag {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding-inline: 4rem;
+}
 .teacher-search__content {
   background-color: #fff;
-  height: 100%;
+  flex: 1;
   width: 100%;
   padding: 1rem 2rem;
-  border-bottom-right-radius: 15px;
+  border-radius: 15px;
+  box-shadow: 0px 2px 5px #aaa;
+  overflow-y: scroll;
 }
 .teacher-search__wrapper-teacher-search {
   display: flex;
@@ -341,7 +317,6 @@ button {
   gap: 15px;
   padding: 1rem 2rem 1rem 1rem;
   border-bottom-right-radius: 15px;
-  overflow-y: scroll;
 }
 
 .form-teacher {
@@ -528,23 +503,39 @@ button {
   color: #fff;
 }
 
-.home__content {
+.home-search {
+  position: relative;
+  max-height: 100vh;
+  width: 100%;
   display: flex;
+  justify-content: space-between;
   flex-direction: column;
   gap: 1rem;
-  padding: 1rem 2rem;
+  padding: 1rem 0.5rem;
 }
-.home__search {
+.home-search__header {
+  background-color: #fff;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  padding: 1rem;
+  border-radius: 15px;
+  box-shadow: 0px 2px 5px #aaa;
 }
-.home__search__title {
-  font-size: 1.2rem;
-}
-.home__search__direito {
+.home-search__content {
+  background-color: #fff;
+  flex: 1;
+  width: 100%;
   display: flex;
-  gap: 1rem;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 1rem 2rem;
+  border-radius: 15px;
+  box-shadow: 0px 2px 5px #aaa;
+}
+.home-search__wrapper-home-search {
+  display: flex;
+  justify-content: space-between;
 }
 
 .form-schedule {
@@ -583,6 +574,15 @@ button {
   pointer-events: none;
 }
 
+.teacher-info {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #fff;
+  padding: 2rem 3rem;
+}
+
 /*SCSS Components*/
 .button {
   background: linear-gradient(to left, #ffbe46, #f43e4b);
@@ -599,7 +599,7 @@ button {
   transition: 1s;
 }
 
-.card-prof {
+.card-teacher {
   width: 100%;
   display: flex;
   align-items: center;
@@ -608,17 +608,30 @@ button {
   padding: 0.5rem 1rem;
   cursor: pointer;
 }
-.card-prof__esquerdo {
+.card-teacher__esquerdo {
   display: flex;
   align-items: center;
   gap: 10px;
 }
-.card-prof__esquerdo__foto {
+.card-teacher__esquerdo__foto {
   height: 30px;
   width: 30px;
   border-radius: 50%;
 }
-.card-prof__esquerdo__nome {
+.card-teacher__esquerdo__nome {
+  font-size: 1rem;
+}
+
+.card-schedule {
+  background-color: #eee;
+  padding: 4rem 3rem;
+  border-radius: 15px;
+  box-shadow: 0px 2px 5px #aaa;
+}
+.card-schedule__name {
+  font-size: 1.2rem;
+}
+.card-schedule__divison {
   font-size: 1rem;
 }
 

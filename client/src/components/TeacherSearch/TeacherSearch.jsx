@@ -30,7 +30,11 @@ const TeacherSearch = ({openModal, getID}) => {
             </div>
         </header>
         <div className='teacher-search__content'>
-          <p>Nome</p>
+          <div className='teacher-search__tag'>
+            <p>Nome</p>
+            <p>Dias</p>
+            <p>Matérias</p>
+          </div>
           <div className='teacher-search__wrapper-teacher-search'>
               {
                   teachers.map((teacher) => {

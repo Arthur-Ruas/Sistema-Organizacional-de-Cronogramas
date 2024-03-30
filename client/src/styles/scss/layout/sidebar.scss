@@ -1,26 +1,17 @@
-.aside{
+.sidebar{
     position: sticky;
     top: 0;
-    background-color: $corBranco;
+    background-color: #0F499D;
     max-height: 100vh;
+    width: fit-content;
     display: flex;
     flex-direction: column;
     gap: 40px;
     padding: 1.5rem 1rem;
-    border-right: 1px solid #eee;
-    border-top-left-radius: 15px;
-    border-bottom-left-radius: 15px;
     z-index: 1000;
 
     &__logo{
-        color: $corLaranja;
-        gap: 2px;
-        padding-left: 10px;
-        font-size: 1.2rem;
-        
-        & > img{
-            height: 30px;
-        }
+        width: 50px;
     }
 
     &__list{
@@ -36,7 +27,7 @@
     }
 
     &__link{
-        color: $corPreto;
+        color: #fff;
         width: 100%;
         display: flex;
         align-items: center;
@@ -46,7 +37,7 @@
         cursor: pointer;
 
         &:hover{
-            background-color: $cinzaTexto;
+            background-color: #173D81;
         }
     }  
 

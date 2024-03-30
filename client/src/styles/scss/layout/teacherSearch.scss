@@ -6,6 +6,7 @@
     justify-content: space-between;
     flex-direction: column;
     gap: 1rem;
+    padding: 1rem .5rem;
 
     &__header{
         background-color: #fff;
@@ -13,7 +14,8 @@
         align-items: center;
         justify-content: space-between;
         padding: 1rem;
-        border-top-right-radius: 15px;    
+        border-radius: 15px;    
+        box-shadow: 0px 2px 5px #aaa;
     }
 
     &__title{
@@ -37,12 +39,21 @@
 
     }
 
+    &__tag{
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        padding-inline: 4rem;
+    }
+
     &__content{
         background-color: #fff;
-        height: 100%;
+        flex: 1;
         width: 100%;
         padding: 1rem 2rem;
-        border-bottom-right-radius: 15px;
+        border-radius: 15px;
+        box-shadow: 0px 2px 5px #aaa;
+        overflow-y: scroll;
     }
 
     &__wrapper-teacher-search{
@@ -51,6 +62,5 @@
         gap: 15px;
         padding: 1rem 2rem 1rem 1rem;
         border-bottom-right-radius: 15px;
-        overflow-y: scroll;
     }
 }

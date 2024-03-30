@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import API from '../../API';
 
-import Aside from '../../components/Aside/Aside';
+import Sidebar from '../../components/Sidebar/Sidebar';
 import TeacherSearch from '../../components/TeacherSearch/TeacherSearch';
 import CreateTeacher from '../../components/CreateTeacher/CreateTeacher';
 import TeacherInfo from '../../components/TeacherInfo/TeacherInfo';
@@ -47,7 +47,7 @@ const Teachers = () => {
   return (
     <>
       <div className='teachers' style={{filter: modalState}}>
-          <Aside />
+          <Sidebar/>
           <TeacherSearch openModal = {handleState} getID={getTeacherInfo}/>
       </div>
       <CreateTeacher showModal={modalOpen} closeModal = {handleState}/>

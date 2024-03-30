@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 
-import Aside from '../../components/Aside/Aside';
-import Header from '../../components/Header/Header';
+import Sidebar from '../../components/Sidebar/Sidebar';
 import HomeSearch from '../../components/HomeSearch/HomeSearch';
 import CreateSchedule from '../../components/CreateSchedule/CreateSchedule';
 
@@ -23,11 +22,8 @@ const Home = () => {
   return (
     <>
       <div className='home' style={{filter: modalState}}>
-          <Aside />
-          <div className="container">
-              <Header />
-              <HomeSearch openModal = {handleState}/>
-          </div>
+          <Sidebar/>
+          <HomeSearch openModal = {handleState}/>
       </div>
       <CreateSchedule showModal={modalOpen} closeModal = {handleState}/>
     </>

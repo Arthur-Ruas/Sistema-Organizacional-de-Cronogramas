@@ -18,28 +18,33 @@ const HomeSearch = ({openModal}) => {
     }, [setSchedules])
 
   return (
-    <div className='home__content'>
-        <div className='home__search'>
-          <div className='home__search__esquerdo'>
-            <h4 className='home__search__title'>Horários</h4>
+    <div className='home-search'>
+      <header className='home-search__header'>
+            <div className='home-search__left'>
+                <h4 className='home-search__title'>Olá, seja bem-vindo!</h4>
+            </div>
+            <div className='home-search__right'>
+                <button className='button-criar' onClick={() => openModal()}
+                >+ Criar Horário</button>
+            </div>
+        </header>
+        <div className='home-search__content'>
+          <div>
+            <h1>Horário em andamento</h1>
           </div>
-          <div className='home__search__direito'>
-            <button className='button-criar' onClick={() => openModal()}
-              >+ Criar Horário</button>
+          <div className='home-search__wrapper-home-search'>
+          {
+            schedules.map((schedule) => {
+              return(
+                <ScheduleCard 
+                  scheduleName={schedule.nome}
+                  classDivision={schedule.divisao_turma}
+                  classModule={schedule.modulo}/>
+              )
+            })
+          }
           </div>
-        </div>
-        <div className='schedule__wrapper'>
-         {
-          schedules.map((schedule) => {
-            return(
-              <ScheduleCard 
-              scheduleName={schedule.nome}
-              classDivision={schedule.divisao_turma}
-              classModule={schedule.modulo}/>
-            )
-          })
-         }
-        </div>
+      </div>
     </div>
   )
 }

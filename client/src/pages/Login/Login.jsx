@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom';
 import API from '../../API';
 
-import Logo from '../../assets/logo branca.png';
+import Logo from '../../assets/LogoSoloSocBranca.png';
 import { PiBarcodeBold } from 'react-icons/pi';
 import { BiSolidUser } from 'react-icons/bi';
 import { RiLockPasswordLine } from 'react-icons/ri';
