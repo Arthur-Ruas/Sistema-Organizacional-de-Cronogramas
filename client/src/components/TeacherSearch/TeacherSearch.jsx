@@ -17,6 +17,16 @@ const TeacherSearch = ({openModal}) => {
       getTeachers()
     }, [setTeachers])
 
+    async function getTeacherInfo(teacherID){
+      console.log(teacherID)
+
+      const resTeacherInfo = await API.get("/teacherInfo/" + teacherID)
+      const resTeacherSubjects = await API.get("/teacherInfo/subjects/" + teacherID)
+
+      console.log(resTeacherInfo)
+      console.log(resTeacherSubjects)
+    }
+
   return (
     <div className='teacher-search'>
         <header className='teacher-search__header'>
@@ -35,7 +45,7 @@ const TeacherSearch = ({openModal}) => {
               {
                   teachers.map((teacher) => {
                     return (
-                      <div>
+                      <div onClick={() => getTeacherInfo(teacher.Id)}>
                         <TeacherCard
                           teacherId={teacher.Id}
                           teacherName={teacher.Nome}
