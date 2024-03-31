@@ -12,6 +12,7 @@
 
     &__logo{
         width: 50px;
+        margin-left: 1rem;
     }
 
     &__list{
@@ -19,7 +20,7 @@
         width: fit-content;
         display: flex;
         flex-direction: column;
-        gap: 15px;
+        gap: 10px;
     }
 
     &__item{
@@ -42,10 +43,10 @@
     }  
 
     &__icon{
-        font-size: 1.2rem;
+        font-size: 1.1rem;
     }
 
     &__text{
-        font-size: 1.2rem;
+        font-size: 1.1rem;
     }
 }

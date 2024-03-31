@@ -31,46 +31,46 @@ const CreateSchedule = ({showModal, closeModal}) => {
 
   return (
     <div className='form-schedule' style={{display: showModal}}>
-      <h1>Criar Horário</h1>
-      <form onSubmit={handleScheduleCreation}>
-        <div>
-          <div className="form-teacher__input">
-            <input type='text' required
-            value={scheduleName} onChange={(event) => setScheduleName(event.target.value)}/>
-            <p className='form-teacher__placeholder'>Nome do Horário</p>
-          </div>
-          <div>
-            <h4>Divisão de Turma</h4>
-            <div style={{display: "flex"}}>
-              <input type='radio' name='classDivision' value='Sim' onChange={(event) => setClassDivision(event.target.value)}/>
-              <p>Sim</p>
+      <h1 className='form-schedule__title'>Criar Horário</h1>
+      <form className='form-schedule__form' onSubmit={handleScheduleCreation}>
+        <div className="form-schedule__input-name">
+          <label>Nome do Horário</label>
+          <input type='text' required
+          value={scheduleName} onChange={(event) => setScheduleName(event.target.value)}/>
+        </div>
+        <div className='form-schedule__division'>
+          <h4>Divisão de Turma</h4>
+          <div className='form-schedule__wrapper-division'>
+            <div className='form-schedule__input-division'>
+              <input type='radio' name='classDivision' id='sim' value='Sim' onChange={(event) => setClassDivision(event.target.value)}/>
+              <label for='sim'>Sim</label>
             </div>
-            <div style={{display: "flex"}}>
-              <input type='radio' name='classDivision' value='Não' onChange={(event) => setClassDivision(event.target.value)}/>
-              <p>Não</p>
+            <div className='form-schedule__input-division'>
+              <input type='radio' name='classDivision' id='nao' value='Não' onChange={(event) => setClassDivision(event.target.value)}/>
+              <label for='nao'>Não</label>
+            </div>
+          </div>     
+        </div>
+        <div className='form-schedule__module'>
+          <h4>Módulo</h4>
+          <div className='form-schedule__wrapper-module'>
+            <div className='form-schedule__input-module'>
+              <input type='radio' name='classModule' id='modulo1' value='Módulo 1' onChange={(event) => setClassModule(event.target.value)}/>
+              <label for='modulo1'>1º Módulo</label>
+            </div>
+            <div className='form-schedule__input-module'>
+              <input type='radio' name='classModule' id='modulo2' value='Módulo 2' onChange={(event) => setClassModule(event.target.value)}/>
+              <label for='modulo2'>2º Módulo</label>
+            </div>
+            <div className='form-schedule__input-module'>
+              <input type='radio' name='classModule' id='modulo3' value='Módulo 3' onChange={(event) => setClassModule(event.target.value)}/>
+              <label for='modulo3'>3º Módulo</label>
             </div>
           </div>
-          <div>
-            <h4>Módulo</h4>
-            <div>
-              <div style={{display: "flex"}}>
-                <input type='radio' name='classModule' value='Módulo 1' onChange={(event) => setClassModule(event.target.value)}/>
-                <p>Módulo 1</p>
-              </div>
-              <div style={{display: "flex"}}>
-                <input type='radio' name='classModule' value='Módulo 2' onChange={(event) => setClassModule(event.target.value)}/>
-                <p>Módulo 2</p>
-              </div>
-              <div style={{display: "flex"}}>
-                <input type='radio' name='classModule' value='Módulo 3' onChange={(event) => setClassModule(event.target.value)}/>
-                <p>Módulo 3</p>
-              </div>
-            </div>
-          </div>
-        </div>       
-        <div>
-          <button onClick={() => closeModal()}>Cancelar</button>
-          <button type='submit'>Criar</button>
+        </div>    
+        <div className='form-schedule__wrapper-button'>
+          <button className='button-cancel' onClick={() => closeModal()}>Cancelar</button>
+          <button className='button-submit' type='submit'>Criar</button>
         </div>
       </form>
     </div>

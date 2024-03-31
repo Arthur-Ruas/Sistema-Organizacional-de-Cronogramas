@@ -24,16 +24,23 @@ const CreateTeacher = ({showModal, closeModal}) => {
 
 
     {/*Select das matérias*/}
-    const [subjects, setSubjects] = useState([])
+    const [subjectsFirstModule, setSubjectsFirstModule] = useState([]);
+    const [subjectsSecondModule, setSubjectsSecondModule] = useState([]);
+    const [subjectsThirdModule, setSubjectsThirdModule] = useState([]);
 
     async function getSubjects() {
-      const res = await API.get("/subjects");
-      setSubjects(res.data.message)
+      const subjectsFirstModule = await API.get("/subjects/firstModule");
+      const subjectsSecondModule = await API.get("/subjects/secondModule");
+      const subjectsThirdModule = await API.get("/subjects/thirdModule");
+
+      setSubjectsFirstModule(subjectsFirstModule.data.message)
+      setSubjectsSecondModule(subjectsSecondModule.data.message)
+      setSubjectsThirdModule(subjectsThirdModule.data.message)
     }
 
     useEffect(() => {
       getSubjects();
-    }, [setSubjects])
+    }, [setSubjectsFirstModule, setSubjectsSecondModule, setSubjectsThirdModule])
 
     
 
@@ -120,18 +127,55 @@ const CreateTeacher = ({showModal, closeModal}) => {
               <div className='form-teacher__select-schedules'>
                 <h4 className='select-text'>Selecione as matérias</h4>
                 <div className='form-teacher__div-schedules'>
-                {
-                    subjects.map((subject) => {
-                      return (
-                        <div className='form-teacher__input-schedules'>
-                          <input type="checkbox" name={subject.nome} id={subject.id} onClick={(() => {
-                            setArraySubjects(arr => [...arr, subject.id])
-                          })} />
-                          <label for={subject.id}>{subject.nome}</label>
-                        </div>
-                      )
-                    })
-                  }
+                  <div>
+                    <button type='button'>1º Módulo</button>
+                    <button type='button'>2º Módulo</button>
+                    <button type='button'>3º Módulo</button>
+                  </div>
+                  <div>
+                    <div>
+                      {
+                        subjectsFirstModule.map((subject) => {
+                          return (
+                            <div className='form-teacher__input-schedules'>
+                              <input type="checkbox" name={subject.nome} id={subject.id} onClick={(() => {
+                                setArraySubjects(arr => [...arr, subject.id])
+                              })} />
+                              <label for={subject.id}>{subject.nome}</label>
+                            </div>
+                          )
+                        })
+                      }
+                    </div>
+                    <div>
+                      {
+                        subjectsSecondModule.map((subject) => {
+                          return (
+                            <div className='form-teacher__input-schedules'>
+                              <input type="checkbox" name={subject.nome} id={subject.id} onClick={(() => {
+                                setArraySubjects(arr => [...arr, subject.id])
+                              })} />
+                              <label for={subject.id}>{subject.nome}</label>
+                            </div>
+                          )
+                        })
+                      }
+                    </div>
+                    <div>
+                      {
+                        subjectsThirdModule.map((subject) => {
+                          return (
+                            <div className='form-teacher__input-schedules'>
+                              <input type="checkbox" name={subject.nome} id={subject.id} onClick={(() => {
+                                setArraySubjects(arr => [...arr, subject.id])
+                              })} />
+                              <label for={subject.id}>{subject.nome}</label>
+                            </div>
+                          )
+                        })
+                      }
+                    </div>   
+                  </div>  
                 </div>
               </div>
             </div>

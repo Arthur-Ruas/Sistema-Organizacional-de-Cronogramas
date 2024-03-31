@@ -26,6 +26,18 @@ const Sidebar = () => {
                 </Link>                  
             </li>
             <li className='sidebar__item'>
+                <Link to="/teachers" className='sidebar__link'>
+                    <FaChalkboardTeacher className='sidebar__icon'/> 
+                    <p className='sidebar__text'>Salas</p>
+                </Link>                  
+            </li>
+            <li className='sidebar__item'>
+                <Link to="/teachers" className='sidebar__link'>
+                    <FaChalkboardTeacher className='sidebar__icon'/> 
+                    <p className='sidebar__text'>Horários</p>
+                </Link>                  
+            </li>
+            <li className='sidebar__item'>
                 <Link className='sidebar__link'>
                     <FaCircleUser className='sidebar__icon'/>
                     <p className='sidebar__text'>Conta</p>

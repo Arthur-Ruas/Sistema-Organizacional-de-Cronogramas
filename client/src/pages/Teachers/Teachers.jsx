@@ -12,7 +12,7 @@ const Teachers = () => {
   const [modalState,setModalState] = useState("brightness(100%)");
   const [modalOpen, setModalOpen] = useState("none")
 
-  function handleState() {
+  function handleStateForm() {
       setModalState("brightness(50%)");
       setModalOpen("block")
 
@@ -20,6 +20,24 @@ const Teachers = () => {
         setModalState("brightness(100%)")
         setModalOpen("none")
       }
+  }
+
+  const [infoOpen, setInfoOpen] = useState("none")
+
+  function handleStateInfo(){
+    setModalState("brightness(50%)");
+    setInfoOpen("block")
+
+    if(modalState == "brightness(50%)"){
+      setModalState("brightness(100%)")
+      setInfoOpen("none")
+
+      setTeacherName("")
+      setColorCard("")
+      setTeacherObservation("")
+      setTeacherSubjects([])
+    }
+    
   }
 
   var [teacherName, setTeacherName] = useState('');
@@ -48,10 +66,11 @@ const Teachers = () => {
     <>
       <div className='teachers' style={{filter: modalState}}>
           <Sidebar/>
-          <TeacherSearch openModal = {handleState} getID={getTeacherInfo}/>
+          <TeacherSearch openForm={handleStateForm} getID={getTeacherInfo} openInfo={handleStateInfo}/>
       </div>
-      <CreateTeacher showModal={modalOpen} closeModal = {handleState}/>
+      <CreateTeacher showModal={modalOpen} closeModal={handleStateForm}/>
       <TeacherInfo 
+      showInfo={infoOpen} closeInfo={handleStateInfo}
       name={teacherName} 
       color={colorCard} 
       observation={teacherObservation} 

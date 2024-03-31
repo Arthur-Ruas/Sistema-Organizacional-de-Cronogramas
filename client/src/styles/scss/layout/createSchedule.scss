@@ -4,37 +4,115 @@
     left: 50%;
     transform: translate(-50%, -50%);
     background-color: #fff;
+    gap: 200px;
     padding: 2rem 2rem;
     border-radius: 5px;
     z-index: 1000;
 
-    &__input{
-        position: relative;
-        width: 100%;
-        padding: .2rem .5rem;
-        box-shadow: 0 3px 3px -3px $cinzaShadow;
+    & input[type=radio]{
+        display: none;
+    }
 
-        input{
-            width: 100%;                   
-            border: none;
+    &__title{
+        margin-block: 1rem 2rem;
+    }
+
+    &__form{
+        display: flex;
+        flex-direction: column;
+        gap: 40px;
+    }
+
+    &__input-name{
+        width: 100%;
+
+        & > input{
+            width: 100%;    
+            padding: .2rem .4rem;               
             font-size: 1rem;
 
             &:focus{
                 outline: none;
-            }
+            }                                      
+        }    
+        
+        & > label{
 
-            &:valid + p{
-                transform: translateY(-160%);
-                font-size: .8rem;
-            }                                       
-        }                      
+        }
     }
 
     &__placeholder{
-        position: absolute;
-        top: 50%;
-        transform: translateY(-50%);
-        color: $cinzaTexto;
-        pointer-events: none;
+        
     }  
+
+    &__division{
+
+    }
+
+    &__wrapper-division{
+        display: flex;
+        gap: 20px;
+    }
+
+    &__input-division{
+
+        & > label{
+            padding: .2rem .8rem;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        & > input:checked ~ label{
+            background: $degrade;
+            color: $corBranco;
+            transition: color .1s;
+        }
+    }
+
+    &__module{
+
+    }
+
+    &__wrapper-module{
+        display: flex;
+        gap: 20px;
+    }
+
+    &__input-module{
+
+        & > label{
+            padding: .2rem .8rem;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        & > input:checked ~ label{
+            background: $degrade;
+            color: $corBranco;
+            transition: color .1s;
+        }
+    }
+
+    &__wrapper-button{
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        padding: 1rem 0rem;
+    }
+}
+
+.button-cancel{
+    width: 130px;
+    padding: .4rem .5rem;
+    border-radius: 10px;
+    font-size: .8rem;
+}
+
+.button-submit{
+    background: $degrade;
+    color: $corBranco;
+    width: 130px;
+    padding: .4rem .5rem;
+    border-radius: 10px;
+    font-size: .8rem;
 }

@@ -3,7 +3,7 @@ import API from '../../API';
 
 import TeacherCard from '../TeacherCard/TeacherCard';
 
-const TeacherSearch = ({openModal, getID}) => {
+const TeacherSearch = ({openForm, getID, openInfo}) => {
 
     const [teachers, setTeachers] = useState([])
 
@@ -25,7 +25,7 @@ const TeacherSearch = ({openModal, getID}) => {
             </div>
             <div className='teacher-search__right'>
                 <button className='teacher-search__button-filter'>Filtrar</button>
-                <button className='button-criar' onClick={() => openModal()}
+                <button className='button-criar' onClick={() => openForm()}
                 >+ Criar Professor</button>
             </div>
         </header>
@@ -39,7 +39,7 @@ const TeacherSearch = ({openModal, getID}) => {
               {
                   teachers.map((teacher) => {
                     return (
-                      <div onClick={() => getID(teacher.Id)}>
+                      <div onClick={() => {getID(teacher.Id); openInfo()}}>
                         <TeacherCard
                           teacherId={teacher.Id}
                           teacherName={teacher.Nome}
