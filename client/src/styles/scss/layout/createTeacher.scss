@@ -3,7 +3,7 @@
     top: 50vh;
     left: 50%;
     transform: translate(-50%, -50%);
-    background-color: #999;
+    background-color: $corBranco;
     padding: 1rem;
     border-radius: 5px;
     z-index: 1000;
@@ -12,7 +12,7 @@
 
     }
 
-    &__wrapper{
+    &__wrapper-form-teacher{
         display: flex;
     }
 
@@ -26,7 +26,6 @@
         gap: 20px;
 
         &__top{
-            background-color: #fff;
             border-top-left-radius: 15px;
         }
     }
@@ -58,38 +57,7 @@
         }   
     }
 
-    &__input{
-        position: relative;
-        width: 100%;
-        padding: .2rem .5rem;
-        box-shadow: 0 3px 3px -3px $cinzaShadow;
-
-        input{
-            width: 100%;                   
-            border: none;
-            font-size: 1rem;
-
-            &:focus{
-                outline: none;
-            }
-
-            &:valid + p{
-                transform: translateY(-160%);
-                font-size: .8rem;
-            }                                       
-        }                      
-    }
-
-    &__placeholder{
-        position: absolute;
-        top: 50%;
-        transform: translateY(-50%);
-        color: $cinzaTexto;
-        pointer-events: none;
-    }  
-
     &__select-cores{
-        background-color: #fff;
         display: flex;
         flex-direction: column;
         gap: 10px;
@@ -109,119 +77,6 @@
             &:hover{
                 transform: translateY(-3px);
             }
-        }
-    }
-
-    &__observation{
-        background-color: #fff;
-        border-bottom-left-radius: 15px;
- 
-        input{
-            height: 40px;
-            width: 100%;
-        }
-    }
-
-    &__right{
-        display: flex;
-        justify-content: space-between;
-        flex-direction: column;
-    }
-
-    &__select-dias{
-        background-color: #fff;
-        display: flex;
-        flex-direction: column;
-        gap: 10px;
-        border-top-right-radius: 15px;
-    }
-
-    &__div-dias{
-        display: flex;
-        gap: 20px;
-    }
-
-    &__input-dia{
-                    
-        input[type=checkbox]{
-            display: none;
-        }
-
-        input[type=checkbox]:checked + label{
-            background: $corAzulClaro;
-            color: $corBranco;
-            border: 1px solid $corAzulClaro;
-            transition: 0s;
-        }
-
-        label{
-            color: $corLaranja;
-            padding: .1rem .8rem;
-            border: 1px solid $corLaranja;
-            border-radius: 10px;
-            cursor: pointer;
-        }
-    }
-
-    &__select-schedules{
-        background-color: #fff;
-        display: flex;
-        flex-direction: column;
-        gap: 10px;
-        border-bottom-right-radius: 15px;
-    }
-
-    &__div-schedules{
-        display: flex;
-        flex-wrap: wrap;
-        gap: 10px;
-    }
-
-    &__input-schedules{
-        input[type=checkbox]{
-            display: none;
-        }
-
-        input[type=checkbox]:checked + label{
-            background: $corAzulClaro;
-            color: $corBranco;
-            border: 1px solid $corAzulClaro;
-            transition: 0s;
-        }
-
-        label{
-            color: $corLaranja;
-            padding: .1rem .8rem;
-            border: 1px solid $corLaranja;
-            border-radius: 10px;
-            cursor: pointer;
-        }
-    }
-
-    &__btns{
-        width: 100%;
-        display: flex;
-        align-items: center;
-        gap: 60px;
-
-        button{
-            width: 100px;
-            padding: 0.3rem 0;
-            border-radius: 5px;
-
-            &:hover{
-                transform: scale(1.02);
-            }
-        }
-
-        &__cancelar{
-            background-color: $cinzaTexto;
-            color: $corBranco;             
-        }
-
-        &__submit{
-            background: $degrade;
-            color: $corBranco;
         }
     }
 }

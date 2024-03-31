@@ -29,7 +29,7 @@ const HomeSearch = ({openModal}) => {
             </div>
         </header>
         <div className='home-search__content'>
-          <div>
+          <div className='home-search__progress'>
             <h1>Horário em andamento</h1>
           </div>
           <div className='home-search__wrapper-home-search'>

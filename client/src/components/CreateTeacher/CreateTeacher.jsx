@@ -78,7 +78,7 @@ const CreateTeacher = ({showModal, closeModal}) => {
   return (
     <div className="form-teacher" style={{ border: `5px solid ${teacherColorCard}`, display: showModal}}> 
         <form onSubmit={handleTeacherCreation}>
-          <div className='form-teacher__wrapper'>
+          <div className='form-teacher__wrapper-form-teacher'>
             <div className='form-teacher__left'>
               <div className='form-teacher__left__top'>
                 <div className='form-teacher__input-foto'>
@@ -96,13 +96,11 @@ const CreateTeacher = ({showModal, closeModal}) => {
               <div className='form-teacher__left__bottom'>
                 <div className='form-teacher__select-cores'>
                   <h4 className='select-text'>Selecione a cor do card</h4>
-                  <div className='form-teacher__select-cores__wrapper'>
+                  <div className='form-teacher__wrapper-select-corer'>
                     {
                       colors.map((color) => {
                         return (
-                          <div className='form-teacher__select-cores__items' style={{ backgroundColor: `${color}` }} onClick={() => setTeacherColorCard(color)}>
-
-                          </div>
+                          <div className='form-teacher__select-cores__items' style={{ backgroundColor: `${color}` }} onClick={() => setTeacherColorCard(color)}></div>
                         )
                       })
                     }
@@ -121,7 +119,7 @@ const CreateTeacher = ({showModal, closeModal}) => {
               <div className='form-teacher__select-dias'>
                 <h4 className='select-text'>Selecione os dias</h4>
                 <div className='form-teacher__div-dias'>
-                  
+                    
                 </div>
               </div>
               <div className='form-teacher__select-schedules'>

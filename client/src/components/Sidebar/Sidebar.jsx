@@ -3,7 +3,8 @@ import React from 'react';
 import Logo from '../../assets/LogoSocBranca.png';
 import { FaChalkboardTeacher } from 'react-icons/fa';
 import { FaCircleUser } from "react-icons/fa6";
-import { LuSettings } from 'react-icons/lu';
+import { GrSchedules } from "react-icons/gr";
+import { SiGoogleclassroom } from "react-icons/si";
 import { CgLogOut } from 'react-icons/cg';
 import { IoHome } from "react-icons/io5";
 import { Link } from 'react-router-dom';
@@ -27,13 +28,13 @@ const Sidebar = () => {
             </li>
             <li className='sidebar__item'>
                 <Link to="/teachers" className='sidebar__link'>
-                    <FaChalkboardTeacher className='sidebar__icon'/> 
+                    <SiGoogleclassroom className='sidebar__icon'/> 
                     <p className='sidebar__text'>Salas</p>
                 </Link>                  
             </li>
             <li className='sidebar__item'>
                 <Link to="/teachers" className='sidebar__link'>
-                    <FaChalkboardTeacher className='sidebar__icon'/> 
+                    <GrSchedules className='sidebar__icon'/> 
                     <p className='sidebar__text'>Horários</p>
                 </Link>                  
             </li>

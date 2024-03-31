@@ -279,7 +279,7 @@ button {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 1rem;
+  padding: 1rem 2rem;
   border-radius: 15px;
   box-shadow: 0px 2px 5px #aaa;
 }
@@ -326,12 +326,12 @@ button {
   top: 50vh;
   left: 50%;
   transform: translate(-50%, -50%);
-  background-color: #999;
+  background-color: #fff;
   padding: 1rem;
   border-radius: 5px;
   z-index: 1000;
 }
-.form-teacher__wrapper {
+.form-teacher__wrapper-form-teacher {
   display: flex;
 }
 .form-teacher .select-text {
@@ -343,7 +343,6 @@ button {
   gap: 20px;
 }
 .form-teacher__left__top {
-  background-color: #fff;
   border-top-left-radius: 15px;
 }
 .form-teacher__input-foto {
@@ -369,33 +368,7 @@ button {
   width: 120px;
   border-radius: 50%;
 }
-.form-teacher__input {
-  position: relative;
-  width: 100%;
-  padding: 0.2rem 0.5rem;
-  box-shadow: 0 3px 3px -3px #444;
-}
-.form-teacher__input input {
-  width: 100%;
-  border: none;
-  font-size: 1rem;
-}
-.form-teacher__input input:focus {
-  outline: none;
-}
-.form-teacher__input input:valid + p {
-  transform: translateY(-160%);
-  font-size: 0.8rem;
-}
-.form-teacher__placeholder {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  color: #aaa;
-  pointer-events: none;
-}
 .form-teacher__select-cores {
-  background-color: #fff;
   display: flex;
   flex-direction: column;
   gap: 10px;
@@ -414,96 +387,6 @@ button {
 .form-teacher__select-cores__items:hover {
   transform: translateY(-3px);
 }
-.form-teacher__observation {
-  background-color: #fff;
-  border-bottom-left-radius: 15px;
-}
-.form-teacher__observation input {
-  height: 40px;
-  width: 100%;
-}
-.form-teacher__right {
-  display: flex;
-  justify-content: space-between;
-  flex-direction: column;
-}
-.form-teacher__select-dias {
-  background-color: #fff;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  border-top-right-radius: 15px;
-}
-.form-teacher__div-dias {
-  display: flex;
-  gap: 20px;
-}
-.form-teacher__input-dia input[type=checkbox] {
-  display: none;
-}
-.form-teacher__input-dia input[type=checkbox]:checked + label {
-  background: #0197c3;
-  color: #fff;
-  border: 1px solid #0197c3;
-  transition: 0s;
-}
-.form-teacher__input-dia label {
-  color: #fe7f4a;
-  padding: 0.1rem 0.8rem;
-  border: 1px solid #fe7f4a;
-  border-radius: 10px;
-  cursor: pointer;
-}
-.form-teacher__select-schedules {
-  background-color: #fff;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  border-bottom-right-radius: 15px;
-}
-.form-teacher__div-schedules {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-}
-.form-teacher__input-schedules input[type=checkbox] {
-  display: none;
-}
-.form-teacher__input-schedules input[type=checkbox]:checked + label {
-  background: #0197c3;
-  color: #fff;
-  border: 1px solid #0197c3;
-  transition: 0s;
-}
-.form-teacher__input-schedules label {
-  color: #fe7f4a;
-  padding: 0.1rem 0.8rem;
-  border: 1px solid #fe7f4a;
-  border-radius: 10px;
-  cursor: pointer;
-}
-.form-teacher__btns {
-  width: 100%;
-  display: flex;
-  align-items: center;
-  gap: 60px;
-}
-.form-teacher__btns button {
-  width: 100px;
-  padding: 0.3rem 0;
-  border-radius: 5px;
-}
-.form-teacher__btns button:hover {
-  transform: scale(1.02);
-}
-.form-teacher__btns__cancelar {
-  background-color: #aaa;
-  color: #fff;
-}
-.form-teacher__btns__submit {
-  background: linear-gradient(to left, #ffbe46, #f43e4b);
-  color: #fff;
-}
 
 .home-search {
   position: relative;
@@ -520,7 +403,7 @@ button {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 1rem;
+  padding: 1rem 2rem;
   border-radius: 15px;
   box-shadow: 0px 2px 5px #aaa;
 }
@@ -531,13 +414,21 @@ button {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  gap: 20px;
+  padding: 1rem 2rem;
+  border-radius: 15px;
+  box-shadow: 0px 2px 5px #aaa;
+}
+.home-search__progress {
+  background-color: #fff;
+  flex: 1;
   padding: 1rem 2rem;
   border-radius: 15px;
   box-shadow: 0px 2px 5px #aaa;
 }
 .home-search__wrapper-home-search {
   display: flex;
-  justify-content: space-between;
+  gap: 20px;
 }
 
 .form-schedule {
@@ -674,6 +565,7 @@ button {
 
 .card-schedule {
   background-color: #eee;
+  flex: 1;
   padding: 4rem 3rem;
   border-radius: 15px;
   box-shadow: 0px 2px 5px #aaa;
