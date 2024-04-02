@@ -6,13 +6,21 @@ const TeacherInfo = ({name, color, observation, subjects, showInfo, closeInfo}) 
       <h1>{name}</h1>
       <h1>{color}</h1>
       <h1>{observation}</h1>
-      {
-        subjects.map((subject) =>{
-          return(
-            <p>{subject.Nome}</p>
-          )
-        })
-      }
+
+      <div>
+        {
+          subjects.map((subject) =>{
+            return(
+              <p>{subject.Nome}</p>
+            )
+          })
+        }
+      </div>
+     
+      <div>
+       
+      </div>
+      
       <button  type='button' onClick={() => closeInfo()}>Cancelar</button>
     </div>
   )
