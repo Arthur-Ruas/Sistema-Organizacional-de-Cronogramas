@@ -74,6 +74,28 @@ const CreateTeacher = ({showModal, closeModal}) => {
       }
     }
 
+    const [tab1State, setTab1State] = useState("block")
+    const [tab2State, setTab2State] = useState("none")
+    const [tab3State, setTab3State] = useState("none")
+
+    function tab1Open(){
+      setTab1State("block")
+      setTab2State("none")
+      setTab3State("none")
+    }
+
+    function tab2Open(){
+      setTab1State("none")
+      setTab2State("block")
+      setTab3State("none")
+    }
+
+    function tab3Open(){
+      setTab1State("none")
+      setTab2State("none")
+      setTab3State("block")
+    }
+
   return (
     <div className="form-teacher" style={{ border: `5px solid ${teacherColorCard}`, display: showModal}}> 
         <form onSubmit={handleTeacherCreation}>
@@ -85,7 +107,7 @@ const CreateTeacher = ({showModal, closeModal}) => {
                   <img src={file} id='teacherile-pic' alt='default-pic' />
                   <label for='foto' id='input-file' accept="image/jpeg, image/png, image/jpg">Colocar Imagem</label>
                 </div>
-                <div className="form-teacher__input">
+                <div className="form-teacher__input-name">
                   <input type='text' required
                   value={teacherName} onChange={(event) => setTeacherName(event.target.value)}/>
                   <p className='form-teacher__placeholder'>Nome</p>
@@ -93,145 +115,147 @@ const CreateTeacher = ({showModal, closeModal}) => {
               </div>
 
               <div className='form-teacher__left__bottom'>
-                <div className='form-teacher__select-cores'>
+                <div className='form-teacher__select-color'>
                   <h4 className='select-text'>Selecione a cor do card</h4>
-                  <div className='form-teacher__wrapper-select-corer'>
+                  <div className='form-teacher__wrapper-select-color'>
                     {
                       colors.map((color) => {
                         return (
-                          <div className='form-teacher__select-cores__items' style={{ backgroundColor: `${color}` }} onClick={() => setTeacherColorCard(color)}></div>
+                          <div className='form-teacher__input-select-color' style={{ backgroundColor: `${color}` }} onClick={() => setTeacherColorCard(color)}></div>
                         )
                       })
                     }
                   </div>
                 </div>
-
-              </div>
-              <div className='form-teacher__observation'>
+                <div className='form-teacher__observation'>
                   <h4 className='select-text'>Observações</h4>
                   <input type="text" maxlength="150"
                   value={teacherNote} onChange={(event) => setTeacherNote(event.target.value)}/>
               </div>
+              </div>
             </div>
-            
             <div className='form-teacher__right'>
-              <div className='form-teacher__select-days'>
-                <h4 className='select-text'>Selecione os dias</h4>
-                <div className='form-teacher__wrapper-days'>
-                    <div className='form-teacher__days'>
+              <div className='form-teacher__right__top'>
+                <div className='form-teacher__select-days'>
+                  <h4 className='select-text'>Selecione os dias</h4>
+                  <div className='form-teacher__wrapper-days'>
+                      <div className='form-teacher__days'>
+                        <h4>S</h4>
+                        <div className='form-teacher__input-day'>
+                          <input type='checkbox' value='1' onClick={((event) => {setArrayDays(arr => [...arr, event.target.value])})}/>
+                          <label>Bloco 1</label>
+                        </div>  
+                        <div className='form-teacher__input-day'>
+                          <input type='checkbox' value='2' onClick={((event) => {setArrayDays(arr => [...arr, event.target.value])})}/>
+                          <label>Bloco 2</label>
+                        </div>
+                      </div>
+
+                      <div className='form-teacher__days'>
+                      <h4>T</h4>
+                        <div className='form-teacher__input-day'>
+                          <input type='checkbox' value='3' onClick={((event) => {setArrayDays(arr => [...arr, event.target.value])})}/>
+                          <label>Bloco 1</label>
+                        </div>
+                        <div className='form-teacher__input-day'>
+                          <input type='checkbox' value='4' onClick={((event) => {setArrayDays(arr => [...arr, event.target.value])})}/>
+                          <label>Bloco 2</label>
+                        </div>
+                      </div>
+
+                      <div className='form-teacher__days'>
+                      <h4>Q</h4>
+                        <div className='form-teacher__input-day'>
+                          <input type='checkbox' value='5' onClick={((event) => {setArrayDays(arr => [...arr, event.target.value])})}/>
+                          <label>Bloco 1</label>
+                        </div>
+                        <div className='form-teacher__input-day'>
+                          <input type='checkbox' value='6' onClick={((event) => {setArrayDays(arr => [...arr, event.target.value])})}/>
+                          <label>Bloco 2</label>
+                        </div>
+                      </div>
+
+                      <div className='form-teacher__days'>
+                      <h4>Q</h4>
+                        <div className='form-teacher__input-day'>
+                          <input type='checkbox' value='7' onClick={((event) => {setArrayDays(arr => [...arr, event.target.value])})}/>
+                          <label>Bloco 1</label>
+                        </div>
+                        <div className='form-teacher__input-day'>
+                          <input type='checkbox' value='8' onClick={((event) => {setArrayDays(arr => [...arr, event.target.value])})}/>
+                          <label>Bloco 2</label>
+                        </div>
+                      </div>
+
+                      <div className='form-teacher__days'>
                       <h4>S</h4>
-                      <div className='form-teacher__input-day'>
-                        <input type='checkbox' value='1' onClick={((event) => {setArrayDays(arr => [...arr, event.target.value])})}/>
-                        <label>Bloco 1</label>
-                      </div>  
-                      <div className='form-teacher__input-day'>
-                        <input type='checkbox' value='2' onClick={((event) => {setArrayDays(arr => [...arr, event.target.value])})}/>
-                        <label>Bloco 2</label>
+                        <div className='form-teacher__input-day'>
+                          <input type='checkbox' value='9' onClick={((event) => {setArrayDays(arr => [...arr, event.target.value])})}/>
+                          <label>Bloco 1</label>
+                        </div>
+                        <div className='form-teacher__input-day'>
+                          <input type='checkbox' value='10' onClick={((event) => {setArrayDays(arr => [...arr, event.target.value])})}/>
+                          <label>Bloco 2</label>
+                        </div>
                       </div>
-                    </div>
-
-                    <div className='form-teacher__days'>
-                    <h4>T</h4>
-                      <div className='form-teacher__input-day'>
-                        <input type='checkbox' value='3' onClick={((event) => {setArrayDays(arr => [...arr, event.target.value])})}/>
-                        <label>Bloco 1</label>
-                      </div>
-                      <div className='form-teacher__input-day'>
-                        <input type='checkbox' value='4' onClick={((event) => {setArrayDays(arr => [...arr, event.target.value])})}/>
-                        <label>Bloco 2</label>
-                      </div>
-                    </div>
-
-                    <div className='form-teacher__days'>
-                    <h4>Q</h4>
-                      <div className='form-teacher__input-day'>
-                        <input type='checkbox' value='5' onClick={((event) => {setArrayDays(arr => [...arr, event.target.value])})}/>
-                        <label>Bloco 1</label>
-                      </div>
-                      <div className='form-teacher__input-day'>
-                        <input type='checkbox' value='6' onClick={((event) => {setArrayDays(arr => [...arr, event.target.value])})}/>
-                        <label>Bloco 2</label>
-                      </div>
-                    </div>
-
-                    <div className='form-teacher__days'>
-                    <h4>Q</h4>
-                      <div className='form-teacher__input-day'>
-                        <input type='checkbox' value='7' onClick={((event) => {setArrayDays(arr => [...arr, event.target.value])})}/>
-                        <label>Bloco 1</label>
-                      </div>
-                      <div className='form-teacher__input-day'>
-                        <input type='checkbox' value='8' onClick={((event) => {setArrayDays(arr => [...arr, event.target.value])})}/>
-                        <label>Bloco 2</label>
-                      </div>
-                    </div>
-
-                    <div className='form-teacher__days'>
-                    <h4>S</h4>
-                      <div className='form-teacher__input-day'>
-                        <input type='checkbox' value='9' onClick={((event) => {setArrayDays(arr => [...arr, event.target.value])})}/>
-                        <label>Bloco 1</label>
-                      </div>
-                      <div className='form-teacher__input-day'>
-                        <input type='checkbox' value='10' onClick={((event) => {setArrayDays(arr => [...arr, event.target.value])})}/>
-                        <label>Bloco 2</label>
-                      </div>
-                    </div>
-              
+                
+                  </div>
                 </div>
               </div>
-              <div className='form-teacher__select-schedules'>
-                <h4 className='select-text'>Selecione as matérias</h4>
-                <div className='form-teacher__div-schedules'>
-                  <div>
-                    <button type='button'>1º Módulo</button>
-                    <button type='button'>2º Módulo</button>
-                    <button type='button'>3º Módulo</button>
+             <div className='form-teacher__right__bottom'>
+                <div className='form-teacher__select-schedules'>
+                  <h4 className='select-text'>Selecione as matérias</h4>
+                  <div className='form-teacher__div-schedules'>
+                    <div>
+                      <button type='button' onClick={tab1Open}>1º Módulo</button>
+                      <button type='button' onClick={tab2Open}>2º Módulo</button>
+                      <button type='button' onClick={tab3Open}>3º Módulo</button>
+                    </div>
+                    <div>
+                      <div>
+                        {
+                          subjectsFirstModule.map((subject) => {
+                            return (
+                              <div className='form-teacher__input-schedules' style={{display: tab1State}}>
+                                <input type="checkbox" name={subject.nome} id={subject.id} onClick={(() => {
+                                  setArraySubjects(arr => [...arr, subject.id])
+                                })} />
+                                <label for={subject.id}>{subject.nome}</label>
+                              </div>
+                            )
+                          })
+                        }
+                      </div>
+                      <div>
+                        {
+                          subjectsSecondModule.map((subject) => {
+                            return (
+                              <div className='form-teacher__input-schedules' style={{display: tab2State}}>
+                                <input type="checkbox" name={subject.nome} id={subject.id} onClick={(() => {
+                                  setArraySubjects(arr => [...arr, subject.id])
+                                })} />
+                                <label for={subject.id}>{subject.nome}</label>
+                              </div>
+                            )
+                          })
+                        }
+                      </div>
+                      <div>
+                        {
+                          subjectsThirdModule.map((subject) => {
+                            return (
+                              <div className='form-teacher__input-schedules' style={{display: tab3State}}>
+                                <input type="checkbox" name={subject.nome} id={subject.id} onClick={(() => {
+                                  setArraySubjects(arr => [...arr, subject.id])
+                                })} />
+                                <label for={subject.id}>{subject.nome}</label>
+                              </div>
+                            )
+                          })
+                        }
+                      </div>   
+                    </div>  
                   </div>
-                  <div>
-                    <div>
-                      {
-                        subjectsFirstModule.map((subject) => {
-                          return (
-                            <div className='form-teacher__input-schedules'>
-                              <input type="checkbox" name={subject.nome} id={subject.id} onClick={(() => {
-                                setArraySubjects(arr => [...arr, subject.id])
-                              })} />
-                              <label for={subject.id}>{subject.nome}</label>
-                            </div>
-                          )
-                        })
-                      }
-                    </div>
-                    <div>
-                      {
-                        subjectsSecondModule.map((subject) => {
-                          return (
-                            <div className='form-teacher__input-schedules'>
-                              <input type="checkbox" name={subject.nome} id={subject.id} onClick={(() => {
-                                setArraySubjects(arr => [...arr, subject.id])
-                              })} />
-                              <label for={subject.id}>{subject.nome}</label>
-                            </div>
-                          )
-                        })
-                      }
-                    </div>
-                    <div>
-                      {
-                        subjectsThirdModule.map((subject) => {
-                          return (
-                            <div className='form-teacher__input-schedules'>
-                              <input type="checkbox" name={subject.nome} id={subject.id} onClick={(() => {
-                                setArraySubjects(arr => [...arr, subject.id])
-                              })} />
-                              <label for={subject.id}>{subject.nome}</label>
-                            </div>
-                          )
-                        })
-                      }
-                    </div>   
-                  </div>  
                 </div>
               </div>
             </div>

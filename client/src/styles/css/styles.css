@@ -327,12 +327,13 @@ button {
   left: 50%;
   transform: translate(-50%, -50%);
   background-color: #fff;
-  padding: 1rem;
+  padding: 1.5rem 2rem;
   border-radius: 5px;
   z-index: 1000;
 }
 .form-teacher__wrapper-form-teacher {
   display: flex;
+  gap: 20px;
 }
 .form-teacher .select-text {
   color: #aaa;
@@ -343,7 +344,16 @@ button {
   gap: 20px;
 }
 .form-teacher__left__top {
-  border-top-left-radius: 15px;
+  background-color: #fff;
+  padding: 1rem;
+  border-radius: 15px;
+  box-shadow: 0px 2px 5px #aaa;
+}
+.form-teacher__left__bottom {
+  background-color: #fff;
+  padding: 1rem;
+  border-radius: 15px;
+  box-shadow: 0px 2px 5px #aaa;
 }
 .form-teacher__input-foto {
   display: flex;
@@ -368,24 +378,41 @@ button {
   width: 120px;
   border-radius: 50%;
 }
-.form-teacher__select-cores {
+.form-teacher__select-color {
   display: flex;
   flex-direction: column;
   gap: 10px;
 }
-.form-teacher__select-cores__wrapper {
+.form-teacher__wrapper-select-color {
   display: flex;
   flex-wrap: wrap;
   gap: 1rem;
 }
-.form-teacher__select-cores__items {
+.form-teacher__input-select-color {
   height: 25px;
   width: 25px;
   border-radius: 5px;
   cursor: pointer;
 }
-.form-teacher__select-cores__items:hover {
+.form-teacher__input-select-color:hover {
   transform: translateY(-3px);
+}
+.form-teacher__right {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.form-teacher__right__top {
+  background-color: #fff;
+  padding: 1rem;
+  border-radius: 15px;
+  box-shadow: 0px 2px 5px #aaa;
+}
+.form-teacher__right__bottom {
+  background-color: #fff;
+  padding: 1rem;
+  border-radius: 15px;
+  box-shadow: 0px 2px 5px #aaa;
 }
 .form-teacher__wrapper-days {
   display: flex;
