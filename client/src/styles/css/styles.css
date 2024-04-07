@@ -220,6 +220,28 @@ button {
   gap: 1rem;
 }
 
+.schedule {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.card-dias {
+  background-color: #ddd;
+  height: 500px;
+  width: 250px;
+}
+
+.prof {
+  background-color: aqua;
+  height: 400px;
+  width: 200px;
+}
+
+.dia {
+  display: flex;
+}
+
 /*SCSS Layout*/
 .sidebar {
   position: sticky;

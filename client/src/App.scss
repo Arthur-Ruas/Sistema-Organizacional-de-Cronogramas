@@ -11,15 +11,16 @@
 @import './styles/scss/pages/login-register.scss';
 @import './styles/scss/pages/home.scss';
 @import './styles/scss/pages/teacher.scss';
+@import './styles/scss/pages/schedule.scss';
 
 
 /*SCSS Layout*/
-@import './styles/scss/layout/sidebar.scss';
-@import './styles/scss/layout/teacherSearch.scss';
-@import './styles/scss/layout/createTeacher.scss';
-@import './styles/scss/layout/homeSearch.scss';
-@import './styles/scss/layout/createSchedule.scss';
-@import './styles/scss/layout/teacherInfo.scss';
+@import './styles/scss/components/sidebar.scss';
+@import './styles/scss/components/teacherSearch.scss';
+@import './styles/scss/components/createTeacher.scss';
+@import './styles/scss/components/homeSearch.scss';
+@import './styles/scss/components/createSchedule.scss';
+@import './styles/scss/components/teacherInfo.scss';
 
 
 /*SCSS Components*/

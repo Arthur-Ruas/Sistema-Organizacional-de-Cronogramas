@@ -48,6 +48,7 @@ const Sidebar = () => {
                 <CgLogOut className='sidebar__icon'/> 
                 <p className='sidebar__text'>Sair</p>
             </li>
+            <Link to='/createSchedule'>teste</Link>
         </ul>
     </div>
   )
