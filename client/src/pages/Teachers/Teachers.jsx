@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import API from '../../API';
 
 import Sidebar from '../../components/Sidebar/Sidebar';
@@ -38,7 +38,6 @@ const Teachers = () => {
       
       setTeacherSubjects([])
     }
-    
   }
 
   var [teacherName, setTeacherName] = useState('');
@@ -66,8 +65,12 @@ const Teachers = () => {
 
     setTeacherDays(teacherDaysData)
     setTeacherSubjects(teacherSubjectsData)
-    console.log(teacherDaysData, teacherDaysArray)
+
   }
+
+  useEffect(() =>{
+    console.log(teacherDaysArray, teacherSubjectsArray)
+  }, [teacherDaysArray, teacherSubjectsArray])
 
   return (
     <>
@@ -81,7 +84,7 @@ const Teachers = () => {
       name={teacherName} 
       color={colorCard} 
       observation={teacherObservation} 
-      
+      days={teacherDaysArray}
       subjects={teacherSubjectsArray}/>
     </>
   )

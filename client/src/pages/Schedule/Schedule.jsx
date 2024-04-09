@@ -3,54 +3,70 @@ import API from '../../API';
 
 const Schedule = () => {
 
-    const [teste1, setTeste1] = useState("none");
-    const [teste2, setTeste2] = useState("none");
+    const [teste1, setTeste1] = useState("block");
 
     const [nome, setNome] = useState('')
 
-    const [testeArray, setTesteArray] = useState([]);
-    const [matArray, setMatArray] = useState([]);
+    const [teacherArray, setTeacherArray] = useState([]);
+    const [scheduleArray, setScheduleArray] = useState([]);
+    const [classRoomArray, setClassRoomArray] = useState([]);
 
-    async function pegarID(id, bloco){
+    async function getDayID(id){
 
-        const resTeste = await API.get("/teste/" + id + "/" + bloco);
+        const resTeacher = await API.get("/createSchedule/" + id);
 
-        setTesteArray(resTeste.data.message)
-        console.log(testeArray)
+        setTeacherArray(resTeacher.data.message)
+        console.log(resTeacher)
     }
  
+    async function getScheduleID(id){
+        const resSchedule = await API.get("createSchedule/schedule/" + id)
+
+        setScheduleArray(resSchedule.data.message)
+        console.log(scheduleArray)
+    }
+
+    async function getClassRoom(){
+        const resClassRoom = await API.get("createSchedule/soc/classRoom")
+
+        setClassRoomArray(resClassRoom.data.message)
+        console.log(classRoomArray)
+    }
 
   return (
     <div className='schedule'>
         <div className='dia'>
-            <div className='card-dias' onClick={() =>{setTeste1("block"); if((teste1) == "block"){setTeste1("none")}; pegarID(15, 1)}}>
+            <div className='card-dias' onClick={() =>{getDayID(1)}}>
                 <h4>{nome}</h4>
                 <select>
-                    
+                    <option>Selecione...</option>
+                   {
+                        scheduleArray.map((schedule) =>{
+                            return(
+                                <option>{schedule.Nome}</option>
+                            )
+                        })
+                   }
+                </select>
+                <select>
+                    <option>Selecione...</option>
+                    {
+                        classRoomArray.map((classRoom) =>{
+                            return(
+                                <option>{classRoom.Sala}</option>
+                            )
+                        })
+                    }
                 </select>
             </div>
             <div className='prof' style={{display: teste1}}>
                 {
-                    testeArray.map((array) =>{
+                    teacherArray.map((teacher) =>{
                         return(
-                            <p onClick={() =>{setNome(array.Nome)}}>{array.Nome}{array.ID}</p>
+                            <p onClick={() =>{setNome(teacher.Nome); getScheduleID(teacher.ID); getClassRoom()}}>{teacher.Nome}</p>
                         )
                     })
                 }               
-            </div>
-        </div>
-        <div className='dia'>
-            <div className='card-dias' onClick={() =>{setTeste2("block"); if((teste2) == "block"){setTeste2("none")}; pegarID(15, 2)}}>
-                <h4>{nome}</h4>
-            </div>
-            <div className='prof' style={{display: teste2}}>
-                {
-                    testeArray.map((array) =>{
-                        return(
-                            <p onClick={() =>{setNome(array.Nome)}}>{array.Nome}{array.ID}</p>
-                        )
-                    })
-                }
             </div>
         </div>
     </div>

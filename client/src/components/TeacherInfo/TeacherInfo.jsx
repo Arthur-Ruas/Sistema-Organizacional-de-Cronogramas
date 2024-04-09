@@ -1,6 +1,6 @@
 import React from 'react';
 
-const TeacherInfo = ({name, color, observation, subjects, showInfo, closeInfo}) => {
+const TeacherInfo = ({name, color, observation, days, subjects, showInfo, closeInfo}) => {
   return (
     <div className='teacher-info' style={{display: showInfo}}>
       <h1>{name}</h1>
@@ -18,7 +18,16 @@ const TeacherInfo = ({name, color, observation, subjects, showInfo, closeInfo}) 
       </div>
      
       <div>
-       
+        {
+          days.map((day) =>{
+            return(
+              <div>
+                <p>{day.Dia}</p>
+                <p>{day.Bloco}</p>
+              </div>     
+            )
+          })
+        }
       </div>
       
       <button  type='button' onClick={() => closeInfo()}>Cancelar</button>
