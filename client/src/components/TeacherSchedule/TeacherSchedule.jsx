@@ -1,11 +1,12 @@
 import React, { useState } from 'react'
 import API from '../../API';
 
-const TeacherSchedule = ({ day }) => {
+const TeacherSchedule = ({ day, submit }) => {
 
     const [teste1, setTeste1] = useState("block");
 
-    const [teacherName, setTeacherName] = useState('')
+    const [teacherName, setTeacherName] = useState('');
+    const [teacherID, setTeacherID] = useState('');
 
     const [teacherArray, setTeacherArray] = useState([]);
     const [subjectArray, setSubjectArray] = useState([]);
@@ -33,33 +34,41 @@ const TeacherSchedule = ({ day }) => {
         console.log(classRoomArray)
     }
 
+    const [scheduleID, setSelectedSchedule] = useState('1');
+    const [subjectID, setSelectedSubject] = useState('');
+    const [classRoomID, setSelectedClassRoom] = useState('');
+    const [classID, setSelectedClass] = useState('3')
 
-    const [selectedSchedule, setSelectedSchedule] = useState();
-    const [selectedClassRoom, setSelectedClassRoom] = useState();
+    const blockID = day
+    const placeID = day
 
     async function handleCreate(){
 
-        const dataSchedule = { teacherName, selectedSchedule, selectedClassRoom }
-        console.log(dataSchedule)
+        const dataSchedule = { scheduleID, teacherID, subjectID, classRoomID, blockID, classID, placeID }
 
-        try{
-            await API.post('/teacherSchedule', dataSchedule);
-        }
-        catch{
+        try {
+            API.put('/teacherSchedule', dataSchedule);
+            console.log(dataSchedule)
+      
+          } catch (err) {
+            alert(`Erro ao cadastrar. ${err}`)
+          }
+    }
 
-        }
+    if(submit == true){
+        handleCreate()
     }
 
   return (
     <div className='dia'>
         <div className='card-dias' onClick={() =>{getDayID(day)}}>
             <h4>{teacherName}</h4>
-            <select onClick={(e)=>{setSelectedSchedule(e.target.value)}}>
+            <select onClick={(e)=>{setSelectedSubject(e.target.value)}}>
                 <option>Selecione...</option>
                 {
                     subjectArray.map((subject) =>{
                         return(
-                            <option onSelect={()=>{console.log(subject.Nome)}} value={subject.Nome}>{subject.Nome}</option>
+                            <option onSelect={()=>{console.log(subject.Id)}} value={subject.ID}>{subject.Nome}</option>
                         )
                     })
                 }
@@ -69,7 +78,7 @@ const TeacherSchedule = ({ day }) => {
                 {
                     classRoomArray.map((classRoom) =>{
                         return(
-                            <option onSelect={()=>{console.log(classRoom.Sala)}} value={classRoom.Sala}>{classRoom.Sala}</option>
+                            <option onSelect={()=>{console.log(classRoom.Id)}} value={classRoom.ID}>{classRoom.Sala}</option>
                         )
                     })
                 }
@@ -79,7 +88,7 @@ const TeacherSchedule = ({ day }) => {
             {
                 teacherArray.map((teacher) =>{
                     return(
-                        <p onClick={() =>{setTeacherName(teacher.Nome); getScheduleID(teacher.ID); getClassRoom()}}>{teacher.Nome}</p>
+                        <p onClick={() =>{setTeacherName(teacher.Nome); setTeacherID(teacher.ID); getScheduleID(teacher.ID); getClassRoom()}}>{teacher.Nome}</p>
                     )
                 })
             }               

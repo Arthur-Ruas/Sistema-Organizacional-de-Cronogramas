@@ -6,16 +6,22 @@
 
 .card-dias{
     background-color: #ddd;
-    height: 500px;
-    width: 250px;
+    height: 300px;
+    width: 200px;
 }
 
 .prof{
     background-color: aqua;
-    height: 400px;
-    width: 200px;
+    height: 300px;
+    width: 150px;
+    font-size: .8rem;
+    overflow-y: scroll;
 }
 
 .dia{
+    display: flex;
+}
+
+.schedule__top, .schedule__bottom{
     display: flex;
 }
