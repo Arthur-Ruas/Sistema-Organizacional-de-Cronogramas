@@ -1,7 +1,10 @@
 import React, { useState } from 'react';
 import API from '../../API';
+import { useNavigate } from 'react-router-dom';
 
 const CreateSchedule = ({showModal, closeModal}) => {
+
+  const navigate = useNavigate()
 
   const [scheduleName, setScheduleName] = useState(null);
   const [classDivision, setClassDivision] = useState("Sim");
@@ -22,7 +25,7 @@ const CreateSchedule = ({showModal, closeModal}) => {
       API.post('/schedule', dataSchedule);
       alert("Horário Cadastrado com sucesso!")
 
-      window.location.reload(false);
+      navigate('/createSchedule')
 
     } catch (err) {
       alert(`Erro ao cadastrar. ${err}`)

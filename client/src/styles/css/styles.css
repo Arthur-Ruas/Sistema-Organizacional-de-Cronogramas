@@ -221,9 +221,25 @@ button {
 }
 
 .schedule {
+  max-width: 100vw;
   display: flex;
   flex-direction: column;
   gap: 10px;
+}
+
+.schedule__header {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 0.8rem;
+}
+
+.schedule__info {
+  display: flex;
+}
+
+.schedule__top, .schedule__bottom {
+  display: flex;
 }
 
 .card-dias {
@@ -241,10 +257,6 @@ button {
 }
 
 .dia {
-  display: flex;
-}
-
-.schedule__top, .schedule__bottom {
   display: flex;
 }
 

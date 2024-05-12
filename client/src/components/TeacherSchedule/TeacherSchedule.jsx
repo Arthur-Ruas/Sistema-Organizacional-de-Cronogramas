@@ -1,13 +1,10 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import API from '../../API';
 
 const TeacherSchedule = ({ day, submit }) => {
 
-    const [teste1, setTeste1] = useState("block");
-
     const [teacherName, setTeacherName] = useState('');
     const [teacherID, setTeacherID] = useState('');
-
     const [teacherArray, setTeacherArray] = useState([]);
     const [subjectArray, setSubjectArray] = useState([]);
     const [classRoomArray, setClassRoomArray] = useState([]);
@@ -33,6 +30,11 @@ const TeacherSchedule = ({ day, submit }) => {
         setClassRoomArray(resClassRoom.data.message)
         console.log(classRoomArray)
     }
+
+    useEffect(() =>{
+        getDayID(day);
+        getClassRoom();
+    }, [setTeacherArray, setClassRoomArray])
 
     const [scheduleID, setSelectedSchedule] = useState('1');
     const [subjectID, setSelectedSubject] = useState('');
@@ -61,37 +63,38 @@ const TeacherSchedule = ({ day, submit }) => {
 
   return (
     <div className='dia'>
-        <div className='card-dias' onClick={() =>{getDayID(day)}}>
+        <div className='card-dias'>
             <h4>{teacherName}</h4>
+            <select onClick={(e)=>{setTeacherID(e.target.value); if(e.target.value != '0'){getScheduleID(e.target.value)}}}>
+                <option value='0'>Selecione...</option>
+                {
+                    teacherArray.map((teacher) =>{
+                        return(
+                            <option value={teacher.ID} onSelect={() =>{console.log('ai'); setTeacherName(teacher.Nome); getClassRoom()}}>{teacher.Nome}</option>
+                        )
+                    })
+                }   
+            </select>
             <select onClick={(e)=>{setSelectedSubject(e.target.value)}}>
-                <option>Selecione...</option>
+                <option value='0'>Selecione...</option>
                 {
                     subjectArray.map((subject) =>{
                         return(
-                            <option onSelect={()=>{console.log(subject.Id)}} value={subject.ID}>{subject.Nome}</option>
+                            <option value={subject.ID}>{subject.Nome}</option>
                         )
                     })
                 }
             </select>
             <select onClick={(e)=>{setSelectedClassRoom(e.target.value)}}>
-                <option>Selecione...</option>
+                <option value='0'>Selecione...</option>
                 {
                     classRoomArray.map((classRoom) =>{
                         return(
-                            <option onSelect={()=>{console.log(classRoom.Id)}} value={classRoom.ID}>{classRoom.Sala}</option>
+                            <option value={classRoom.ID}>{classRoom.Sala}</option>
                         )
                     })
                 }
             </select>
-        </div>
-        <div className='prof' style={{display: teste1}}>
-            {
-                teacherArray.map((teacher) =>{
-                    return(
-                        <p onClick={() =>{setTeacherName(teacher.Nome); setTeacherID(teacher.ID); getScheduleID(teacher.ID); getClassRoom()}}>{teacher.Nome}</p>
-                    )
-                })
-            }               
         </div>
     </div>
   )

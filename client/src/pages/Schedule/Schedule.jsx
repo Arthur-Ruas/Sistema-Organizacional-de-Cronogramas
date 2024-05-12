@@ -11,6 +11,14 @@ const Schedule = () => {
   
   return (
     <div className='schedule'>
+      <header className='schedule__header'>
+        <div className='schedule__info'>
+          <h1>Nome do horário</h1>
+          <h4>Módulo</h4>
+          <h4>E se tem divisão</h4>
+        </div> 
+        <button onClick={handleSubmit}>Salvar</button>   
+      </header>
       <div className='schedule__top'>
         <TeacherSchedule day='1' submit={submit}/>
         <TeacherSchedule day='2' submit={submit}/>
@@ -25,7 +33,7 @@ const Schedule = () => {
         <TeacherSchedule day='9' submit={submit}/>
         <TeacherSchedule day='10' submit={submit}/>
       </div>
-      <button onClick={handleSubmit}>Salvar</button>     
+  
     </div>
   )
 }
