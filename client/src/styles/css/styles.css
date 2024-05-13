@@ -224,27 +224,37 @@ button {
   max-width: 100vw;
   display: flex;
   flex-direction: column;
+  padding: 1rem;
   gap: 10px;
 }
 
 .schedule__header {
+  background-color: #fff;
   width: 100%;
   display: flex;
+  align-items: center;
   justify-content: space-between;
   padding: 0.8rem;
+  border-radius: 15px;
+  box-shadow: 0px 2px 5px #aaa;
 }
 
 .schedule__info {
   display: flex;
+  align-items: end;
+  gap: 30px;
 }
 
 .schedule__top, .schedule__bottom {
+  background-color: #fff;
   display: flex;
+  justify-content: space-between;
+  padding: 0.8rem;
+  box-shadow: 0px 2px 5px #aaa;
 }
 
 .card-dias {
-  background-color: #ddd;
-  height: 300px;
+  height: 200px;
   width: 200px;
 }
 

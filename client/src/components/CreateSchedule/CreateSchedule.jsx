@@ -7,8 +7,8 @@ const CreateSchedule = ({showModal, closeModal}) => {
   const navigate = useNavigate()
 
   const [scheduleName, setScheduleName] = useState(null);
-  const [classDivision, setClassDivision] = useState("Sim");
-  const [classModule, setClassModule] = useState("Módulo 1")
+  const [classDivision, setClassDivision] = useState('1');
+  const [classModule, setClassModule] = useState('1')
 
   console.log(scheduleName, classDivision, classModule)
 
@@ -25,7 +25,7 @@ const CreateSchedule = ({showModal, closeModal}) => {
       API.post('/schedule', dataSchedule);
       alert("Horário Cadastrado com sucesso!")
 
-      navigate('/createSchedule')
+      navigate('/createSchedule', {state: [classDivision, classModule]})
 
     } catch (err) {
       alert(`Erro ao cadastrar. ${err}`)
@@ -45,11 +45,11 @@ const CreateSchedule = ({showModal, closeModal}) => {
           <h4>Divisão de Turma</h4>
           <div className='form-schedule__wrapper-division'>
             <div className='form-schedule__input-division'>
-              <input type='radio' name='classDivision' id='sim' value='Sim' onChange={(event) => setClassDivision(event.target.value)}/>
+              <input type='radio' name='classDivision' id='sim' value='1' onChange={(event) => setClassDivision(event.target.value)}/>
               <label for='sim'>Sim</label>
             </div>
             <div className='form-schedule__input-division'>
-              <input type='radio' name='classDivision' id='nao' value='Não' onChange={(event) => setClassDivision(event.target.value)}/>
+              <input type='radio' name='classDivision' id='nao' value='2' onChange={(event) => setClassDivision(event.target.value)}/>
               <label for='nao'>Não</label>
             </div>
           </div>     
@@ -58,15 +58,15 @@ const CreateSchedule = ({showModal, closeModal}) => {
           <h4>Módulo</h4>
           <div className='form-schedule__wrapper-module'>
             <div className='form-schedule__input-module'>
-              <input type='radio' name='classModule' id='modulo1' value='Módulo 1' onChange={(event) => setClassModule(event.target.value)}/>
+              <input type='radio' name='classModule' id='modulo1' value='1' onChange={(event) => setClassModule(event.target.value)}/>
               <label for='modulo1'>1º Módulo</label>
             </div>
             <div className='form-schedule__input-module'>
-              <input type='radio' name='classModule' id='modulo2' value='Módulo 2' onChange={(event) => setClassModule(event.target.value)}/>
+              <input type='radio' name='classModule' id='modulo2' value='2' onChange={(event) => setClassModule(event.target.value)}/>
               <label for='modulo2'>2º Módulo</label>
             </div>
             <div className='form-schedule__input-module'>
-              <input type='radio' name='classModule' id='modulo3' value='Módulo 3' onChange={(event) => setClassModule(event.target.value)}/>
+              <input type='radio' name='classModule' id='modulo3' value='3' onChange={(event) => setClassModule(event.target.value)}/>
               <label for='modulo3'>3º Módulo</label>
             </div>
           </div>

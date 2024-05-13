@@ -5,6 +5,7 @@ const TeacherSchedule = ({ day, submit }) => {
 
     const [teacherName, setTeacherName] = useState('');
     const [teacherID, setTeacherID] = useState('');
+    const [teacherColor, setTeacherColor] = useState('#ddd')
     const [teacherArray, setTeacherArray] = useState([]);
     const [subjectArray, setSubjectArray] = useState([]);
     const [classRoomArray, setClassRoomArray] = useState([]);
@@ -14,21 +15,25 @@ const TeacherSchedule = ({ day, submit }) => {
         const resTeacher = await API.get("/createSchedule/" + id);
 
         setTeacherArray(resTeacher.data.message)
-        console.log(resTeacher)
+    }
+
+    async function getColor(id){
+
+        const resTeacher = await API.get("/createSchedule/color/" + id);
+
+        setTeacherColor(resTeacher.data.message)
     }
  
     async function getScheduleID(id){
         const resSchedule = await API.get("createSchedule/schedule/" + id)
 
         setSubjectArray(resSchedule.data.message)
-        console.log(subjectArray)
     }
 
     async function getClassRoom(){
         const resClassRoom = await API.get("createSchedule/soc/classRoom")
 
         setClassRoomArray(resClassRoom.data.message)
-        console.log(classRoomArray)
     }
 
     useEffect(() =>{
@@ -60,18 +65,18 @@ const TeacherSchedule = ({ day, submit }) => {
     if(submit == true){
         handleCreate()
     }
-
+    
   return (
     <div className='dia'>
-        <div className='card-dias'>
+        <div className='card-dias' style={{backgroundColor: teacherColor}}>
             <h4>{teacherName}</h4>
-            <select onClick={(e)=>{setTeacherID(e.target.value); if(e.target.value != '0'){getScheduleID(e.target.value)}}}>
+            <select onClick={(e)=>{setTeacherID(e.target.value); if(e.target.value != '0'){getScheduleID(e.target.value); getColor(e.target.value)}}}>
                 <option value='0'>Selecione...</option>
                 {
                     teacherArray.map((teacher) =>{
                         return(
-                            <option value={teacher.ID} onSelect={() =>{console.log('ai'); setTeacherName(teacher.Nome); getClassRoom()}}>{teacher.Nome}</option>
-                        )
+                            <option value={teacher.ID}>{teacher.Nome}</option>               
+                        )          
                     })
                 }   
             </select>

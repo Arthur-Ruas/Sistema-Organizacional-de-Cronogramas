@@ -25,7 +25,7 @@ const Home = () => {
           <Sidebar/>
           <HomeSearch openModal = {handleState}/>
       </div>
-      <CreateSchedule showModal={modalOpen} closeModal = {handleState}/>
+      <CreateSchedule showModal={modalOpen} closeModal={handleState}/>
     </>
   )
 }
