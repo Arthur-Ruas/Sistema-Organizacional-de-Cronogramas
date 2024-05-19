@@ -72,7 +72,7 @@ const TeacherSchedule = ({ day, submit, handlerOnChange }) => {
     <div className='dia'>
         <div className='card-dias' style={{backgroundColor: teacherColor}}>
             <h4>{teacherName}</h4>
-            <select onChange={handlerOnChange} onClick={(e)=>{setTeacherID(e.target.value); if(e.target.value != '0'){getScheduleID(e.target.value); getColor(e.target.value)}}}>
+            <select name={`teacher ${day}`} onChange={handlerOnChange} onClick={(e)=>{setTeacherID(e.target.value); if(e.target.value != '0'){getScheduleID(e.target.value); getColor(e.target.value)}}}>
                 <option value='0'>Selecione...</option>
                 {
                     teacherArray.map((teacher) =>{
@@ -82,7 +82,7 @@ const TeacherSchedule = ({ day, submit, handlerOnChange }) => {
                     })
                 }   
             </select>
-            <select onChange={handlerOnChange} onClick={(e)=>{setSelectedSubject(e.target.value)}}>
+            <select name={`subject ${day}`} onChange={handlerOnChange} onClick={(e)=>{setSelectedSubject(e.target.value)}}>
                 <option value='0'>Selecione...</option>
                 {
                     subjectArray.map((subject) =>{
@@ -92,7 +92,7 @@ const TeacherSchedule = ({ day, submit, handlerOnChange }) => {
                     })
                 }
             </select>
-            <select onChange={handlerOnChange} onClick={(e)=>{setSelectedClassRoom(e.target.value)}}>
+            <select name={`classRoom ${day}`} onChange={handlerOnChange} onClick={(e)=>{setSelectedClassRoom(e.target.value)}}>
                 <option value='0'>Selecione...</option>
                 {
                     classRoomArray.map((classRoom) =>{

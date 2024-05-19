@@ -27,11 +27,12 @@ const Schedule = () => {
       getSchedules()
     }, [setSchedules])
 
-    var data = []
+    const [data, setData] = useState([])
     function handlerChangeCategory(event){
-      
+      setData({...data, [event.target.name] : event.target.value});
     }
 
+    console.log(data)
   return (
     <div className='schedule'>
       <header className='schedule__header'>
@@ -44,17 +45,17 @@ const Schedule = () => {
       </header>
       <div className='schedule__top'>
         <TeacherSchedule day='1' submit={submit} handlerOnChange={handlerChangeCategory}/>
-        <TeacherSchedule day='2' submit={submit}/>
-        <TeacherSchedule day='3' submit={submit}/>
-        <TeacherSchedule day='4' submit={submit}/>
-        <TeacherSchedule day='5' submit={submit}/>
+        <TeacherSchedule day='2' submit={submit} handlerOnChange={handlerChangeCategory}/>
+        <TeacherSchedule day='3' submit={submit} handlerOnChange={handlerChangeCategory}/>
+        <TeacherSchedule day='4' submit={submit} handlerOnChange={handlerChangeCategory}/>
+        <TeacherSchedule day='5' submit={submit} handlerOnChange={handlerChangeCategory}/>
       </div>
       <div className='schedule__bottom'>
-        <TeacherSchedule day='6' submit={submit}/>
-        <TeacherSchedule day='7' submit={submit}/>
-        <TeacherSchedule day='8' submit={submit}/>
-        <TeacherSchedule day='9' submit={submit}/>
-        <TeacherSchedule day='10' submit={submit}/>
+        <TeacherSchedule day='6' submit={submit} handlerOnChange={handlerChangeCategory}/>
+        <TeacherSchedule day='7' submit={submit} handlerOnChange={handlerChangeCategory}/>
+        <TeacherSchedule day='8' submit={submit} handlerOnChange={handlerChangeCategory}/>
+        <TeacherSchedule day='9' submit={submit} handlerOnChange={handlerChangeCategory}/>
+        <TeacherSchedule day='10' submit={submit} handlerOnChange={handlerChangeCategory}/>
       </div>
     </div>
   )
