@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import API from '../../API';
 
-const TeacherSchedule = ({ day, submit }) => {
+const TeacherSchedule = ({ day, submit, handlerOnChange }) => {
 
     const [teacherName, setTeacherName] = useState('');
     const [teacherID, setTeacherID] = useState('');
@@ -46,6 +46,8 @@ const TeacherSchedule = ({ day, submit }) => {
     const [classRoomID, setSelectedClassRoom] = useState('');
     const [classID, setSelectedClass] = useState('3')
 
+    var dataTeacher = [teacherID, subjectID, classRoomID]
+
     const blockID = day
     const placeID = day
 
@@ -65,12 +67,12 @@ const TeacherSchedule = ({ day, submit }) => {
     if(submit == true){
         handleCreate()
     }
-    
+
   return (
     <div className='dia'>
         <div className='card-dias' style={{backgroundColor: teacherColor}}>
             <h4>{teacherName}</h4>
-            <select onClick={(e)=>{setTeacherID(e.target.value); if(e.target.value != '0'){getScheduleID(e.target.value); getColor(e.target.value)}}}>
+            <select onChange={handlerOnChange} onClick={(e)=>{setTeacherID(e.target.value); if(e.target.value != '0'){getScheduleID(e.target.value); getColor(e.target.value)}}}>
                 <option value='0'>Selecione...</option>
                 {
                     teacherArray.map((teacher) =>{
@@ -80,7 +82,7 @@ const TeacherSchedule = ({ day, submit }) => {
                     })
                 }   
             </select>
-            <select onClick={(e)=>{setSelectedSubject(e.target.value)}}>
+            <select onChange={handlerOnChange} onClick={(e)=>{setSelectedSubject(e.target.value)}}>
                 <option value='0'>Selecione...</option>
                 {
                     subjectArray.map((subject) =>{
@@ -90,7 +92,7 @@ const TeacherSchedule = ({ day, submit }) => {
                     })
                 }
             </select>
-            <select onClick={(e)=>{setSelectedClassRoom(e.target.value)}}>
+            <select onChange={handlerOnChange} onClick={(e)=>{setSelectedClassRoom(e.target.value)}}>
                 <option value='0'>Selecione...</option>
                 {
                     classRoomArray.map((classRoom) =>{

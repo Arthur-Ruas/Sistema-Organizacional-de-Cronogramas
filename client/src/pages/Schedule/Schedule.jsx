@@ -27,6 +27,11 @@ const Schedule = () => {
       getSchedules()
     }, [setSchedules])
 
+    var data = []
+    function handlerChangeCategory(event){
+      
+    }
+
   return (
     <div className='schedule'>
       <header className='schedule__header'>
@@ -38,7 +43,7 @@ const Schedule = () => {
         <button onClick={handleSubmit}>Salvar</button>   
       </header>
       <div className='schedule__top'>
-        <TeacherSchedule day='1' submit={submit}/>
+        <TeacherSchedule day='1' submit={submit} handlerOnChange={handlerChangeCategory}/>
         <TeacherSchedule day='2' submit={submit}/>
         <TeacherSchedule day='3' submit={submit}/>
         <TeacherSchedule day='4' submit={submit}/>
