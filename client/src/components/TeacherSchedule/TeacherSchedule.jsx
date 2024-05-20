@@ -51,28 +51,11 @@ const TeacherSchedule = ({ day, submit, handlerOnChange }) => {
     const blockID = day
     const placeID = day
 
-    async function handleCreate(){
-
-        const dataSchedule = { scheduleID, teacherID, subjectID, classRoomID, blockID, classID, placeID }
-
-        try {
-            API.put('/teacherSchedule', dataSchedule);
-            console.log(dataSchedule)
-      
-          } catch (err) {
-            alert(`Erro ao cadastrar. ${err}`)
-          }
-    }
-
-    if(submit == true){
-        handleCreate()
-    }
-
   return (
     <div className='dia'>
         <div className='card-dias' style={{backgroundColor: teacherColor}}>
             <h4>{teacherName}</h4>
-            <select name={`teacher ${day}`} onChange={handlerOnChange} onClick={(e)=>{setTeacherID(e.target.value); if(e.target.value != '0'){getScheduleID(e.target.value); getColor(e.target.value)}}}>
+            <select name={`teacher${day}`} onChange={handlerOnChange} onClick={(e)=>{setTeacherID(e.target.value); if(e.target.value != '0'){getScheduleID(e.target.value); getColor(e.target.value)}}}>
                 <option value='0'>Selecione...</option>
                 {
                     teacherArray.map((teacher) =>{
@@ -82,7 +65,7 @@ const TeacherSchedule = ({ day, submit, handlerOnChange }) => {
                     })
                 }   
             </select>
-            <select name={`subject ${day}`} onChange={handlerOnChange} onClick={(e)=>{setSelectedSubject(e.target.value)}}>
+            <select name={`subject${day}`} onChange={handlerOnChange} onClick={(e)=>{setSelectedSubject(e.target.value)}}>
                 <option value='0'>Selecione...</option>
                 {
                     subjectArray.map((subject) =>{
@@ -92,7 +75,7 @@ const TeacherSchedule = ({ day, submit, handlerOnChange }) => {
                     })
                 }
             </select>
-            <select name={`classRoom ${day}`} onChange={handlerOnChange} onClick={(e)=>{setSelectedClassRoom(e.target.value)}}>
+            <select name={`classRoom${day}`} onChange={handlerOnChange} onClick={(e)=>{setSelectedClassRoom(e.target.value)}}>
                 <option value='0'>Selecione...</option>
                 {
                     classRoomArray.map((classRoom) =>{
