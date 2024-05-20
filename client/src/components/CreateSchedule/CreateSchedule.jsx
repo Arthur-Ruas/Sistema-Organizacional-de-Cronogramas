@@ -10,8 +10,6 @@ const CreateSchedule = ({showModal, closeModal}) => {
   const [classDivision, setClassDivision] = useState('1');
   const [classModule, setClassModule] = useState('1')
 
-  console.log(scheduleName, classDivision, classModule)
-
   async function handleScheduleCreation(event){
     event.preventDefault()
 

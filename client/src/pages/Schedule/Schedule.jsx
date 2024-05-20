@@ -67,8 +67,19 @@ const Schedule = () => {
     function handlerChangeCategory10(event){
       setData10({...data10, [event.target.name] : event.target.value});
     }
+    var teacherData1 = ['1', data1.teacher1, data1.subject1, data1.classRoom1]
+    var teacherData2 = ['2', data2.teacher2, data2.subject2, data2.classRoom2]
+    var teacherData3 = ['3', data3.teacher3, data3.subject3, data3.classRoom3]
+    var teacherData4 = ['4', data4.teacher4, data4.subject4, data4.classRoom4]
+    var teacherData5 = ['5', data5.teacher5, data5.subject5, data5.classRoom5]
+    var teacherData6 = ['6', data6.teacher6, data6.subject6, data6.classRoom6]
+    var teacherData7 = ['7', data7.teacher7, data7.subject7, data7.classRoom7]
+    var teacherData8 = ['8', data8.teacher8, data8.subject8, data8.classRoom8]
+    var teacherData9 = ['9', data9.teacher9, data9.subject9, data9.classRoom9]
+    var teacherData10 = ['10', data10.teacher10, data10.subject10, data10.classRoom10]
 
-    var arrayData = [data1, data2, data3, data4, data5, data6, data7, data8, data9, data10]
+    var arrayData = [teacherData1, teacherData2, teacherData3, teacherData4, teacherData5, teacherData6, teacherData7, teacherData8, teacherData9, teacherData10]
+    console.log(arrayData)
 
     const [scheduleID, setSelectedSchedule] = useState('1');
     const [classID, setSelectedClass] = useState('3')
