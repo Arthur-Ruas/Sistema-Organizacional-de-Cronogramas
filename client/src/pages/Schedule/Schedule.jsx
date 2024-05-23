@@ -15,16 +15,24 @@ const Schedule = () => {
   const classDivison = location.state[0]
   const classModule = location.state[1]
 
-  const [schedules, setSchedules] = useState([])
+  const [schedules, setSchedules] = useState([]);
 
-    async function getSchedules(){
-        const res = await API.get("/schedule");
-        setSchedules(res.data.message)
-    }
+  const [scheduleInfo, setScheduleInfo] = useState([])
 
-    useEffect(() => {
-      getSchedules()
-    }, [setSchedules])
+  async function getSchedules(){
+      const res = await API.get("/schedule");
+      setSchedules(res.data.message)
+  }
+
+  async function getScheduleInfo (){
+    const res = await API.get("/teacherSchedule")
+    setScheduleInfo(res.data.message)
+  }
+
+  useEffect(() => {
+    getSchedules()
+    getScheduleInfo()
+  }, [setSchedules])
 
     const [data1, setData1] = useState(['1'])
     const [data2, setData2] = useState(['2'])
@@ -104,12 +112,18 @@ const Schedule = () => {
 
   return (
     <div className='schedule'>
-      <header className='schedule__header'>
-        <div className='schedule__info'>
-          <h1>Nome do horário</h1>
-          <h4>Módulo</h4>
-          <h4>E se tem divisão</h4>
-        </div> 
+      <header className='schedule__header'> 
+          {
+            scheduleInfo.map((info) => {
+              return(
+                <div className='schedule__info'>
+                  <h1>{info.nome}</h1>
+                  <h4>Módulo: {info.modulo}</h4>
+                  <h4>Possuí divisão: {info.divisao_turma}</h4>
+                </div> 
+              )
+            })
+          }    
         <button onClick={handleCreate}>Salvar</button>   
       </header>
       <div className='schedule__top'>
