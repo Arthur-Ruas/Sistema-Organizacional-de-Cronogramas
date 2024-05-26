@@ -124,7 +124,12 @@ const Schedule = () => {
               )
             })
           }    
-        <button onClick={handleCreate}>Salvar</button>   
+          
+      <div className="buttons-container">
+        <button className="button-large btn-salvar" onClick={handleCreate}>Salvar</button>
+        <button className="button-large btn-cancelar" onClick={() => console.log('Cancelar')}>Cancelar</button>
+      </div>
+
       </header>
       <div className='schedule__top'>
         <TeacherSchedule day='1' submit={submit} handlerOnChange={handlerChangeCategory1}/>
@@ -140,6 +145,9 @@ const Schedule = () => {
         <TeacherSchedule day='9' submit={submit} handlerOnChange={handlerChangeCategory9}/>
         <TeacherSchedule day='10' submit={submit} handlerOnChange={handlerChangeCategory10}/>
       </div>
+
+
+
     </div>
   )
 }

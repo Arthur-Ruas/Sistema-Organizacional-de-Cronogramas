@@ -250,12 +250,49 @@ button {
   display: flex;
   justify-content: space-between;
   padding: 0.8rem;
-  box-shadow: 0px 2px 5px #aaa;
+  box-shadow: 0px 2px 5px #000;
 }
 
 .card-dias {
   height: 200px;
   width: 200px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding:20px;
+  margin-bottom: 20px; 
+}
+
+.card-dias select {
+  width:80%;
+  padding: 10px;
+  margin: 10px 0;
+}
+
+.buttons-container{
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 25px 0;
+}
+
+.button-large{
+  padding:  15px 50px;
+  font-size: 16px;
+  margin:0 20px;
+  color:white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.btn-salvar{
+  background-color: #F0705F;
+}
+
+.btn-cancelar{
+  background-color: #00BEEF;
 }
 
 .prof {
@@ -268,6 +305,9 @@ button {
 
 .dia {
   display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%; 
 }
 
 /*SCSS Layout*/
