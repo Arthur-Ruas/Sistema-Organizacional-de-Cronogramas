@@ -21,7 +21,6 @@ const CreateSchedule = ({showModal, closeModal}) => {
 
     try {
       API.post('/schedule', dataSchedule);
-      alert("Horário Cadastrado com sucesso!")
 
       navigate('/createSchedule', {state: [classDivision, classModule]})
 
@@ -70,7 +69,7 @@ const CreateSchedule = ({showModal, closeModal}) => {
           </div>
         </div>    
         <div className='form-schedule__wrapper-button'>
-          <button className='button-cancel' onClick={() => closeModal()}>Cancelar</button>
+          <button className='button-cancel' type='button' onClick={() => {closeModal(); setScheduleName('')}}>Cancelar</button>
           <button className='button-submit' type='submit'>Criar</button>
         </div>
       </form>

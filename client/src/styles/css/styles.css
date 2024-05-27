@@ -234,9 +234,33 @@ button {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0.8rem;
+  padding: 0.8rem 2rem;
   border-radius: 15px;
   box-shadow: 0px 2px 5px #aaa;
+}
+
+.schedule__wrapper-button {
+  display: flex;
+  gap: 20px;
+}
+.schedule__wrapper-button > button {
+  width: 100px;
+  padding: 0.3rem 0.8rem;
+  border-radius: 15px;
+}
+
+.schedule__cancel-button {
+  background-color: #fff;
+  border: 2px solid #aaa;
+}
+
+.schedule__save-button {
+  background: linear-gradient(to left, #ffbe46, #f43e4b);
+  color: #fff;
+}
+.schedule__save-button:hover {
+  box-shadow: inset 0px 200px 0 #0197c3;
+  transition: 1s;
 }
 
 .schedule__info {
@@ -249,65 +273,10 @@ button {
   background-color: #fff;
   display: flex;
   justify-content: space-between;
+  gap: 20px;
   padding: 0.8rem;
-  box-shadow: 0px 2px 5px #000;
-}
-
-.card-dias {
-  height: 200px;
-  width: 200px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding:20px;
-  margin-bottom: 20px; 
-}
-
-.card-dias select {
-  width:80%;
-  padding: 10px;
-  margin: 10px 0;
-}
-
-.buttons-container{
-  width: 100%;
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-  padding: 25px 0;
-}
-
-.button-large{
-  padding:  15px 50px;
-  font-size: 16px;
-  margin:0 20px;
-  color:white;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
-.btn-salvar{
-  background-color: #F0705F;
-}
-
-.btn-cancelar{
-  background-color: #00BEEF;
-}
-
-.prof {
-  background-color: aqua;
-  height: 300px;
-  width: 150px;
-  font-size: 0.8rem;
-  overflow-y: scroll;
-}
-
-.dia {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 100%; 
+  border-radius: 15px;
+  box-shadow: 0px 2px 5px #aaa;
 }
 
 /*SCSS Layout*/
@@ -429,6 +398,7 @@ button {
   color: #aaa;
 }
 .form-teacher__left {
+  width: 40%;
   display: flex;
   flex-direction: column;
   gap: 20px;
@@ -644,7 +614,47 @@ button {
   left: 50%;
   transform: translate(-50%, -50%);
   background-color: #fff;
+  width: 800px;
+  height: 600px;
   padding: 2rem 3rem;
+}
+.teacher-info__content {
+  height: 96%;
+}
+.teacher-info__top {
+  height: 50%;
+  display: flex;
+}
+.teacher-info__teacher {
+  width: fit-content;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.teacher-info__image {
+  height: 100px;
+  border-radius: 50%;
+}
+.teacher-info__day {
+  display: flex;
+}
+.teacher-info__bottom {
+  height: 45%;
+  display: flex;
+  flex: auto;
+}
+.teacher-info__observation {
+  width: 40%;
+}
+.teacher-info__wrapper-button {
+  width: 100%;
+  display: flex;
+  justify-content: end;
+  gap: 20px;
+}
+.teacher-info__wrapper-button > button {
+  padding: 0.5rem 2rem;
+  border-radius: 30px;
 }
 
 /*SCSS Components*/
@@ -698,6 +708,20 @@ button {
 }
 .card-schedule__divison {
   font-size: 1rem;
+}
+
+.card-day {
+  height: 200px;
+  min-width: 18%;
+  padding: 0.8rem 1rem;
+  border-radius: 15px;
+  box-shadow: 0px 2px 5px #aaa;
+}
+
+.card-day__wrapper-select {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
 }
 
 /*# sourceMappingURL=styles.css.map */

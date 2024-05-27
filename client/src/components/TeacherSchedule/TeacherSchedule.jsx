@@ -5,7 +5,7 @@ const TeacherSchedule = ({ day, submit, handlerOnChange }) => {
 
     const [teacherName, setTeacherName] = useState('');
     const [teacherID, setTeacherID] = useState('');
-    const [teacherColor, setTeacherColor] = useState('#ddd')
+    const [teacherColor, setTeacherColor] = useState('#aaa')
     const [teacherArray, setTeacherArray] = useState([]);
     const [subjectArray, setSubjectArray] = useState([]);
     const [classRoomArray, setClassRoomArray] = useState([]);
@@ -21,7 +21,8 @@ const TeacherSchedule = ({ day, submit, handlerOnChange }) => {
 
         const resTeacher = await API.get("/createSchedule/color/" + id);
 
-        setTeacherColor(resTeacher.data.message)
+        setTeacherColor(resTeacher.data.message[0].cor_card)
+       
     }
  
     async function getScheduleID(id){
@@ -52,9 +53,8 @@ const TeacherSchedule = ({ day, submit, handlerOnChange }) => {
     const placeID = day
 
   return (
-    <div className='dia'>
-        <div className='card-dias' style={{backgroundColor: teacherColor}}>
-            <h4>{teacherName}</h4>
+    <div className='card-day' style={{border: `4px solid ${teacherColor}`}}>    
+        <div className='card-day__wrapper-select' >
             <select name={`teacher${day}`} onChange={handlerOnChange} onClick={(e)=>{setTeacherID(e.target.value); if(e.target.value != '0'){getScheduleID(e.target.value); getColor(e.target.value)}}}>
                 <option value='0'>Selecione...</option>
                 {

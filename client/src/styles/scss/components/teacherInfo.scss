@@ -4,5 +4,55 @@
     left: 50%;
     transform: translate(-50%, -50%);
     background-color: #fff;
+    width: 800px;
+    height: 600px;
     padding: 2rem 3rem;
+
+    &__content{
+        height: 96%;
+    }
+
+    &__top{
+        height: 50%;
+        display: flex;
+    }
+
+    &__teacher{
+        width: fit-content;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+       
+    }
+
+    &__image{
+        height: 100px;
+        border-radius: 50%;
+    }
+
+    &__day{
+        display: flex;
+    }
+
+    &__bottom{
+        height: 45%;
+        display: flex;
+        flex: auto;
+    }
+
+    &__observation{
+        width: 40%;
+    }
+
+    &__wrapper-button{
+        width: 100%;
+        display: flex;
+        justify-content: end;
+        gap: 20px;
+
+        & > button{
+            padding: .5rem 2rem;
+            border-radius: 30px;
+        }
+    }
 }

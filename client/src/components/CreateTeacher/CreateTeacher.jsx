@@ -65,7 +65,6 @@ const CreateTeacher = ({showModal, closeModal}) => {
   
       try {
         API.post('/teacher', dataTeacher);
-        alert("Professor Cadastrado com sucesso!")
   
         window.location.reload(false);
   

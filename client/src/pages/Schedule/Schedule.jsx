@@ -118,16 +118,18 @@ const Schedule = () => {
               return(
                 <div className='schedule__info'>
                   <h1>{info.nome}</h1>
-                  <h4>Módulo: {info.modulo}</h4>
-                  <h4>Possuí divisão: {info.divisao_turma}</h4>
+                  <div>
+                    <h4>Módulo: {info.modulo}</h4>
+                    <h4>Possuí divisão: {info.divisao_turma}</h4>
+                  </div>
                 </div> 
               )
             })
           }    
           
-      <div className="buttons-container">
-        <button className="button-large btn-salvar" onClick={handleCreate}>Salvar</button>
-        <button className="button-large btn-cancelar" onClick={() => console.log('Cancelar')}>Cancelar</button>
+      <div className="schedule__wrapper-button">
+        <button className="schedule__cancel-button">Cancelar</button>
+        <button className="schedule__save-button" onClick={handleCreate}>Salvar</button>
       </div>
 
       </header>

@@ -12,9 +12,35 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: .8rem;
+    padding: .8rem 2rem;
     border-radius: 15px; 
     box-shadow: 0px 2px 5px #aaa;
+}
+
+.schedule__wrapper-button{
+    display: flex;
+    gap: 20px;
+
+    & > button{
+        width: 100px;
+        padding: .3rem .8rem;
+        border-radius: 15px;
+    }
+}
+
+.schedule__cancel-button{
+    background-color: #fff;
+    border: 2px solid #aaa;
+}
+
+.schedule__save-button{
+    background: $degrade;
+    color: $corBranco;
+
+    &:hover{
+        box-shadow: inset 0px 200px 0 $corAzulClaro;
+        transition: 1s;
+    }
 }
 
 .schedule__info{
@@ -27,24 +53,9 @@
     background-color: #fff;
     display: flex;
     justify-content: space-between;
+    gap: 20px;
     padding: .8rem;
+    border-radius: 15px;
     box-shadow: 0px 2px 5px #aaa;
-}
-
-.card-dias{
-    height: 200px;
-    width: 200px;
-}
-
-.prof{
-    background-color: aqua;
-    height: 300px;
-    width: 150px;
-    font-size: .8rem;
-    overflow-y: scroll;
-}
-
-.dia{
-    display: flex;
 }
 
