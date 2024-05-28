@@ -15,18 +15,20 @@ const Schedule = () => {
   const classDivison = location.state[0]
   const classModule = location.state[1]
 
+  const [scheduleID, setScheduleID] = useState();
+  const [classID, setSelectedClass] = useState('3')
   const [schedules, setSchedules] = useState([]);
-
   const [scheduleInfo, setScheduleInfo] = useState([])
 
   async function getSchedules(){
       const res = await API.get("/schedule");
-      setSchedules(res.data.message)
+      setSchedules(res.data.message)     
   }
 
   async function getScheduleInfo (){
     const res = await API.get("/teacherSchedule")
     setScheduleInfo(res.data.message)
+    setScheduleID((res.data.message[0].id).toString())
   }
 
   useEffect(() => {
@@ -88,9 +90,6 @@ const Schedule = () => {
 
     var arrayData = [teacherData1, teacherData2, teacherData3, teacherData4, teacherData5, teacherData6, teacherData7, teacherData8, teacherData9, teacherData10]
     console.log(arrayData)
-
-    const [scheduleID, setSelectedSchedule] = useState('1');
-    const [classID, setSelectedClass] = useState('3')
 
     async function handleCreate(){
 
