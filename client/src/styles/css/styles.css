@@ -382,13 +382,26 @@ button {
 
 .form-teacher {
   position: absolute;
-  top: 50vh;
+  top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   background-color: #fff;
-  padding: 1.5rem 2rem;
   border-radius: 5px;
   z-index: 1000;
+}
+.form-teacher form {
+  position: relative;
+  padding: 1.5rem 2rem;
+}
+.form-teacher__color {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 250px;
+  width: 100%;
+  z-index: 100;
+  border-top-right-radius: 5px;
+  border-top-left-radius: 5px;
 }
 .form-teacher__wrapper-form-teacher {
   display: flex;
@@ -411,6 +424,7 @@ button {
   padding: 1rem;
   border-radius: 15px;
   box-shadow: 0px 2px 5px #aaa;
+  z-index: 1000;
 }
 .form-teacher__left__bottom {
   background-color: #fff;
@@ -420,10 +434,13 @@ button {
   padding: 1rem;
   border-radius: 15px;
   box-shadow: 0px 2px 5px #aaa;
+  z-index: 1000;
 }
 .form-teacher__input-foto {
   display: flex;
+  align-items: center;
   justify-content: center;
+  flex-direction: column;
   gap: 10px;
 }
 .form-teacher__input-foto input[type=file] {
@@ -489,6 +506,7 @@ button {
   padding: 1rem;
   border-radius: 15px;
   box-shadow: 0px 2px 5px #aaa;
+  z-index: 1000;
 }
 .form-teacher__right__bottom {
   background-color: #fff;
@@ -496,10 +514,16 @@ button {
   padding: 1rem;
   border-radius: 15px;
   box-shadow: 0px 2px 5px #aaa;
+  z-index: 1000;
 }
 .form-teacher__wrapper-days {
   display: flex;
   gap: 10px;
+}
+.form-teacher__input-day {
+  display: flex;
+  align-items: center;
+  gap: 5px;
 }
 .form-teacher__wrapper-selectors {
   display: flex;
@@ -517,6 +541,11 @@ button {
   border-radius: 10px;
   cursor: pointer;
   transition: 0s;
+}
+.form-teacher__select-schedules {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 .form-teacher__wrapper-schedules {
   display: flex;
@@ -583,12 +612,32 @@ button {
   border-radius: 15px;
   box-shadow: 0px 2px 5px #aaa;
 }
+.home-search__wrapper {
+  display: flex;
+  flex: 4;
+  gap: 20px;
+}
 .home-search__progress {
   background-color: #fff;
-  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex: 1.9;
   padding: 1rem 2rem;
   border-radius: 15px;
   box-shadow: 0px 2px 5px #aaa;
+}
+.home-search__progress__info {
+  height: 100%;
+}
+.home-search__data {
+  background-color: #fff;
+  flex: 1;
+  border-radius: 15px;
+  box-shadow: 0px 2px 5px #aaa;
+}
+.home-search__image {
+  height: 350px;
 }
 .home-search__wrapper-home-search {
   display: flex;
@@ -687,45 +736,80 @@ button {
   left: 50%;
   transform: translate(-50%, -50%);
   background-color: #fff;
-  width: 800px;
   height: 600px;
-  padding: 2rem 3rem;
+  width: 800px;
+  padding-bottom: 1.5rem;
+  border-radius: 5px;
 }
 .teacher-info__content {
+  position: relative;
   height: 96%;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 1.5rem 2rem;
+}
+.teacher-info__color {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 40%;
+  width: 100%;
+  z-index: 100;
+  border-top-right-radius: 5px;
+  border-top-left-radius: 5px;
 }
 .teacher-info__top {
   height: 50%;
   display: flex;
+  gap: 20px;
+}
+.teacher-info__top > div {
+  background-color: #fff;
+  border-radius: 15px;
+  z-index: 1000;
 }
 .teacher-info__teacher {
-  width: fit-content;
+  width: 25%;
   display: flex;
-  flex-direction: column;
   align-items: center;
+  flex-direction: column;
+  gap: 20px;
+  padding: 1rem;
+  box-shadow: 0px 2px 5px #aaa;
 }
 .teacher-info__image {
   height: 100px;
   border-radius: 50%;
 }
-.teacher-info__day {
-  display: flex;
+.teacher-info__subjects {
+  flex: 1;
+  padding: 1rem;
+  box-shadow: 0px 2px 5px #444;
 }
 .teacher-info__bottom {
   height: 45%;
   display: flex;
   flex: auto;
+  border-radius: 15px;
+  box-shadow: 0px 2px 5px #444;
 }
 .teacher-info__observation {
   width: 40%;
+  padding: 1rem;
+}
+.teacher-info__wrapper-day {
+  display: flex;
+  padding: 1rem;
 }
 .teacher-info__wrapper-button {
   width: 100%;
   display: flex;
-  justify-content: end;
-  gap: 20px;
+  justify-content: center;
+  gap: 100px;
 }
 .teacher-info__wrapper-button > button {
+  width: 150px;
   padding: 0.5rem 2rem;
   border-radius: 30px;
 }

@@ -1,12 +1,27 @@
 .form-teacher{
     position: absolute;
-    top: 50vh;
+    top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     background-color: $corBranco;
-    padding: 1.5rem 2rem;
     border-radius: 5px;
     z-index: 1000;
+
+    form{
+        position: relative;
+        padding: 1.5rem 2rem;
+    }
+
+    &__color{
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 250px;
+        width: 100%;
+        z-index: 100;
+        border-top-right-radius: 5px;
+        border-top-left-radius: 5px;
+    }
 
     &__wrapper-form-teacher{
         display: flex;
@@ -24,29 +39,33 @@
         gap: 20px;
 
         &__top{
-            background-color: $corBranco;
+            background-color: #fff;
             display: flex;
             flex-direction: column;
             gap: 20px;
             padding: 1rem;
             border-radius: 15px;
             box-shadow: 0px 2px 5px #aaa;
+            z-index: 1000;
         }
 
         &__bottom{
-            background-color: $corBranco;
+            background-color: #fff;
             display: flex;
             flex-direction: column;
             gap: 25px;
             padding: 1rem;
             border-radius: 15px;
             box-shadow: 0px 2px 5px #aaa;
+            z-index: 1000;
         }
     }
 
     &__input-foto{
         display: flex;
+        align-items: center;
         justify-content: center;
+        flex-direction: column;
         gap: 10px;
 
         input[type=file]{
@@ -121,24 +140,32 @@
         gap: 20px;
 
         &__top{
-            background-color: $corBranco;
+            background-color: #fff;
             padding: 1rem;
             border-radius: 15px;
             box-shadow: 0px 2px 5px #aaa;
+            z-index: 1000;
         }
 
         &__bottom{
-            background-color: $corBranco;
+            background-color: #fff;
             flex: 1;
             padding: 1rem;
             border-radius: 15px;
             box-shadow: 0px 2px 5px #aaa;
+            z-index: 1000;
         }
     }
 
     &__wrapper-days{
         display: flex;
         gap: 10px;
+    }
+
+    &__input-day{
+        display: flex;
+        align-items: center;
+        gap: 5px;
     }
 
     &__wrapper-selectors{
@@ -160,6 +187,12 @@
             cursor: pointer;
             transition: 0s;
         }
+    }
+
+    &__select-schedules{
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
     }
 
     &__wrapper-schedules{

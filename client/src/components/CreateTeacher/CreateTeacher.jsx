@@ -96,8 +96,9 @@ const CreateTeacher = ({showModal, closeModal}) => {
     }
 
   return (
-    <div className="form-teacher" style={{ border: `5px solid ${teacherColorCard}`, display: showModal}}> 
+    <div className="form-teacher" style={{display: showModal}}> 
         <form onSubmit={handleTeacherCreation}>
+          <div className='form-teacher__color' style={{backgroundColor: teacherColorCard}}></div>
           <div className='form-teacher__wrapper-form-teacher'>
             <div className='form-teacher__left'>
               <div className='form-teacher__left__top'>
@@ -206,13 +207,13 @@ const CreateTeacher = ({showModal, closeModal}) => {
                   <h4 className='select-text'>Selecione as matérias</h4>
                   <div className='form-teacher__wrapper-schedules'>
                     <div className='form-teacher__wrapper-selectors'>
-                      <input type='radio' name='a' id='a1' onClick={tab1Open}></input>
+                      <input type='radio' name='a' id='a1' onClick={tab1Open}/>
                       <label for='a1'>Módulo 1</label>
 
-                      <input type='radio' name='a' id='a2' onClick={tab2Open}></input>
+                      <input type='radio' name='a' id='a2' onClick={tab2Open}/>
                       <label for='a2'>Módulo 2</label>
 
-                      <input type='radio' name='a' id='a3' onClick={tab3Open}></input>
+                      <input type='radio' name='a' id='a3' onClick={tab3Open}/>
                       <label for='a3'>Módulo 3</label>
                     </div>
                     <div> 
