@@ -53,9 +53,10 @@ const TeacherSchedule = ({ day, submit, handlerOnChange }) => {
     const placeID = day
 
   return (
-    <div className='card-day' style={{border: `4px solid ${teacherColor}`}}>    
+    <div className='card-day'>   
+        <div className='card-day__color' style={{backgroundColor: teacherColor}}></div> 
         <div className='card-day__wrapper-select' >
-            <select name={`teacher${day}`} onChange={handlerOnChange} onClick={(e)=>{setTeacherID(e.target.value); if(e.target.value != '0'){getScheduleID(e.target.value); getColor(e.target.value)}}}>
+            <select className='card-day__select' name={`teacher${day}`} onChange={handlerOnChange} onClick={(e)=>{setTeacherID(e.target.value); if(e.target.value != '0'){getScheduleID(e.target.value); getColor(e.target.value)}}}>
                 <option value='0'>Selecione...</option>
                 {
                     teacherArray.map((teacher) =>{
@@ -65,7 +66,7 @@ const TeacherSchedule = ({ day, submit, handlerOnChange }) => {
                     })
                 }   
             </select>
-            <select name={`subject${day}`} onChange={handlerOnChange} onClick={(e)=>{setSelectedSubject(e.target.value)}}>
+            <select className='card-day__select' name={`subject${day}`} onChange={handlerOnChange} onClick={(e)=>{setSelectedSubject(e.target.value)}}>
                 <option value='0'>Selecione...</option>
                 {
                     subjectArray.map((subject) =>{
@@ -75,7 +76,7 @@ const TeacherSchedule = ({ day, submit, handlerOnChange }) => {
                     })
                 }
             </select>
-            <select name={`classRoom${day}`} onChange={handlerOnChange} onClick={(e)=>{setSelectedClassRoom(e.target.value)}}>
+            <select className='card-day__select' name={`classRoom${day}`} onChange={handlerOnChange} onClick={(e)=>{setSelectedClassRoom(e.target.value)}}>
                 <option value='0'>Selecione...</option>
                 {
                     classRoomArray.map((classRoom) =>{
