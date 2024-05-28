@@ -43,7 +43,7 @@ const CreateTeacher = ({showModal, closeModal}) => {
     }, [setSubjectsFirstModule, setSubjectsSecondModule, setSubjectsThirdModule])
 
     const [teacherName, setTeacherName] = useState(null);
-    const [teacherColorCard, setTeacherColorCard] = useState(null);
+    const [teacherColorCard, setTeacherColorCard] = useState('#fff');
     const [teacherArraySubjects, setArraySubjects] = useState([]);
     const [teacherArrayDays, setArrayDays] = useState([]);
     const [teacherNote, setTeacherNote] = useState(null);
@@ -73,26 +73,26 @@ const CreateTeacher = ({showModal, closeModal}) => {
       }
     }
 
-    const [tab1State, setTab1State] = useState("block")
+    const [tab1State, setTab1State] = useState("flex")
     const [tab2State, setTab2State] = useState("none")
     const [tab3State, setTab3State] = useState("none")
 
     function tab1Open(){
-      setTab1State("block")
+      setTab1State("flex")
       setTab2State("none")
       setTab3State("none")
     }
 
     function tab2Open(){
       setTab1State("none")
-      setTab2State("block")
+      setTab2State("flex")
       setTab3State("none")
     }
 
     function tab3Open(){
       setTab1State("none")
       setTab2State("none")
-      setTab3State("block")
+      setTab3State("flex")
     }
 
   return (
@@ -104,12 +104,12 @@ const CreateTeacher = ({showModal, closeModal}) => {
                 <div className='form-teacher__input-foto'>
                   <input type="file" id='foto' onChange={getFile} />
                   <img src={file} id='teacherile-pic' alt='default-pic' />
-                  <label for='foto' id='input-file' accept="image/jpeg, image/png, image/jpg">Colocar Imagem</label>
+                  <label for='foto' id='input-file' accept="image/jpeg, image/png, image/jpg">+ Imagem</label>
                 </div>
                 <div className="form-teacher__input-name">
+                  <h4 className='select-text'>Nome</h4>
                   <input type='text' required
                   value={teacherName} onChange={(event) => setTeacherName(event.target.value)}/>
-                  <p className='form-teacher__placeholder'>Nome</p>
                 </div>
               </div>
 
@@ -128,7 +128,7 @@ const CreateTeacher = ({showModal, closeModal}) => {
                 </div>
                 <div className='form-teacher__observation'>
                   <h4 className='select-text'>Observações</h4>
-                  <input type="text" maxlength="150"
+                  <textarea type="text" cols='15'
                   value={teacherNote} onChange={(event) => setTeacherNote(event.target.value)}/>
               </div>
               </div>
@@ -204,13 +204,18 @@ const CreateTeacher = ({showModal, closeModal}) => {
              <div className='form-teacher__right__bottom'>
                 <div className='form-teacher__select-schedules'>
                   <h4 className='select-text'>Selecione as matérias</h4>
-                  <div className='form-teacher__div-schedules'>
-                    <div>
-                      <button type='button' onClick={tab1Open}>1º Módulo</button>
-                      <button type='button' onClick={tab2Open}>2º Módulo</button>
-                      <button type='button' onClick={tab3Open}>3º Módulo</button>
+                  <div className='form-teacher__wrapper-schedules'>
+                    <div className='form-teacher__wrapper-selectors'>
+                      <input type='radio' name='a' id='a1' onClick={tab1Open}></input>
+                      <label for='a1'>Módulo 1</label>
+
+                      <input type='radio' name='a' id='a2' onClick={tab2Open}></input>
+                      <label for='a2'>Módulo 2</label>
+
+                      <input type='radio' name='a' id='a3' onClick={tab3Open}></input>
+                      <label for='a3'>Módulo 3</label>
                     </div>
-                    <div>
+                    <div> 
                       <div>
                         {
                           subjectsFirstModule.map((subject) => {
@@ -259,9 +264,9 @@ const CreateTeacher = ({showModal, closeModal}) => {
               </div>
             </div>
           </div>
-          <div className='form-teacher__btns'>
-            <button className='form-teacher__btns-cancelar' type='button' onClick={() => closeModal()}>Cancelar</button>
-            <button className='form-teacher__btns__submit' type='submit'>Salvar</button>
+          <div className='form-teacher__wrapper-buttons'>
+            <button className='form-teacher__button-cancel' type='button' onClick={() => closeModal()}>Cancelar</button>
+            <button className='form-teacher__button-submit' type='submit'>Salvar</button>
           </div>
         </form>
       </div>

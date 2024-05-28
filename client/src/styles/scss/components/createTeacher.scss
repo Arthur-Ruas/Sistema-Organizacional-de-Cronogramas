@@ -18,13 +18,16 @@
     }
 
     &__left{
-        width: 40%;
+        width: 35%;
         display: flex;
         flex-direction: column;
         gap: 20px;
 
         &__top{
             background-color: $corBranco;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
             padding: 1rem;
             border-radius: 15px;
             box-shadow: 0px 2px 5px #aaa;
@@ -32,6 +35,9 @@
 
         &__bottom{
             background-color: $corBranco;
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
             padding: 1rem;
             border-radius: 15px;
             box-shadow: 0px 2px 5px #aaa;
@@ -40,18 +46,18 @@
 
     &__input-foto{
         display: flex;
-        align-items: center;
         justify-content: center;
-        flex-direction: column;
         gap: 10px;
 
         input[type=file]{
             display: none;
+
         }
 
         label{                
             background: $degrade;
             color: $corBranco;
+            height: fit-content;
             padding: .3rem .8rem;
             border-radius: 5px;
             font-size: .8rem;
@@ -59,10 +65,18 @@
         }
                 
         img{
-            height: 120px;
-            width: 120px;
+            height: min(100px, 100px);
+            width: min(100px, 100px);
             border-radius: 50%;
         }   
+    }
+
+    &__input-name{
+        width: 100%;
+
+        input{
+            width: 100%;
+        }
     }
 
     &__select-color{
@@ -74,7 +88,7 @@
     &__wrapper-select-color{
         display: flex;
         flex-wrap: wrap;
-        gap: 1rem;
+        gap: 10px;
     }
 
     &__input-select-color{
@@ -88,7 +102,20 @@
         }
     }
 
+    &__observation{
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+
+        textarea{
+            height: 50px;
+            width: 100%;
+            resize: none;
+        }
+    }
+
     &__right{
+        flex: 1;
         display: flex;
         flex-direction: column;
         gap: 20px;
@@ -102,6 +129,7 @@
 
         &__bottom{
             background-color: $corBranco;
+            flex: 1;
             padding: 1rem;
             border-radius: 15px;
             box-shadow: 0px 2px 5px #aaa;
@@ -111,5 +139,66 @@
     &__wrapper-days{
         display: flex;
         gap: 10px;
+    }
+
+    &__wrapper-selectors{
+        display: flex;
+        gap: 10px;
+
+        input[type=radio]{
+            display: none;
+        }
+
+        input[type=radio]:checked + label{
+            background: linear-gradient(to left, #ffbe46, #f43e4b);
+            color: #fff;
+        }
+
+        label{
+            padding: .1rem .5rem;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: 0s;
+        }
+    }
+
+    &__wrapper-schedules{
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    &__input-schedules{
+        gap: 5px;
+        
+        input, label{
+            cursor: pointer;
+        }
+    }
+
+    &__wrapper-buttons{
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        gap: 100px;
+        padding-top: 2rem;
+
+        button{
+            width: 120px;
+            padding: .5rem;
+            border-radius: 15px;
+            cursor: pointer;
+        }
+    }
+
+    &__button-cancel{
+        background-color: #fff;
+        border: 2px solid #f43e4b;
+    }
+
+    &__button-submit{
+        background: linear-gradient(to left, #ffbe46, #f43e4b);
+        border: 2px;
+        color: #fff;
     }
 }

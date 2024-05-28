@@ -398,28 +398,32 @@ button {
   color: #aaa;
 }
 .form-teacher__left {
-  width: 40%;
+  width: 35%;
   display: flex;
   flex-direction: column;
   gap: 20px;
 }
 .form-teacher__left__top {
   background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
   padding: 1rem;
   border-radius: 15px;
   box-shadow: 0px 2px 5px #aaa;
 }
 .form-teacher__left__bottom {
   background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
   padding: 1rem;
   border-radius: 15px;
   box-shadow: 0px 2px 5px #aaa;
 }
 .form-teacher__input-foto {
   display: flex;
-  align-items: center;
   justify-content: center;
-  flex-direction: column;
   gap: 10px;
 }
 .form-teacher__input-foto input[type=file] {
@@ -428,15 +432,22 @@ button {
 .form-teacher__input-foto label {
   background: linear-gradient(to left, #ffbe46, #f43e4b);
   color: #fff;
+  height: fit-content;
   padding: 0.3rem 0.8rem;
   border-radius: 5px;
   font-size: 0.8rem;
   cursor: pointer;
 }
 .form-teacher__input-foto img {
-  height: 120px;
-  width: 120px;
+  height: 100px;
+  width: 100px;
   border-radius: 50%;
+}
+.form-teacher__input-name {
+  width: 100%;
+}
+.form-teacher__input-name input {
+  width: 100%;
 }
 .form-teacher__select-color {
   display: flex;
@@ -446,7 +457,7 @@ button {
 .form-teacher__wrapper-select-color {
   display: flex;
   flex-wrap: wrap;
-  gap: 1rem;
+  gap: 10px;
 }
 .form-teacher__input-select-color {
   height: 25px;
@@ -457,7 +468,18 @@ button {
 .form-teacher__input-select-color:hover {
   transform: translateY(-3px);
 }
+.form-teacher__observation {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.form-teacher__observation textarea {
+  height: 50px;
+  width: 100%;
+  resize: none;
+}
 .form-teacher__right {
+  flex: 1;
   display: flex;
   flex-direction: column;
   gap: 20px;
@@ -470,6 +492,7 @@ button {
 }
 .form-teacher__right__bottom {
   background-color: #fff;
+  flex: 1;
   padding: 1rem;
   border-radius: 15px;
   box-shadow: 0px 2px 5px #aaa;
@@ -477,6 +500,56 @@ button {
 .form-teacher__wrapper-days {
   display: flex;
   gap: 10px;
+}
+.form-teacher__wrapper-selectors {
+  display: flex;
+  gap: 10px;
+}
+.form-teacher__wrapper-selectors input[type=radio] {
+  display: none;
+}
+.form-teacher__wrapper-selectors input[type=radio]:checked + label {
+  background: linear-gradient(to left, #ffbe46, #f43e4b);
+  color: #fff;
+}
+.form-teacher__wrapper-selectors label {
+  padding: 0.1rem 0.5rem;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 0s;
+}
+.form-teacher__wrapper-schedules {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.form-teacher__input-schedules {
+  gap: 5px;
+}
+.form-teacher__input-schedules input, .form-teacher__input-schedules label {
+  cursor: pointer;
+}
+.form-teacher__wrapper-buttons {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  gap: 100px;
+  padding-top: 2rem;
+}
+.form-teacher__wrapper-buttons button {
+  width: 120px;
+  padding: 0.5rem;
+  border-radius: 15px;
+  cursor: pointer;
+}
+.form-teacher__button-cancel {
+  background-color: #fff;
+  border: 2px solid #f43e4b;
+}
+.form-teacher__button-submit {
+  background: linear-gradient(to left, #ffbe46, #f43e4b);
+  border: 2px;
+  color: #fff;
 }
 
 .home-search {
