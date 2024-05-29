@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import API from '../../API';
 
-const TeacherSchedule = ({ day, submit, handlerOnChange }) => {
+const TeacherSchedule = ({ day, handlerOnChange }) => {
 
     const [teacherName, setTeacherName] = useState('');
     const [teacherID, setTeacherID] = useState('');

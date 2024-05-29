@@ -5,12 +5,6 @@ import { useLocation } from 'react-router-dom';
 
 const Schedule = () => {
 
-  const [submit, setSubmit] = useState(false);
-
-  function handleSubmit(){
-    setSubmit(true)
-  }
-  
   const location = useLocation();
   const classDivison = location.state[0]
   const classModule = location.state[1]
@@ -103,9 +97,6 @@ const Schedule = () => {
         }
   }
 
-  if(submit == true){
-      handleCreate()
-  }
 
   console.log(arrayData)
 
@@ -127,28 +118,45 @@ const Schedule = () => {
           }    
           
       <div className="schedule__wrapper-button">
-        <button className="schedule__cancel-button">Cancelar</button>
-        <button className="schedule__save-button" onClick={handleCreate}>Salvar</button>
+        <button className="schedule__button-cancel">Cancelar</button>
+        <button className="schedule__button-save" onClick={handleCreate}>Salvar</button>
       </div>
 
       </header>
-      <div className='schedule__top'>
-        <TeacherSchedule day='1' submit={submit} handlerOnChange={handlerChangeCategory1}/>
-        <TeacherSchedule day='2' submit={submit} handlerOnChange={handlerChangeCategory2}/>
-        <TeacherSchedule day='3' submit={submit} handlerOnChange={handlerChangeCategory3}/>
-        <TeacherSchedule day='4' submit={submit} handlerOnChange={handlerChangeCategory4}/>
-        <TeacherSchedule day='5' submit={submit} handlerOnChange={handlerChangeCategory5}/>
+      <div className='schedule__wrapper-days'>
+        <div>
+          <h4>Segunda-Feira</h4>
+          <TeacherSchedule day='1' handlerOnChange={handlerChangeCategory1}/>
+          <TeacherSchedule day='6' handlerOnChange={handlerChangeCategory6}/>
+        </div>
+        
+        <div>
+          <h4>Terça-Feira</h4>
+          <TeacherSchedule day='2' handlerOnChange={handlerChangeCategory2}/>
+          <TeacherSchedule day='7' handlerOnChange={handlerChangeCategory7}/>
+        </div>
+        
+        <div>
+          <h4>Quarta-Feira</h4>
+          <TeacherSchedule day='3' handlerOnChange={handlerChangeCategory3}/>
+          <TeacherSchedule day='8' handlerOnChange={handlerChangeCategory8}/>
+        </div>
+       
+       <div>
+        <h4>Quinta-Feira</h4>
+        <TeacherSchedule day='4' handlerOnChange={handlerChangeCategory4}/>
+        <TeacherSchedule day='9' handlerOnChange={handlerChangeCategory9}/>
+       </div>
+       
+       <div>
+        <h4>Sexta-Feira</h4>
+        <TeacherSchedule day='5' handlerOnChange={handlerChangeCategory5}/>
+        <TeacherSchedule day='10' handlerOnChange={handlerChangeCategory10}/>
+       </div> 
       </div>
-      <div className='schedule__bottom'>
-        <TeacherSchedule day='6' submit={submit} handlerOnChange={handlerChangeCategory6}/>
-        <TeacherSchedule day='7' submit={submit} handlerOnChange={handlerChangeCategory7}/>
-        <TeacherSchedule day='8' submit={submit} handlerOnChange={handlerChangeCategory8}/>
-        <TeacherSchedule day='9' submit={submit} handlerOnChange={handlerChangeCategory9}/>
-        <TeacherSchedule day='10' submit={submit} handlerOnChange={handlerChangeCategory10}/>
+      <div className='schedule__help'>  
+          <h4>Help</h4>
       </div>
-
-
-
     </div>
   )
 }
