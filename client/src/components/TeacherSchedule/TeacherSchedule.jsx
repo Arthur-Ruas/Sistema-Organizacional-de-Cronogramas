@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import API from '../../API';
 
-const TeacherSchedule = ({ day, handlerOnChange }) => {
+const TeacherSchedule = ({ day, module, handlerOnChange }) => {
 
     const [teacherName, setTeacherName] = useState('');
     const [teacherID, setTeacherID] = useState('');
@@ -26,7 +26,7 @@ const TeacherSchedule = ({ day, handlerOnChange }) => {
     }
  
     async function getScheduleID(id){
-        const resSchedule = await API.get("createSchedule/schedule/" + id)
+        const resSchedule = await API.get("createSchedule/schedule/" + id + "/"+ module)
 
         setSubjectArray(resSchedule.data.message)
     }
