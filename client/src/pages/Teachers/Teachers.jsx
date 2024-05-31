@@ -65,11 +65,9 @@ const Teachers = () => {
 
     setTeacherDays(teacherDaysData)
     setTeacherSubjects(teacherSubjectsData)
-
   }
 
   useEffect(() =>{
-    console.log(teacherDaysArray, teacherSubjectsArray)
   }, [teacherDaysArray, teacherSubjectsArray])
 
   return (
@@ -80,12 +78,12 @@ const Teachers = () => {
       </div>
       <CreateTeacher showModal={modalOpen} closeModal={handleStateForm}/>
       <TeacherInfo 
-      showInfo={infoOpen} closeInfo={handleStateInfo}
-      name={teacherName} 
-      color={colorCard} 
-      observation={teacherObservation} 
-      days={teacherDaysArray}
-      subjects={teacherSubjectsArray}/>
+        showInfo={infoOpen} closeInfo={handleStateInfo}
+        name={teacherName} 
+        color={colorCard} 
+        observation={teacherObservation} 
+        days={teacherDaysArray}
+        subjects={teacherSubjectsArray}/>
     </>
   )
 }

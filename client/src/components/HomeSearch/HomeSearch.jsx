@@ -1,23 +1,31 @@
 import React, { useEffect, useState } from 'react';
 import API from '../../API';
-
+import { useNavigate } from 'react-router-dom';
 import Image from '../../assets/scheduleImage.png';
 
 import ScheduleCard from '../ScheduleCard/ScheduleCard';
 
 const HomeSearch = ({openModal}) => {
 
-  const [schedules, setSchedules] = useState([])
+  const navigate = useNavigate();
+
+  const [schedules, setSchedules] = useState([]);
+  const [progressSchedules, setProgressSchedules] = useState([]);
 
     async function getSchedules(){
         const res = await API.get("/schedule");
         setSchedules(res.data.message)
-        console.log(res.data)
     }
 
+    async function getProgressSchedules(){
+      const res = await API.get("/schedule/progress");
+      setProgressSchedules(res.data.message)
+  }
+
     useEffect(() => {
-      getSchedules()
-    }, [setSchedules])
+      getSchedules();
+      getProgressSchedules();
+    }, [setSchedules, setProgressSchedules])
 
   return (
     <div className='home-search'>
@@ -35,6 +43,19 @@ const HomeSearch = ({openModal}) => {
           <div className='home-search__progress'>
             <div className='home-search__progress__info'>
               <h1>Horário em andamento</h1>
+              <div>
+                {
+                  progressSchedules.map((schedule) =>{
+                    return(
+                      <div>
+                        <h1>{schedule.Nome}</h1>
+                        <h4>{schedule.Divisao}</h4>
+                        <h4>{schedule.Modulo}</h4>
+                      </div>
+                    )
+                  })
+                }
+              </div>
             </div>
             <img className='home-search__image' src={Image}/>
           </div>
@@ -49,7 +70,8 @@ const HomeSearch = ({openModal}) => {
                 <ScheduleCard 
                   scheduleName={schedule.nome}
                   classDivision={schedule.divisao_turma}
-                  classModule={schedule.modulo}/>
+                  classModule={schedule.modulo}
+                  scheduleID={schedule.ID}/>
               )
             })
           }

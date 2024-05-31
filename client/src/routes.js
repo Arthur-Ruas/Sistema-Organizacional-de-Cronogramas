@@ -5,6 +5,7 @@ import Register from './pages/Register/Register';
 import Home from './pages/Home/Home';
 import Teachers from './pages/Teachers/Teachers';
 import Schedule from './pages/Schedule/Schedule';
+import ViewSchedule from './pages/ViewSchedule/ViewSchedule';
 
 const routes = () => {
   return (
@@ -15,6 +16,7 @@ const routes = () => {
         <Route path="/home" element={<Home/>}></Route>
         <Route path="/teachers" element={<Teachers/>}></Route>
         <Route path="/createSchedule" element={<Schedule/>}></Route>
+        <Route path="/viewSchedule" element={<ViewSchedule/>}></Route>
       </Routes>
     </BrowserRouter>
   )

@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from 'react'
 import API from '../../API';
 import TeacherSchedule from '../../components/TeacherSchedule/TeacherSchedule';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 const Schedule = () => {
+
+  const navigate = useNavigate()
 
   const location = useLocation();
   const classDivison = location.state[0]
@@ -100,7 +102,7 @@ const Schedule = () => {
       const dataSchedule = {scheduleID, arrayData, classID}
       try {
           API.put('/teacherSchedule', dataSchedule);
-    
+          navigate('/home')
       }catch (err) {
         alert(`Erro ao cadastrar. ${err}`)
       }
