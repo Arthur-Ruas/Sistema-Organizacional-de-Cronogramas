@@ -13,22 +13,19 @@ const ViewSchedule = () => {
 
     const [scheduleInfo, setScheduleInfo] = useState([]);
     const [scheduleItems, setScheduleItems] = useState([]);
-    const [scheduleName, setScheduleName] = useState();
+    const [scheduleName, setScheduleName] = useState({});
 
     async function getSchedule(){
       const info = await API.get("/schedule/schedulInfo/" + id);
       const res = await API.get("/schedule/viewSchedule/" + id);
       setScheduleInfo(info.data.message)
       setScheduleItems(res.data.message)
-      setScheduleName(scheduleInfo[0].Nome)
     }
 
     useEffect(() => {
         getSchedule();
     }, [setScheduleInfo, setScheduleInfo])
     
-    console.log(scheduleInfo)
-    console.log(scheduleName)
 
     //codigo Exportando Imagem
     const containerRef = useRef(null);
@@ -38,7 +35,7 @@ const ViewSchedule = () => {
         try {
           const dataUrl = await htmlToImage.toPng(containerRef.current);
           const link = document.createElement('a');
-          link.download = `${scheduleName}.png`;
+          link.download = `HorárioEscolar.png`;
           link.href = dataUrl;
           link.click();
         } catch (error) {
