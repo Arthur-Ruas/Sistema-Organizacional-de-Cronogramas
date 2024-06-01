@@ -31,15 +31,16 @@ const TeacherSchedule = ({ day, module, handlerOnChange }) => {
         setSubjectArray(resSchedule.data.message)
     }
 
-    async function getClassRoom(){
-        const resClassRoom = await API.get("createSchedule/soc/classRoom")
+    async function getClassRoom(id){
+        const resClassRoom = await API.get("createSchedule/soc/classRoom/" + id)
 
         setClassRoomArray(resClassRoom.data.message)
+        console.log(resClassRoom)
     }
 
     useEffect(() =>{
         getDayID(day);
-        getClassRoom();
+        getClassRoom(day);
     }, [setTeacherArray, setClassRoomArray])
 
     const [scheduleID, setSelectedSchedule] = useState('1');

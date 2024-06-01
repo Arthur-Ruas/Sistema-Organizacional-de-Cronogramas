@@ -11,14 +11,16 @@ const ViewSchedule = () => {
     const location = useLocation();
     const id = location.state;
 
-    const [scheduleInfo, setScheduleInfo] = useState([])
-    const [scheduleItems, setScheduleItems] = useState([])
+    const [scheduleInfo, setScheduleInfo] = useState([]);
+    const [scheduleItems, setScheduleItems] = useState([]);
+    const [scheduleName, setScheduleName] = useState();
 
     async function getSchedule(){
       const info = await API.get("/schedule/schedulInfo/" + id);
       const res = await API.get("/schedule/viewSchedule/" + id);
       setScheduleInfo(info.data.message)
       setScheduleItems(res.data.message)
+      setScheduleName(scheduleInfo[0].Nome)
     }
 
     useEffect(() => {
@@ -26,7 +28,7 @@ const ViewSchedule = () => {
     }, [setScheduleInfo, setScheduleInfo])
     
     console.log(scheduleInfo)
-
+    console.log(scheduleName)
 
     //codigo Exportando Imagem
     const containerRef = useRef(null);
@@ -36,7 +38,7 @@ const ViewSchedule = () => {
         try {
           const dataUrl = await htmlToImage.toPng(containerRef.current);
           const link = document.createElement('a');
-          link.download = `teste.png`;
+          link.download = `${scheduleName}.png`;
           link.href = dataUrl;
           link.click();
         } catch (error) {
