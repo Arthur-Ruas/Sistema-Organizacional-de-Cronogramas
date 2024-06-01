@@ -648,6 +648,13 @@ button {
   display: flex;
   gap: 20px;
 }
+.home-search__no-content {
+  background-color: #eee;
+  flex: 1;
+  padding: 3rem 3rem;
+  border-radius: 15px;
+  box-shadow: 0px 2px 5px #aaa;
+}
 
 .form-schedule {
   position: absolute;

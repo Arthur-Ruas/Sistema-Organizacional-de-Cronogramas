@@ -68,4 +68,12 @@
         display: flex;
         gap: 20px;   
     }
+
+    &__no-content{
+        background-color: #eee;
+        flex: 1;
+        padding: 3rem 3rem;
+        border-radius: 15px;
+        box-shadow: 0px 2px 5px #aaa;
+    }
 }

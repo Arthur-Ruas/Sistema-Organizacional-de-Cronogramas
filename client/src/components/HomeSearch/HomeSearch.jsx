@@ -45,15 +45,25 @@ const HomeSearch = ({openModal}) => {
               <h1>Horário em andamento</h1>
               <div>
                 {
-                  progressSchedules.map((schedule) =>{
-                    return(
-                      <div>
-                        <h1>{schedule.Nome}</h1>
-                        <h4>{schedule.Divisao}</h4>
-                        <h4>{schedule.Modulo}</h4>
-                      </div>
-                    )
-                  })
+                  progressSchedules && (            
+                    progressSchedules.map((schedule) =>{
+                      return(
+                        <div>
+                          <h1>{schedule.Nome}</h1>
+                          <h4>{schedule.Divisao}</h4>
+                          <h4>{schedule.Modulo}</h4>
+                        </div>
+                      )
+                    })
+                  )
+                }
+                {
+                   progressSchedules == undefined &&(
+                    <div>
+                      <h4>Opa! kk</h4>
+                      <h6>Parece que você ainda não criou um horário</h6>
+                    </div>
+                  )
                 }
               </div>
             </div>
@@ -65,15 +75,24 @@ const HomeSearch = ({openModal}) => {
         </div>  
         <div className='home-search__wrapper-home-search'>
           {
-            schedules.map((schedule) => {
-              return(
-                <ScheduleCard 
-                  scheduleName={schedule.nome}
-                  classDivision={schedule.divisao_turma}
-                  classModule={schedule.modulo}
-                  scheduleID={schedule.ID}/>
-              )
-            })
+            schedules &&(
+              schedules.map((schedule) => {
+                return(
+                  <ScheduleCard 
+                    scheduleName={schedule.nome}
+                    classDivision={schedule.divisao_turma}
+                    classModule={schedule.modulo}
+                    scheduleID={schedule.ID}/>
+                )
+              })
+            )
+          }
+          {
+            schedules == undefined &&(
+              <div className='home-search__no-content'>
+                <h1>Seus horários aparecerão aqui</h1>
+              </div>
+            )
           }
         </div>
       </div>
