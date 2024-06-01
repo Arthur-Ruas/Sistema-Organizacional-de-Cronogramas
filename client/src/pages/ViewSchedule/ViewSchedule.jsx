@@ -20,12 +20,14 @@ const ViewSchedule = () => {
       const res = await API.get("/schedule/viewSchedule/" + id);
       setScheduleInfo(info.data.message)
       setScheduleItems(res.data.message)
+      setScheduleName(info.data.message[0].Nome)
     }
 
     useEffect(() => {
         getSchedule();
-    }, [setScheduleInfo, setScheduleInfo])
+    }, [setScheduleInfo, setScheduleInfo, setScheduleName])
     
+    console.log(scheduleName)
 
     //codigo Exportando Imagem
     const containerRef = useRef(null);
@@ -35,7 +37,7 @@ const ViewSchedule = () => {
         try {
           const dataUrl = await htmlToImage.toPng(containerRef.current);
           const link = document.createElement('a');
-          link.download = `HorárioEscolar.png`;
+          link.download = `${scheduleName}.png`;
           link.href = dataUrl;
           link.click();
         } catch (error) {
