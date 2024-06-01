@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import API from '../../API';
 import { useLocation, useNavigate } from 'react-router-dom';
+import { useRef } from 'react';
+import * as htmlToImage from 'html-to-image';
 
 import ScheduleItem from '../../components/ScheduleItem/ScheduleItem';
 
@@ -24,8 +26,27 @@ const ViewSchedule = () => {
     }, [setScheduleInfo, setScheduleInfo])
     
     console.log(scheduleInfo)
+
+
+    //codigo Exportando Imagem
+    const containerRef = useRef(null);
+
+    const downloadImage = async () => {
+      if (containerRef.current) {
+        try {
+          const dataUrl = await htmlToImage.toPng(containerRef.current);
+          const link = document.createElement('a');
+          link.download = `teste.png`;
+          link.href = dataUrl;
+          link.click();
+        } catch (error) {
+          console.error("Failed to convert to image", error);
+        }
+      }
+    };
+
   return (
-    <div>
+    <div ref={containerRef} style={{backgroundColor: 'white'}}>
       {
         scheduleInfo.map((info) =>{
           return(
@@ -48,7 +69,7 @@ const ViewSchedule = () => {
           )
         })
       }
-      
+      <button onClick={downloadImage}>download imagem</button>
     </div>
   )
 }
