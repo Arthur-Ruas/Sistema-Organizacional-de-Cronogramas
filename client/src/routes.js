@@ -6,6 +6,7 @@ import Home from './pages/Home/Home';
 import Teachers from './pages/Teachers/Teachers';
 import Schedule from './pages/Schedule/Schedule';
 import ViewSchedule from './pages/ViewSchedule/ViewSchedule';
+import ListSchedule from './pages/ListSchedule/ListSchedule';
 
 const routes = () => {
   return (
@@ -17,6 +18,7 @@ const routes = () => {
         <Route path="/teachers" element={<Teachers/>}></Route>
         <Route path="/createSchedule" element={<Schedule/>}></Route>
         <Route path="/viewSchedule" element={<ViewSchedule/>}></Route>
+        <Route path="/listSchedule" element={<ListSchedule/>}></Route>
       </Routes>
     </BrowserRouter>
   )

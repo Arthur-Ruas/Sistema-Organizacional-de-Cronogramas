@@ -33,7 +33,7 @@ const Sidebar = () => {
                 </Link>                  
             </li>
             <li className='sidebar__item'>
-                <Link to="/teachers" className='sidebar__link'>
+                <Link to="/listSchedule" className='sidebar__link'>
                     <GrSchedules className='sidebar__icon'/> 
                     <p className='sidebar__text'>Horários</p>
                 </Link>                  
