@@ -274,14 +274,16 @@ button {
   border-radius: 15px;
   box-shadow: 0px 2px 5px #aaa;
 }
-.schedule__wrapper-days > div {
-  width: 20%;
+.schedule__wrapper-days {
   display: flex;
   flex-direction: column;
-  gap: 20px;
 }
-.schedule__wrapper-days > div > h4 {
-  text-decoration: underline;
+.schedule__wrapper-days__first-block, .schedule__wrapper-days__second-block {
+  width: 100%;
+  display: flex;
+}
+.schedule__wrapper-days__first-block > div, .schedule__wrapper-days__second-block > div {
+  width: 100%;
 }
 
 .view-schedule {

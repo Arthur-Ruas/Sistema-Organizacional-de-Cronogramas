@@ -61,15 +61,18 @@
     }
 
     &__wrapper-days{
-        & > div{
-            width: 20%;
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
+        display: flex;
+        flex-direction: column;
 
-            & > h4{
-                text-decoration: underline;
+        &__first-block, &__second-block{
+            width: 100%;
+            display: flex;
+
+            > div{
+                width: 100%;
             }
         }
+
+        
     }
 }

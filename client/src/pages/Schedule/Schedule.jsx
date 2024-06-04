@@ -132,35 +132,38 @@ const Schedule = () => {
 
       </header>
       <div className='schedule__wrapper-days'>
-        <div>
-          <h4>Segunda-Feira</h4>
-          <TeacherSchedule day='1' module={classModule} handlerOnChange={handlerChangeCategory1}/>
-          <TeacherSchedule day='6' module={classModule} handlerOnChange={handlerChangeCategory6}/>
+        <div className='schedule__wrapper-days__first-block'>
+          <div>
+            <h4>Segunda-Feira</h4>
+            <TeacherSchedule day='1' module={classModule} handlerOnChange={handlerChangeCategory1}/>
+          </div>
+          <div>
+            <h4>Terça-Feira</h4>
+            <TeacherSchedule day='3' module={classModule} handlerOnChange={handlerChangeCategory3}/>
+          </div>
+          <div>
+            <h4>Quarta-Feira</h4>
+            <TeacherSchedule day='5' module={classModule} handlerOnChange={handlerChangeCategory5}/>
+          </div>
+          <div>
+            <h4>Quinta-Feira</h4>
+            <TeacherSchedule day='7' module={classModule} handlerOnChange={handlerChangeCategory7}/>
+          </div>
+          <div>
+            <h4>Sexta-Feira</h4>
+            <TeacherSchedule day='9' module={classModule} handlerOnChange={handlerChangeCategory9}/>
+          </div>
         </div>
-        
-        <div>
-          <h4>Terça-Feira</h4>
+        <div className='schedule__interval'>
+          <h4>Intervalo de 10 minutos</h4>
+        </div>
+        <div className='schedule__wrapper-days__second-block'>
           <TeacherSchedule day='2' module={classModule} handlerOnChange={handlerChangeCategory2}/>
-          <TeacherSchedule day='7' module={classModule} handlerOnChange={handlerChangeCategory7}/>
-        </div>
-        
-        <div>
-          <h4>Quarta-Feira</h4>
-          <TeacherSchedule day='3' module={classModule} handlerOnChange={handlerChangeCategory3}/>
+          <TeacherSchedule day='4' module={classModule} handlerOnChange={handlerChangeCategory4}/>
+          <TeacherSchedule day='6' module={classModule} handlerOnChange={handlerChangeCategory6}/>
           <TeacherSchedule day='8' module={classModule} handlerOnChange={handlerChangeCategory8}/>
+          <TeacherSchedule day='10' module={classModule} handlerOnChange={handlerChangeCategory10}/>
         </div>
-       
-       <div>
-        <h4>Quinta-Feira</h4>
-        <TeacherSchedule day='4' module={classModule} handlerOnChange={handlerChangeCategory4}/>
-        <TeacherSchedule day='9' module={classModule} handlerOnChange={handlerChangeCategory9}/>
-       </div>
-       
-       <div>
-        <h4>Sexta-Feira</h4>
-        <TeacherSchedule day='5' module={classModule} handlerOnChange={handlerChangeCategory5}/>
-        <TeacherSchedule day='10' module={classModule} handlerOnChange={handlerChangeCategory10}/>
-       </div> 
       </div>
       <div className='schedule__help'>  
           <h4>Help</h4>
