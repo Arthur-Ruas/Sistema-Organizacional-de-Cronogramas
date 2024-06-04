@@ -1,8 +1,9 @@
 import React from 'react';
 
-const ScheduleItem = ({ teacherName, color, subjectName, classRoomsName }) => {
+const ScheduleField = ({ block, teacherName, color, subjectName, classRoomsName }) => {
   return (
     <div>
+        <h6>{block}</h6>
         <h1>{teacherName}</h1>
         <h4>{subjectName}</h4>
         <h4>{classRoomsName}</h4>
@@ -10,4 +11,4 @@ const ScheduleItem = ({ teacherName, color, subjectName, classRoomsName }) => {
   )
 }
 
-export default ScheduleItem;
+export default ScheduleField;

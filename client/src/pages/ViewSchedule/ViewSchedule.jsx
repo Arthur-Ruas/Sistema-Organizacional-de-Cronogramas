@@ -4,7 +4,7 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import { useRef } from 'react';
 import * as htmlToImage from 'html-to-image';
 
-import ScheduleItem from '../../components/ScheduleItem/ScheduleItem';
+import ScheduleField from '../../components/ScheduleField/ScheduleField';
 
 const ViewSchedule = () => {
 
@@ -46,31 +46,72 @@ const ViewSchedule = () => {
       }
     };
 
+    const firstBlock = scheduleItems.filter(schedule => (schedule.Aula % 2) == 1)
+    const secondBlock = scheduleItems.filter(schedule => (schedule.Aula % 2) == 0)
+
+    console.log(firstBlock, secondBlock)
+
   return (
-    <div ref={containerRef} style={{backgroundColor: 'white'}}>
-      {
-        scheduleInfo.map((info) =>{
-          return(
-            <div>
-              <h1>{info.Nome}</h1>
-              <h4>{info.Divisao}</h4>
-              <h4>{info.Modulo}</h4>
-            </div>
-          )
-        })
-      }
-      {
-        scheduleItems.map((schedule) =>{
-          return(
-            <ScheduleItem
-            teacherName={schedule.Nome}
-            color={schedule.Cor}
-            subjectName={schedule.Materia}
-            classRoomsName={schedule.Sala}/>
-          )
-        })
-      }
-      <button onClick={downloadImage}>download imagem</button>
+    <div ref={containerRef} className='view-schedule'>
+      <header className='view-schedule__header'>
+          {
+            scheduleInfo.map((info) =>{
+              return(
+                <div className='view-schedule__info'>
+                  <h1>{info.Nome}</h1>
+                  <h4>{info.Divisao}</h4>
+                  <h4>{info.Modulo}</h4>
+                </div>
+              )
+            })
+          }
+        <button onClick={downloadImage}>download imagem</button>
+      </header>
+      <div className='view-schedule__schedule'>
+        <div className='view-schedule__first-block'>
+          <div className='view-schedule__first-block__info'>
+            <h4>18:50</h4>
+            <h4>20:42</h4>
+          </div>
+          <div className='view-schedule__second-block__content'>
+            {
+              firstBlock.map((schedule) =>{
+                return(
+                  <ScheduleField
+                  block={schedule.Aula}
+                  teacherName={schedule.Nome}
+                  color={schedule.Cor}
+                  subjectName={schedule.Materia}
+                  classRoomsName={schedule.Sala}/>
+                )
+              })
+            }
+          </div>
+        </div>
+        <div className='view-schedule__interval'>
+          <h4>Intervalo de 10 minutos</h4>
+        </div>
+        <div className='view-schedule__second-block'>
+          <div className='view-schedule__second-block__info'>
+            <h4>20:52</h4>
+            <h4>22:45</h4>
+          </div>
+          <div className='view-schedule__second-block__content'>
+            {
+              secondBlock.map((schedule) =>{
+                return(
+                  <ScheduleField
+                  block={schedule.Aula}
+                  teacherName={schedule.Nome}
+                  color={schedule.Cor}
+                  subjectName={schedule.Materia}
+                  classRoomsName={schedule.Sala}/>
+                )
+              })
+            }
+          </div>
+        </div> 
+      </div>
     </div>
   )
 }
