@@ -67,12 +67,17 @@
         &__first-block, &__second-block{
             width: 100%;
             display: flex;
-
-            > div{
-                width: 100%;
-            }
         }
 
-        
+        &__day{
+            width: 100%;
+        }
+
+        &__label{
+            width: fit-content;
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+        }
     }
 }

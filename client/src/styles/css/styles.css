@@ -282,8 +282,14 @@ button {
   width: 100%;
   display: flex;
 }
-.schedule__wrapper-days__first-block > div, .schedule__wrapper-days__second-block > div {
+.schedule__wrapper-days__day {
   width: 100%;
+}
+.schedule__wrapper-days__label {
+  width: fit-content;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
 }
 
 .view-schedule {
