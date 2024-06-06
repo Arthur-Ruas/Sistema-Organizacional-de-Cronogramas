@@ -27,11 +27,6 @@ const Schedule = () => {
     setScheduleID((res.data.message[0].id).toString())
   }
 
-  useEffect(() => {
-    getSchedules()
-    getScheduleInfo()
-  }, [setSchedules])
-
     const [data1, setData1] = useState(['1'])
     const [data2, setData2] = useState(['2'])
     const [data3, setData3] = useState(['3'])
@@ -84,8 +79,18 @@ const Schedule = () => {
     var teacherData9 = ['9', data9.teacher9, data9.subject9, data9.classRoom9]
     var teacherData10 = ['10', data10.teacher10, data10.subject10, data10.classRoom10]
 
+    const [subject, setSubject] = useState(
+      [data1.subject1, data2.subject2, data3.subject3, data4.subject4, data5.subject5, data6.subject6, data7.subject7, data8.subject8, data9.subject9, data10.subject10]
+    );
+
+    useEffect(() => {
+      getSchedules()
+      getScheduleInfo()
+    }, [setSchedules, setSubject])
+
+    console.log(subject)
+
     var arrayData = [teacherData1, teacherData2, teacherData3, teacherData4, teacherData5, teacherData6, teacherData7, teacherData8, teacherData9, teacherData10]
-    console.log(arrayData)
 
     async function inProgress(){
       const data = {scheduleID}
@@ -97,12 +102,22 @@ const Schedule = () => {
       }
     }
 
+    async function finished(){
+      const data = {scheduleID}
+
+      try {
+        API.put('/teacherSchedule/finished', data)
+      }catch (err) {
+        alert(`Erro ao cadastrar. ${err}`)
+      }
+    }
+
     async function handleCreate(){
 
       const dataSchedule = {scheduleID, arrayData, classID}
       try {
-          API.put('/teacherSchedule', dataSchedule);
-          navigate('/home')
+        API.put('/teacherSchedule', dataSchedule);
+        navigate('/home')
       }catch (err) {
         alert(`Erro ao cadastrar. ${err}`)
       }
@@ -128,6 +143,7 @@ const Schedule = () => {
       <div className="schedule__wrapper-button">
         <button className="schedule__button-cancel">Cancelar</button>
         <button className="schedule__button-save" onClick={() => {inProgress(); handleCreate()}}>Salvar</button>
+        <button className="schedule__button-save" onClick={() => {finished(); handleCreate()}}>Finalizar</button>
       </div>
 
       </header>

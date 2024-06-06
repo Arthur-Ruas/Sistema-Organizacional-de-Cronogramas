@@ -1,7 +1,9 @@
 import React from 'react';
 import image from '../../assets/profile.png'
 
-const TeacherInfo = ({name, color, observation, days, subjects, showInfo, closeInfo}) => {
+const TeacherInfo = ({name, color, observation, days, subjects, showInfo, closeInfo, teacherData}) => {
+  
+  console.log(teacherData)
   return (
     <div className='teacher-info' style={{display: showInfo}}>
       <div className='teacher-info__content'>
@@ -28,6 +30,9 @@ const TeacherInfo = ({name, color, observation, days, subjects, showInfo, closeI
           <div className='teacher-info__observation'>
             <h4 className='select-text'>Observação:</h4>
             <h4>{observation}</h4>
+          </div>
+          <div>
+            <h4>{teacherData}</h4>
           </div>
           <div className='teacher-info__wrapper-day'>
             {

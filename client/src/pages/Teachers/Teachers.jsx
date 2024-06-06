@@ -46,12 +46,14 @@ const Teachers = () => {
   
   var [teacherSubjectsArray, setTeacherSubjects] = useState([]);
   var [teacherDaysArray, setTeacherDays] = useState([]);
+  var [teacherData, setTeacherData] = useState([]);
 
   async function getTeacherInfo(id){
 
     const resTeacherInfo = await API.get("/teacherInfo/" + id);
     const resTeacherDays = await API.get("/teacherInfo/days/" + id);
     const resTeacherSubjects = await API.get("/teacherInfo/subjects/" + id);
+    const resTeacherData = await API.get("/teacherInfo/data/" + id);
 
     var teacherDataInfo = (resTeacherInfo.data.message);
     var teacherDaysData = (resTeacherDays.data.message);
@@ -65,6 +67,7 @@ const Teachers = () => {
 
     setTeacherDays(teacherDaysData)
     setTeacherSubjects(teacherSubjectsData)
+    setTeacherData(resTeacherData.data.message[0].num_aulas)
   }
 
   useEffect(() =>{
@@ -83,7 +86,8 @@ const Teachers = () => {
         color={colorCard} 
         observation={teacherObservation} 
         days={teacherDaysArray}
-        subjects={teacherSubjectsArray}/>
+        subjects={teacherSubjectsArray}
+        teacherData={teacherData}/>
     </>
   )
 }
