@@ -1,9 +1,11 @@
 import React from 'react';
 import image from '../../assets/profile.png'
 
-const TeacherInfo = ({name, color, observation, days, subjects, showInfo, closeInfo, teacherData}) => {
+const TeacherInfo = ({name, color, observation, days, subjects, showInfo, closeInfo, teacherData, scheduleQtd}) => {
   
-  console.log(teacherData)
+  const horas = Math.floor((teacherData * 112) / 60);          
+  const min = (teacherData * 112) % 60;
+
   return (
     <div className='teacher-info' style={{display: showInfo}}>
       <div className='teacher-info__content'>
@@ -32,7 +34,10 @@ const TeacherInfo = ({name, color, observation, days, subjects, showInfo, closeI
             <h4>{observation}</h4>
           </div>
           <div>
-            <h4>{teacherData}</h4>
+            <h4>Quantidade de aulas: {teacherData}</h4>
+            <h4>Minutos totais{teacherData * 112}</h4>
+            <h4>Horas:{horas}:{min}</h4>
+            <h4>Quantos horários participa: {scheduleQtd}</h4>
           </div>
           <div className='teacher-info__wrapper-day'>
             {
@@ -44,6 +49,9 @@ const TeacherInfo = ({name, color, observation, days, subjects, showInfo, closeI
                   </div>     
                 )
               })
+            }
+            {
+
             }
           </div>
         </div>  

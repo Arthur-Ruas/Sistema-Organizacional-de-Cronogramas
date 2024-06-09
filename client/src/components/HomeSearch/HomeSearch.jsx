@@ -10,6 +10,7 @@ const HomeSearch = ({openModal}) => {
   const navigate = useNavigate();
 
   const [schedules, setSchedules] = useState([]);
+  const [schedulesData, setSchedulesData] = useState([]);
   const [progressSchedules, setProgressSchedules] = useState([]);
 
     async function getSchedules(){
@@ -17,15 +18,21 @@ const HomeSearch = ({openModal}) => {
         setSchedules(res.data.message)
     }
 
+    async function getSchedulesData(){
+      const res = await API.get("/schedule/data");
+      setSchedulesData(res.data.message)
+    }
+
     async function getProgressSchedules(){
       const res = await API.get("/schedule/progress");
       setProgressSchedules(res.data.message)
-  }
+    }
 
     useEffect(() => {
       getSchedules();
+      getSchedulesData();
       getProgressSchedules();
-    }, [setSchedules, setProgressSchedules])
+    }, [setSchedules, setSchedulesData, setProgressSchedules])
 
   return (
     <div className='home-search'>
@@ -70,7 +77,39 @@ const HomeSearch = ({openModal}) => {
             <img className='home-search__image' src={Image}/>
           </div>
           <div className='home-search__data'>
-            <h1></h1>
+            <h1>Informações gerais</h1>
+            <div>
+              {
+                schedulesData.map((data) =>{
+                  return(
+                    <div>
+                      <h4>Novos:</h4>
+                      <h4>{data.Novo}</h4>
+                    </div>
+                  )
+                })
+              }
+              {
+                schedulesData.map((data) =>{
+                  return(
+                    <div>
+                      <h4>Em andamento:</h4>
+                      <h4>{data.Andamento}</h4>
+                    </div>
+                  )
+                })
+              }
+              {
+                schedulesData.map((data) =>{
+                  return(
+                    <div>
+                      <h4>Finalizado:</h4>
+                      <h4>{data.Finalizado}</h4>
+                    </div>
+                  )
+                })
+              }
+            </div>
           </div>
         </div>  
         <div className='home-search__wrapper-home-search'>

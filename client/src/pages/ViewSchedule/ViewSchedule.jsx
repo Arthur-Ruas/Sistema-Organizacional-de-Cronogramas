@@ -46,8 +46,8 @@ const ViewSchedule = () => {
       }
     };
 
-    const firstBlock = scheduleItems.filter(schedule => (schedule.Aula % 2) == 1)
-    const secondBlock = scheduleItems.filter(schedule => (schedule.Aula % 2) == 0)
+    const firstBlock = scheduleItems.filter(schedule => (schedule.Aula % 2) === 1).sort((a, b) => a.Aula - b.Aula);
+    const secondBlock = scheduleItems.filter(schedule => (schedule.Aula % 2) === 0).sort((a, b) => a.Aula - b.Aula);
 
     console.log(firstBlock, secondBlock)
 

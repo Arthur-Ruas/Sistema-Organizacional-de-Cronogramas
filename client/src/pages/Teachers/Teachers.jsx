@@ -47,6 +47,7 @@ const Teachers = () => {
   var [teacherSubjectsArray, setTeacherSubjects] = useState([]);
   var [teacherDaysArray, setTeacherDays] = useState([]);
   var [teacherData, setTeacherData] = useState([]);
+  var [teacherScheduleData, setTeacherScheduleData] = useState([]);
 
   async function getTeacherInfo(id){
 
@@ -54,6 +55,7 @@ const Teachers = () => {
     const resTeacherDays = await API.get("/teacherInfo/days/" + id);
     const resTeacherSubjects = await API.get("/teacherInfo/subjects/" + id);
     const resTeacherData = await API.get("/teacherInfo/data/" + id);
+    const resTeacherScheduleData = await API.get("./teacherInfo/teacherScheduleData/" + id)
 
     var teacherDataInfo = (resTeacherInfo.data.message);
     var teacherDaysData = (resTeacherDays.data.message);
@@ -68,6 +70,7 @@ const Teachers = () => {
     setTeacherDays(teacherDaysData)
     setTeacherSubjects(teacherSubjectsData)
     setTeacherData(resTeacherData.data.message[0].num_aulas)
+    setTeacherScheduleData(resTeacherScheduleData.data.message[0].qtd) /*Arrumar a query*/
   }
 
   useEffect(() =>{
@@ -87,7 +90,8 @@ const Teachers = () => {
         observation={teacherObservation} 
         days={teacherDaysArray}
         subjects={teacherSubjectsArray}
-        teacherData={teacherData}/>
+        teacherData={teacherData}
+        scheduleQtd={teacherScheduleData}/>
     </>
   )
 }
