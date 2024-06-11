@@ -51,6 +51,8 @@ const ViewSchedule = () => {
 
     console.log(firstBlock, secondBlock)
 
+    const days = ['Segunda-feira', 'Terça-feira', 'Quarta-feira', 'Quinta-feira', 'Sexta-feira']
+
   return (
     <div ref={containerRef} className='view-schedule'>
       <header className='view-schedule__header'>
@@ -65,7 +67,7 @@ const ViewSchedule = () => {
               )
             })
           }
-        <button onClick={downloadImage}>download imagem</button>
+        <button className='view-schedule__button-download' onClick={downloadImage}>Download imagem</button>
       </header>
       <div className='view-schedule__schedule'>
         <div className='view-schedule__first-block'>
@@ -73,19 +75,32 @@ const ViewSchedule = () => {
             <h4>18:50</h4>
             <h4>20:42</h4>
           </div>
-          <div className='view-schedule__second-block__content'>
-            {
-              firstBlock.map((schedule) =>{
-                return(
-                  <ScheduleField
-                  block={schedule.Aula}
-                  teacherName={schedule.Nome}
-                  color={schedule.Cor}
-                  subjectName={schedule.Materia}
-                  classRoomsName={schedule.Sala}/>
-                )
-              })
-            }
+          <div className='view-schedule__first-block__content'>
+            <div className='view-schedule__label-day'>
+              {
+                days.map((day) =>{
+                  return(
+                    <div className='view-schedule__label-day__day'>
+                      {day}
+                    </div>
+                  )
+                })
+              }
+            </div>
+            <div className='view-schedule__wrapper-info'>
+              {
+                firstBlock.map((schedule) =>{
+                  return(
+                    <ScheduleField
+                      block={schedule.Aula}
+                      teacherName={schedule.Nome}
+                      color={schedule.Cor}
+                      subjectName={schedule.Materia}
+                      classRoomsName={schedule.Sala}/>
+                  )
+                })
+              }
+            </div>
           </div>
         </div>
         <div className='view-schedule__interval'>
@@ -97,18 +112,20 @@ const ViewSchedule = () => {
             <h4>22:45</h4>
           </div>
           <div className='view-schedule__second-block__content'>
-            {
-              secondBlock.map((schedule) =>{
-                return(
-                  <ScheduleField
-                  block={schedule.Aula}
-                  teacherName={schedule.Nome}
-                  color={schedule.Cor}
-                  subjectName={schedule.Materia}
-                  classRoomsName={schedule.Sala}/>
-                )
-              })
-            }
+            <div className='view-schedule__wrapper-info'>
+              {
+                secondBlock.map((schedule) =>{
+                  return(
+                    <ScheduleField
+                    block={schedule.Aula}
+                    teacherName={schedule.Nome}
+                    color={schedule.Cor}
+                    subjectName={schedule.Materia}
+                    classRoomsName={schedule.Sala}/>
+                  )
+                })
+              }
+            </div>
           </div>
         </div> 
       </div>

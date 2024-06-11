@@ -296,6 +296,8 @@ button {
   background-color: #fff;
   min-height: 100vh;
   max-height: 100vh;
+  flex: 1;
+  padding: 1rem;
 }
 .view-schedule__header {
   width: 100%;
@@ -303,26 +305,53 @@ button {
   align-items: center;
   justify-content: space-between;
   padding: 0.8rem 1rem;
+  border-radius: 15px;
+  box-shadow: 0px 2px 5px #aaa;
 }
 .view-schedule__info {
   display: flex;
   align-items: center;
   gap: 20px;
 }
+.view-schedule__button-download {
+  padding: 0.8rem 1rem;
+  border-radius: 15px;
+}
+.view-schedule__interval {
+  width: 100%;
+  text-align: center;
+}
 .view-schedule__schedule {
+  height: 100%;
   width: 100%;
   display: flex;
   flex-direction: column;
-  gap: 20px;
-  padding: 1rem;
+  gap: 10px;
+  padding: 2rem 1rem;
 }
 .view-schedule__first-block, .view-schedule__second-block {
+  width: 100%;
   display: flex;
   align-items: center;
   gap: 20px;
 }
 .view-schedule__first-block__content, .view-schedule__second-block__content {
+  width: 100%;
   display: flex;
+  flex-direction: column;
+}
+.view-schedule__label-day {
+  width: 100%;
+  display: flex;
+}
+.view-schedule__label-day__day {
+  width: 20%;
+  text-align: center;
+}
+.view-schedule__wrapper-info {
+  width: 100%;
+  display: flex;
+  gap: 15px;
 }
 
 .listSchedule {
@@ -926,6 +955,8 @@ button {
 .card-schedule {
   background-color: #eee;
   flex: 1;
+  display: flex;
+  flex-direction: column;
   padding: 3rem 3rem;
   border-radius: 15px;
   box-shadow: 0px 2px 5px #aaa;
@@ -935,6 +966,12 @@ button {
 }
 .card-schedule__divison {
   font-size: 1rem;
+}
+.card-schedule__button-see-more {
+  background-color: #fff;
+  align-self: flex-end;
+  padding: 0.5rem 1rem;
+  border-radius: 15px;
 }
 
 .card-day {
@@ -1017,6 +1054,40 @@ button {
   display: flex;
   align-items: center;
   gap: 10px;
+}
+.item-schedule__button-see-more {
+  padding: 0.3rem 1rem;
+  border-radius: 15px;
+}
+
+.schedule-field {
+  position: relative;
+  background-color: #fff;
+  height: 200px;
+  width: 20%;
+  border-radius: 5px;
+  box-shadow: 0px 2px 5px #aaa;
+}
+.schedule-field__color {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 40%;
+  width: 100%;
+  z-index: 100;
+  border-top-right-radius: 5px;
+  border-top-left-radius: 5px;
+}
+.schedule-field__content {
+  position: relative;
+  text-align: center;
+  z-index: 1000;
+}
+.schedule-field__content > h1 {
+  font-size: 1.2rem;
+}
+.schedule-field__content > h4 {
+  font-weight: 500;
 }
 
 /*# sourceMappingURL=styles.css.map */

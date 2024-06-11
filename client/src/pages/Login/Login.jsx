@@ -99,7 +99,7 @@ const Login = () => {
         <div className="login__right">
             <img class='login__logo' src={Logo}/>
             <h1 className='login__gretings'>Seja Bem Vindo <br />
-            ao SOC</h1>
+            ao SOH</h1>
         </div>
       </div>
     </div>

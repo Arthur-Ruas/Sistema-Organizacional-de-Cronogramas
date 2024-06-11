@@ -33,26 +33,24 @@ const TeacherInfo = ({name, color, observation, days, subjects, showInfo, closeI
             <h4 className='select-text'>Observação:</h4>
             <h4>{observation}</h4>
           </div>
-          <div>
-            <h4>Quantidade de aulas: {teacherData}</h4>
-            <h4>Minutos totais{teacherData * 112}</h4>
-            <h4>Horas:{horas}:{min}</h4>
-            <h4>Quantos horários participa: {scheduleQtd}</h4>
-          </div>
-          <div className='teacher-info__wrapper-day'>
-            {
-              days.map((day) =>{
-                return(
-                  <div>
-                    <p>{day.Dia}</p>
-                    <p>{day.Bloco}</p>
-                  </div>     
-                )
-              })
-            }
-            {
-
-            }
+          <div className='teacher-info__bottom-right'>
+            <div className='teacher-info__wrapper-day'>
+              {
+                days.map((day) =>{
+                  return(
+                    <div>
+                      <p>{day.Dia}</p>
+                      <p>{day.Bloco}</p>
+                    </div>     
+                  )
+                })
+              }
+            </div>
+            <div>
+              <h4>Quantidade de aulas: {teacherData}</h4>
+              <h4>Horas: {horas}:{min}</h4>
+              <h4>Minutos totais: {teacherData * 112}</h4>
+            </div>
           </div>
         </div>  
       </div>

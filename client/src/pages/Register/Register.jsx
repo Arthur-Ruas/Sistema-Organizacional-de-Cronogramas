@@ -129,7 +129,7 @@ const Register = () => {
         <div className="register__right">
           <img className='register__logo' src={Logo}/>
           <h1 className='login__gretings'>Seja Bem Vindo <br />
-          ao SOC</h1>
+          ao SOH</h1>
       </div>
       </div>
     </div>
