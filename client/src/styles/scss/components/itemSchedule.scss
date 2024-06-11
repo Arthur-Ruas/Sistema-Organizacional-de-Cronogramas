@@ -11,11 +11,38 @@
     &__info{
         display: flex;
         align-items: center;
+        width: 90%;
         gap: 10px;
+
+        > h1{
+            width: 40%;
+            font-size: 1.5rem;
+        }
+
+        > h3{
+            width: 20%;
+            text-align: end;
+        }
+
+        > h4{
+            width: 10%;
+            border-radius: 25px;
+            text-align: center;
+            margin-left: 5rem;
+        }
+
+        &__Finalizado{
+            background-color: #4beb8e;
+        }
+        &__Andamento{
+            background-color: #eb4b4b;
+            color: #fff;
+        }
     }
 
     &__button-see-more{
         padding: .3rem 1rem;
         border-radius: 15px;
     }
+
 }

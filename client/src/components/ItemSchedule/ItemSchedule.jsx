@@ -13,9 +13,9 @@ const ItemSchedule = ({ id, nome, divisao, modulo, estado }) => {
     <div className='item-schedule'>
         <div className='item-schedule__info'>
             <h1>{nome}</h1>
-            <h4>{divisao}</h4>
-            <h4>{modulo}</h4>
-            <h4>{estado}</h4>
+            <h3>{divisao}</h3>
+            <h3>{modulo}</h3>
+            <h4 className={`item-schedule__info__${estado}`}>{estado}</h4>
         </div> 
         <button className='item-schedule__button-see-more' onClick={() =>{openProgressSchedule(id)}}>Ver horário</button>
     </div>

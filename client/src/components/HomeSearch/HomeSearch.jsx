@@ -2,6 +2,9 @@ import React, { useEffect, useState } from 'react';
 import API from '../../API';
 import { useNavigate } from 'react-router-dom';
 import Image from '../../assets/scheduleImage.png';
+import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';
+import { Doughnut } from 'react-chartjs-2';
+
 
 import ScheduleCard from '../ScheduleCard/ScheduleCard';
 
@@ -33,6 +36,20 @@ const HomeSearch = ({openModal}) => {
       getSchedulesData();
       getProgressSchedules();
     }, [setSchedules, setSchedulesData, setProgressSchedules])
+
+    ChartJS.register(ArcElement, Tooltip, Legend);
+
+    const pieData = {
+      labels: ['Horários em andamento', 'Horários Finalizados'],
+      datasets: [
+        {
+          data: schedulesData.map(data => [parseInt(data.Andamento), parseInt(data.Finalizado)]).flat(),
+          backgroundColor: ['#6373ff', '#1e98e9'],
+          hoverBackgroundColor: ['#6373ff', '#1e98e9']
+        }
+      ]
+    };
+    
 
   return (
     <div className='home-search'>
@@ -78,13 +95,12 @@ const HomeSearch = ({openModal}) => {
           </div>
           <div className='home-search__data'>
             <h1>Informações gerais</h1>
-            <div>
+            <div className='home-search__data__info'>
               {
                 schedulesData.map((data) =>{
                   return(
-                    <div>
-                      <h4>Novos:</h4>
-                      <h4>{data.Novo}</h4>
+                    <div className='home-search__data__info__item'>
+                      <h4>Numero Total de Horários: {parseInt(data.Andamento) + parseInt(data.Finalizado)}</h4>
                     </div>
                   )
                 })
@@ -92,9 +108,8 @@ const HomeSearch = ({openModal}) => {
               {
                 schedulesData.map((data) =>{
                   return(
-                    <div>
-                      <h4>Em andamento:</h4>
-                      <h4>{data.Andamento}</h4>
+                    <div className='home-search__data__info__item'>
+                      <h4>Horários em andamento: {data.Andamento}</h4>
                     </div>
                   )
                 })
@@ -102,13 +117,15 @@ const HomeSearch = ({openModal}) => {
               {
                 schedulesData.map((data) =>{
                   return(
-                    <div>
-                      <h4>Finalizado:</h4>
-                      <h4>{data.Finalizado}</h4>
+                    <div className='home-search__data__info__item'>
+                      <h4>Horários Finalizados: {data.Finalizado}</h4>
                     </div>
                   )
                 })
               }
+              <div className='home-search__pie-chart'>
+                <Doughnut data={pieData} />
+              </div>
             </div>
           </div>
         </div>  

@@ -728,6 +728,19 @@ button {
   border-radius: 15px;
   box-shadow: 0px 2px 5px #aaa;
 }
+.home-search__data > h1 {
+  text-align: center;
+  margin-top: 1rem;
+}
+.home-search__data__info {
+  padding: 1.5rem 6rem;
+}
+.home-search__data__info__item {
+  margin-bottom: 1rem;
+}
+.home-search__data__info__item :hover {
+  transform: translateX(4px);
+}
 .home-search__image {
   height: 350px;
 }
@@ -741,6 +754,12 @@ button {
   padding: 3rem 3rem;
   border-radius: 15px;
   box-shadow: 0px 2px 5px #aaa;
+}
+.home-search__pie-chart {
+  margin: 20px 0px 0px 35px;
+  width: 15.5rem;
+  height: 15.5rem;
+  color: #1ee984;
 }
 
 .form-schedule {
@@ -1039,6 +1058,37 @@ button {
   box-shadow: 0px 2px 5px #aaa;
   overflow-y: scroll;
 }
+.schedule-search__content__label {
+  display: flex;
+  flex-direction: row;
+  text-align: center;
+  width: 90%;
+  height: 5%;
+  font-size: 1.1rem;
+}
+.schedule-search__content__label > h1 {
+  width: 40%;
+  font-size: 1.5rem;
+}
+.schedule-search__content__label > h2 {
+  font-size: 1.3rem;
+  width: 20%;
+  text-align: end;
+  margin-left: 1.85rem;
+  margin-right: -1.4rem;
+}
+.schedule-search__content__label > h3 {
+  width: 20%;
+  text-align: end;
+  margin-left: 0.5rem;
+}
+.schedule-search__content__label > h4 {
+  font-size: 1.3rem;
+  width: 10%;
+  border-radius: 25px;
+  text-align: center;
+  margin-left: 5rem;
+}
 
 .item-schedule {
   background-color: #fff;
@@ -1053,7 +1103,29 @@ button {
 .item-schedule__info {
   display: flex;
   align-items: center;
+  width: 90%;
   gap: 10px;
+}
+.item-schedule__info > h1 {
+  width: 40%;
+  font-size: 1.5rem;
+}
+.item-schedule__info > h3 {
+  width: 20%;
+  text-align: end;
+}
+.item-schedule__info > h4 {
+  width: 10%;
+  border-radius: 25px;
+  text-align: center;
+  margin-left: 5rem;
+}
+.item-schedule__info__Finalizado {
+  background-color: #4beb8e;
+}
+.item-schedule__info__Andamento {
+  background-color: #eb4b4b;
+  color: #fff;
 }
 .item-schedule__button-see-more {
   padding: 0.3rem 1rem;
