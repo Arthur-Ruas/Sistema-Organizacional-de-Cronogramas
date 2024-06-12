@@ -27,14 +27,19 @@ const ListSchedule = () => {
   }
 
   function handleFilterModal() {
+    setModalState("brightness(50%)");
     setFilterModalOpen("block");
   }
 
   function closeFilterModal() {
     setFilterModalOpen("none");
+    if(modalState === "brightness(50%)"){
+      setModalState("brightness(100%)");
+    }
   }
 
   function applyFilter(newFilters) {
+
     setFilters(newFilters);
   }
 

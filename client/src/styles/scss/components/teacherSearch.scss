@@ -24,7 +24,7 @@
 
     &__right{
         display: flex;
-        gap: 1rem;
+        gap: 3rem;
     }
     
     &__button-filter{
@@ -35,9 +35,6 @@
         box-shadow: 0px 2px 2px $cinzaTexto;
     }  
 
-    &__button-new{
-
-    }
 
     &__tag{
         width: 100%;

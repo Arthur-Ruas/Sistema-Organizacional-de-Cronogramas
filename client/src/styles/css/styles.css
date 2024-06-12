@@ -439,7 +439,7 @@ button {
 }
 .teacher-search__right {
   display: flex;
-  gap: 1rem;
+  gap: 3rem;
 }
 .teacher-search__button-filter {
   background-color: #fff;
@@ -931,6 +931,12 @@ button {
   padding: 0.5rem 2rem;
   border-radius: 30px;
 }
+.teacher-info__analitycs {
+  margin-top: 12.5%;
+  display: flex;
+  flex-direction: row;
+  gap: 5%;
+}
 
 /*SCSS Components*/
 .button {
@@ -1121,7 +1127,8 @@ button {
   margin-left: 5rem;
 }
 .item-schedule__info__Finalizado {
-  background-color: #4beb8e;
+  background-color: #249b34;
+  color: white;
 }
 .item-schedule__info__Andamento {
   background-color: #eb4b4b;

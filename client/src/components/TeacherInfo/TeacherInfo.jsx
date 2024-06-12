@@ -46,7 +46,7 @@ const TeacherInfo = ({name, color, observation, days, subjects, showInfo, closeI
                 })
               }
             </div>
-            <div>
+            <div className='teacher-info__analitycs'>
               <h4>Quantidade de aulas: {teacherData}</h4>
               <h4>Horas: {horas}:{min}</h4>
               <h4>Minutos totais: {teacherData * 112}</h4>

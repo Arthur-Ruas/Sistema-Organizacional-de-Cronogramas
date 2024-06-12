@@ -20,10 +20,8 @@ const TeacherCard = ({teacherCardColor, teacherName, teacherId}) => {
           <div className='card-teacher__esquerdo'>
               <img className="card-teacher__esquerdo__foto" src={teacherPicture} alt={`Foto do(a) professor(a) ${teacherName}`}/>
               <h4 className='card-teacher__esquerdo__nome'>{teacherName}</h4>
+              <h4>{teacherData}</h4>
           </div>    
-          <div>
-            <h4>{teacherData}</h4>
-          </div>
       </div>
   )
 }

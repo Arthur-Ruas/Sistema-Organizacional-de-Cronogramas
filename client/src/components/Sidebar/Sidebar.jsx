@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Logo from '../../assets/LogoSocBranca.png';
+import Logo from '../../assets/LogoSohBranca.png';
 import { FaChalkboardTeacher } from 'react-icons/fa';
 import { FaCircleUser } from "react-icons/fa6";
 import { GrSchedules } from "react-icons/gr";
