@@ -17,11 +17,16 @@ const TeacherCard = ({teacherCardColor, teacherName, teacherId}) => {
 
   return (
       <div className='card-teacher' style={{backgroundColor: `${teacherCardColor}`}}>
-          <div className='card-teacher__esquerdo'>
-              <img className="card-teacher__esquerdo__foto" src={teacherPicture} alt={`Foto do(a) professor(a) ${teacherName}`}/>
-              <h4 className='card-teacher__esquerdo__nome'>{teacherName}</h4>
-              <h4>{teacherData}</h4>
+          <div className='card-teacher__teacher'>
+              <img className="card-teacher__teacher__foto" src={teacherPicture} alt={`Foto do(a) professor(a) ${teacherName}`}/>
+              <h4 className='card-teacher__teacher__nome'>{teacherName}</h4>
           </div>    
+          <div className='card-teacher__day'>
+            <h4>{teacherData}</h4>
+          </div>
+          <div className='card-teacher__subject'>
+            <h4>aaaaa</h4>
+          </div>
       </div>
   )
 }

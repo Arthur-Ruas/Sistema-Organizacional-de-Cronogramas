@@ -38,6 +38,14 @@ button {
   border-radius: 50px;
 }
 
+h4 {
+  font-weight: 600;
+}
+
+h6 {
+  font-weight: 500;
+}
+
 /*SCSS Pages*/
 .login, .register {
   background-image: url(../../assets/blob-scene-haikei.png);
@@ -376,7 +384,7 @@ button {
   position: sticky;
   top: 0;
   background-color: #0F499D;
-  max-height: 100vh;
+  min-height: 100vh;
   width: fit-content;
   display: flex;
   flex-direction: column;
@@ -724,22 +732,26 @@ button {
 }
 .home-search__data {
   background-color: #fff;
-  flex: 1;
+  width: fit-content;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 1rem 2rem;
   border-radius: 15px;
   box-shadow: 0px 2px 5px #aaa;
 }
-.home-search__data > h1 {
-  text-align: center;
-  margin-top: 1rem;
-}
 .home-search__data__info {
-  padding: 1.5rem 6rem;
+  width: 100%;
+  display: flex;
+  align-items: center;
 }
-.home-search__data__info__item {
-  margin-bottom: 1rem;
+.home-search__data__info__item > h4 {
+  font-weight: 500;
 }
-.home-search__data__info__item :hover {
-  transform: translateX(4px);
+.home-search__data__text {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
 }
 .home-search__image {
   height: 350px;
@@ -755,11 +767,26 @@ button {
   border-radius: 15px;
   box-shadow: 0px 2px 5px #aaa;
 }
+.home-search__no-content-progress {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 2rem 0rem;
+}
+.home-search__no-content-progress > h4 {
+  line-height: 1.4rem;
+  font-size: 1.5rem;
+}
+.home-search__no-content-progress > h6 {
+  font-size: 1rem;
+}
 .home-search__pie-chart {
-  margin: 20px 0px 0px 35px;
-  width: 15.5rem;
-  height: 15.5rem;
-  color: #1ee984;
+  width: 100%;
+  height: 14rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 1rem;
 }
 
 .form-schedule {
@@ -956,6 +983,7 @@ button {
 
 .card-teacher {
   width: 100%;
+  flex: 3;
   display: flex;
   align-items: center;
   gap: 10px;
@@ -963,18 +991,31 @@ button {
   padding: 0.5rem 1rem;
   cursor: pointer;
 }
-.card-teacher__esquerdo {
+.card-teacher__teacher {
+  flex: 1;
   display: flex;
   align-items: center;
   gap: 10px;
 }
-.card-teacher__esquerdo__foto {
+.card-teacher__teacher__foto {
   height: 30px;
   width: 30px;
   border-radius: 50%;
 }
-.card-teacher__esquerdo__nome {
+.card-teacher__teacher__nome {
   font-size: 1rem;
+}
+.card-teacher__day {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.card-teacher__subject {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: end;
 }
 
 .card-schedule {

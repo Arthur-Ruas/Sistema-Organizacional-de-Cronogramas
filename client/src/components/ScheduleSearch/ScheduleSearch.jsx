@@ -6,6 +6,8 @@ import ItemSchedule from '../../components/ItemSchedule/ItemSchedule';
 const ScheduleSearch = ({ openModal, openFilterModal, filters }) => {
   const [listSchedule, setListSchedule] = useState([]);
 
+  var filteredSchedules
+
   async function getSchedules() {
     const res = await API.get('/listSchedule');
     setListSchedule(res.data.message);
@@ -15,14 +17,20 @@ const ScheduleSearch = ({ openModal, openFilterModal, filters }) => {
     getSchedules();
   }, [setListSchedule]);
 
-  const filteredSchedules = listSchedule.filter((item) => {
-    return (
-      (!filters.name || item.nome.includes(filters.name)) &&
-      (!filters.division.length || filters.division.includes(item.divisao_turma)) &&
-      (!filters.module.length || filters.module.includes(item.modulo)) &&
-      (!filters.status.length || filters.status.includes(item.estado))
-    );
-  });
+  if (listSchedule == undefined)(
+    console.log()
+  )
+  
+  else{
+    filteredSchedules = listSchedule.filter((item) => {
+      return (
+        (!filters.name || item.nome.includes(filters.name)) &&
+        (!filters.division.length || filters.division.includes(item.divisao_turma)) &&
+        (!filters.module.length || filters.module.includes(item.modulo)) &&
+        (!filters.status.length || filters.status.includes(item.estado))
+      );
+    });
+  }
 
   return (
     <div className='schedule-search'>
@@ -42,18 +50,29 @@ const ScheduleSearch = ({ openModal, openFilterModal, filters }) => {
           <h3>Modulo</h3>
           <h4>Status</h4>
         </div>
-        {filteredSchedules.map((item) => {
-          return (
-            <ItemSchedule
-              key={item.id}
-              id={item.id}
-              nome={item.nome}
-              divisao={item.divisao_turma}
-              modulo={item.modulo}
-              estado={item.estado}
-            />
-          );
-        })}
+        {
+          filteredSchedules &&(
+            filteredSchedules.map((item) => {
+              return (
+                <ItemSchedule
+                  key={item.id}
+                  id={item.id}
+                  nome={item.nome}
+                  divisao={item.divisao_turma}
+                  modulo={item.modulo}
+                  estado={item.estado}
+                />
+              );
+            })
+          )
+        }
+        {
+          filteredSchedules == undefined &&(
+            <div>
+              <h1>Ops! Parece que nenhum horário foi criado</h1>
+            </div>
+          )
+        }
       </div>
     </div>
   );

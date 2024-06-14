@@ -37,6 +37,7 @@ const TeacherSearch = ({openForm, getID, openInfo}) => {
           </div>
           <div className='teacher-search__wrapper-teacher-search'>
               {
+                teachers && (
                   teachers.map((teacher) => {
                     return (
                       <div onClick={() => {getID(teacher.Id); openInfo()}}>
@@ -47,7 +48,15 @@ const TeacherSearch = ({openForm, getID, openInfo}) => {
                       </div>
                     )
                   })
-                }
+                )
+              }
+              {
+                teachers == undefined &&(
+                  <div>
+                    <h1>Ops! Parece que nenhum professor foi criado</h1>
+                  </div>
+                )
+              }
           </div>       
         </div>
     </div>         

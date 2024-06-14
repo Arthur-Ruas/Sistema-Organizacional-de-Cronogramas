@@ -83,9 +83,9 @@ const HomeSearch = ({openModal}) => {
                 }
                 {
                    progressSchedules == undefined &&(
-                    <div>
-                      <h4>Opa! kk</h4>
-                      <h6>Parece que você ainda não criou um horário</h6>
+                    <div className='home-search__no-content-progress'>
+                      <h4>Ops! Parece que nenhum horário está em andamento</h4>
+                      <h6>Fique a vontade para criar um horário agora mesmo!</h6>
                     </div>
                   )
                 }
@@ -96,60 +96,62 @@ const HomeSearch = ({openModal}) => {
           <div className='home-search__data'>
             <h1>Informações gerais</h1>
             <div className='home-search__data__info'>
-              {
-                schedulesData.map((data) =>{
-                  return(
-                    <div className='home-search__data__info__item'>
-                      <h4>Numero Total de Horários: {parseInt(data.Andamento) + parseInt(data.Finalizado)}</h4>
-                    </div>
-                  )
-                })
-              }
-              {
-                schedulesData.map((data) =>{
-                  return(
-                    <div className='home-search__data__info__item'>
-                      <h4>Horários em andamento: {data.Andamento}</h4>
-                    </div>
-                  )
-                })
-              }
-              {
-                schedulesData.map((data) =>{
-                  return(
-                    <div className='home-search__data__info__item'>
-                      <h4>Horários Finalizados: {data.Finalizado}</h4>
-                    </div>
-                  )
-                })
-              }
+              <div className='home-search__data__text'>
+                  {
+                    schedulesData.map((data) =>{
+                      return(
+                        <div className='home-search__data__info__item'>
+                          <h4>Horários em andamento: {data.Andamento}</h4>
+                        </div>
+                      )
+                    })
+                  }
+                  {
+                    schedulesData.map((data) =>{
+                      return(
+                        <div className='home-search__data__info__item'>
+                          <h4>Horários Finalizados: {data.Finalizado}</h4>
+                        </div>
+                      )
+                    })
+                  }
+                  {
+                    schedulesData.map((data) =>{
+                      return(
+                        <div className='home-search__data__info__item'>
+                          <h4>Numero Total de Horários: {parseInt(data.Andamento) + parseInt(data.Finalizado)}</h4>
+                        </div>
+                      )
+                    })
+                  }
+                </div>
+              </div>
               <div className='home-search__pie-chart'>
-                <Doughnut data={pieData} />
+                  <Doughnut data={pieData} />
               </div>
             </div>
-          </div>
-        </div>  
-        <div className='home-search__wrapper-home-search'>
-          {
-            schedules &&(
-              schedules.map((schedule) => {
-                return(
-                  <ScheduleCard 
-                    scheduleName={schedule.nome}
-                    classDivision={schedule.divisao_turma}
-                    classModule={schedule.modulo}
-                    scheduleID={schedule.ID}/>
-                )
-              })
-            )
-          }
-          {
-            schedules == undefined &&(
-              <div className='home-search__no-content'>
-                <h1>Seus horários aparecerão aqui</h1>
-              </div>
-            )
-          }
+          </div>  
+          <div className='home-search__wrapper-home-search'>
+            {
+              schedules &&(
+                schedules.map((schedule) => {
+                  return(
+                    <ScheduleCard 
+                      scheduleName={schedule.nome}
+                      classDivision={schedule.divisao_turma}
+                      classModule={schedule.modulo}
+                      scheduleID={schedule.ID}/>
+                  )
+                })
+              )
+            }
+            {
+              schedules == undefined &&(
+                <div className='home-search__no-content'>
+                  <h1>Seus horários aparecerão aqui</h1>
+                </div>
+              )
+            }
         </div>
       </div>
     </div>
