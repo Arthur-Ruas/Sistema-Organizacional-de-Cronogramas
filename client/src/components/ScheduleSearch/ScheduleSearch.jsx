@@ -38,8 +38,8 @@ const ScheduleSearch = ({ openModal, openFilterModal, filters }) => {
         <div className='schedule-search__left'>
           <h4 className='schedule-search__title'>Horários</h4>
         </div>
-        <div className='teacher-search__right'>
-          <button className='button-criar' onClick={openFilterModal}>Filtrar</button>
+        <div className='schedule-search__right'>
+          <button className='schedule-search__button-filter' onClick={openFilterModal}>Filtrar</button>
           <button className='button-criar' onClick={openModal}>+ Criar Horário</button>
         </div>
       </header>

@@ -27,7 +27,7 @@ const Sidebar = () => {
                 </Link>                  
             </li>
             <li className='sidebar__item'>
-                <Link to="/teachers" className='sidebar__link'>
+                <Link to="/classRoom" className='sidebar__link'>
                     <SiGoogleclassroom className='sidebar__icon'/> 
                     <p className='sidebar__text'>Salas</p>
                 </Link>                  

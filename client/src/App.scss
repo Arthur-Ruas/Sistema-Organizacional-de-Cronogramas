@@ -14,15 +14,7 @@
 @import './styles/scss/pages/schedule.scss';
 @import './styles/scss/pages/viewSchedule.scss';
 @import './styles/scss/pages/listSchedule.scss';
-
-
-/*SCSS Layout*/
-@import './styles/scss/components/sidebar.scss';
-@import './styles/scss/components/teacherSearch.scss';
-@import './styles/scss/components/createTeacher.scss';
-@import './styles/scss/components/homeSearch.scss';
-@import './styles/scss/components/createSchedule.scss';
-@import './styles/scss/components/teacherInfo.scss';
+@import './styles/scss/pages/classRoom.scss';
 
 
 /*SCSS Components*/
@@ -34,5 +26,12 @@
 @import './styles/scss/components/scheduleSearch.scss';
 @import './styles/scss/components/itemSchedule.scss';
 @import './styles/scss/components/scheduleField.scss';
+@import './styles/scss/components/sidebar.scss';
+@import './styles/scss/components/teacherSearch.scss';
+@import './styles/scss/components/createTeacher.scss';
+@import './styles/scss/components/homeSearch.scss';
+@import './styles/scss/components/createSchedule.scss';
+@import './styles/scss/components/teacherInfo.scss';
+@import './styles/scss/components/classRoomSearch.scss';
 
 
