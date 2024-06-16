@@ -1191,8 +1191,40 @@ h6 {
 }
 .teacher-info__subjects {
   flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
   padding: 1rem;
   box-shadow: 0px 2px 5px #444;
+}
+.teacher-info__wrapper-subjects {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.teacher-info__subject {
+  flex-direction: column;
+}
+.teacher-info__subject > h4 {
+  font-size: 1rem;
+  font-weight: 500;
+}
+.teacher-info__wrapper-selectors {
+  display: flex;
+  gap: 10px;
+}
+.teacher-info__wrapper-selectors input[type=radio] {
+  display: none;
+}
+.teacher-info__wrapper-selectors input[type=radio]:checked + label {
+  background: linear-gradient(to left, #ffbe46, #f43e4b);
+  color: #fff;
+}
+.teacher-info__wrapper-selectors label {
+  padding: 0.1rem 0.5rem;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 0s;
 }
 .teacher-info__bottom {
   height: 45%;
