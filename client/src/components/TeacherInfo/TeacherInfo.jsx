@@ -3,8 +3,10 @@ import image from '../../assets/profile.png'
 
 const TeacherInfo = ({name, color, observation, days, subjects, showInfo, closeInfo, teacherData, scheduleQtd}) => {
   
-  const horas = Math.floor((teacherData * 112) / 60);          
-  const min = (teacherData * 112) % 60;
+  var horas = 0
+  var min = 0
+  horas = Math.floor((teacherData * 112) / 60);          
+  min = (teacherData * 112) % 60;
 
   return (
     <div className='teacher-info' style={{display: showInfo}}>

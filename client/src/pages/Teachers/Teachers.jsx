@@ -55,7 +55,7 @@ const Teachers = () => {
     const resTeacherDays = await API.get("/teacherInfo/days/" + id);
     const resTeacherSubjects = await API.get("/teacherInfo/subjects/" + id);
     const resTeacherData = await API.get("/teacherInfo/data/" + id);
-    const resTeacherScheduleData = await API.get("./teacherInfo/teacherScheduleData/" + id)
+    //const resTeacherScheduleData = await API.get("./teacherInfo/teacherScheduleData/" + id)
 
     var teacherDataInfo = (resTeacherInfo.data.message);
     var teacherDaysData = (resTeacherDays.data.message);
@@ -70,7 +70,8 @@ const Teachers = () => {
     setTeacherDays(teacherDaysData)
     setTeacherSubjects(teacherSubjectsData)
     setTeacherData(resTeacherData.data.message[0].num_aulas)
-    setTeacherScheduleData(resTeacherScheduleData.data.message[0].qtd) /*Arrumar a query*/
+    //setTeacherScheduleData(resTeacherScheduleData.data.message[0].qtd) /*Arrumar a query*/
+    
   }
 
   useEffect(() =>{
