@@ -54,11 +54,19 @@ const Register = () => {
       return alert("Email Inválido")
     }
       
-    const dataUser = {userEmail, idEtec, userLogin, userPassword}
+    const dataUser = {
+      userEmail:userEmail,
+      idEtec:idEtec,
+      userLogin:userLogin,
+      userPassword:userPassword,
+      confirmPassword:confirmUserPassword,        
+    }
 
     try {
-      await API.post('/register', dataUser);
-
+      const response = await API.post('/register', dataUser);
+      const token = response.data.token;
+      sessionStorage.setItem('token', token);
+      
       alert("Usuário Cadastrado com sucesso!")
       setUserEmail("");
       setIdEtec("");
@@ -69,7 +77,8 @@ const Register = () => {
       navigation('/home')
       
     } catch(err) {
-      alert(`Erro ao cadastrar. ${err}`)
+      alert(`Erro ao cadastrar.`)
+      // alert(`Erro ao cadastrar. ${err.response.data.msg}`)
     }
   }
 

@@ -35,10 +35,15 @@ const Login = () => {
 
   async function handleLogin(event) {
     event.preventDefault()
-
-    const dataLogin = { idEtec, userLogin, userPassword }
+    const dataLogin ={
+      idEtec:idEtec,
+      userLogin:userLogin,
+      userPassword:userPassword,
+    }
     try {
-      await API.post('/login', dataLogin)
+      const response = await API.post('/login', dataLogin)
+      const token = response.data.token;
+      sessionStorage.setItem('token', token);
       navigation('/home')
 
     } catch (error) {
