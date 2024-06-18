@@ -12,6 +12,7 @@ const TeacherInfo = ({name, color, observation, days, subjects, showInfo, closeI
   var segundoModulo = [];
   var terceiroModulo = [];
   
+  console.log(subjects)
   subjects.forEach(subject => {
     if(subject.Modulo == 1){
       primeiroModulo = [...primeiroModulo, [subject.Nome, subject.Modulo]]

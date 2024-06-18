@@ -15,10 +15,24 @@ const Schedule = () => {
   const [classID, setSelectedClass] = useState('3')
   const [schedules, setSchedules] = useState([]);
   const [scheduleInfo, setScheduleInfo] = useState([])
+  const [subjectList, setSubjectList] = useState([])
+
+  var subjectListCheck = []
+
+  async function getSubjectsList(){
+    const res = await API.get("/subjects/subjectList/" + 2);
+    setSubjectList(res.data.message)     
+  }
+
+  subjectList.forEach(subject => {
+    subjectListCheck = [...subjectListCheck, subject.id]
+  });
+
+  console.log(subjectListCheck)
 
   async function getSchedules(){
-      const res = await API.get("/schedule");
-      setSchedules(res.data.message)     
+    const res = await API.get("/schedule");
+    setSchedules(res.data.message)     
   }
 
   async function getScheduleInfo (){
@@ -86,9 +100,8 @@ const Schedule = () => {
     useEffect(() => {
       getSchedules()
       getScheduleInfo()
-    }, [setSchedules, setSubject])
-
-    console.log(subject)
+      getSubjectsList()
+    }, [setSchedules, setSubject, setSubjectList])
 
     var arrayData = [teacherData1, teacherData2, teacherData3, teacherData4, teacherData5, teacherData6, teacherData7, teacherData8, teacherData9, teacherData10]
 
@@ -200,7 +213,16 @@ const Schedule = () => {
         </div>
       </div>
       <div className='schedule__help'>  
-          <h4>Help</h4>
+        {
+          subjectList.map((subject) =>{
+            return(
+              <div className='schedule__help__wrapper-item'>
+                <h4 className='schedule__help__item'>{subject.sigla}</h4>
+                <h4 className='schedule__help__info'>{subject.nome}</h4>
+              </div>             
+            )
+          })
+        }
       </div>
     </div>
   )

@@ -64,14 +64,14 @@ const Teachers = () => {
     teacherDataInfo.map((teacherData) =>{  
       setTeacherName(teacherData.NomeProf);
       setColorCard(teacherData.CorCard);
-      setTeacherObservation(teacherData.Observacao);     
+      setTeacherObservation(teacherData.Observacao);   
+        
     });
 
     setTeacherDays(teacherDaysData)
     setTeacherSubjects(teacherSubjectsData)
     setTeacherData(resTeacherData.data.message[0].num_aulas)
     //setTeacherScheduleData(resTeacherScheduleData.data.message[0].qtd) /*Arrumar a query*/
-    
   }
 
   useEffect(() =>{

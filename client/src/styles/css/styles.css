@@ -299,6 +299,22 @@ h6 {
   justify-content: center;
   flex-direction: column;
 }
+.schedule__help {
+  display: flex;
+  gap: 10px;
+}
+.schedule__help__wrapper-item {
+  position: relative;
+}
+.schedule__help__info {
+  display: none;
+}
+.schedule__help__item:hover ~ h4 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: block;
+}
 
 .view-schedule {
   background-color: #fff;
