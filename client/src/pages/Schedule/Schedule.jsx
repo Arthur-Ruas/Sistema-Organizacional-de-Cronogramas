@@ -12,23 +12,10 @@ const Schedule = () => {
   const classModule = location.state[1]
 
   const [scheduleID, setScheduleID] = useState();
+  const [module, setModule] = useState();
   const [classID, setSelectedClass] = useState('3')
   const [schedules, setSchedules] = useState([]);
   const [scheduleInfo, setScheduleInfo] = useState([])
-  const [subjectList, setSubjectList] = useState([])
-
-  var subjectListCheck = []
-
-  async function getSubjectsList(){
-    const res = await API.get("/subjects/subjectList/" + 2);
-    setSubjectList(res.data.message)     
-  }
-
-  subjectList.forEach(subject => {
-    subjectListCheck = [...subjectListCheck, subject.id]
-  });
-
-  console.log(subjectListCheck)
 
   async function getSchedules(){
     const res = await API.get("/schedule");
@@ -38,6 +25,7 @@ const Schedule = () => {
   async function getScheduleInfo (){
     const res = await API.get("/teacherSchedule")
     setScheduleInfo(res.data.message)
+    setModule(res.data.message[0].modulo)
     setScheduleID((res.data.message[0].id).toString())
   }
 
@@ -93,15 +81,44 @@ const Schedule = () => {
     var teacherData9 = ['9', data9.teacher9, data9.subject9, data9.classRoom9]
     var teacherData10 = ['10', data10.teacher10, data10.subject10, data10.classRoom10]
 
-    const [subject, setSubject] = useState(
-      [data1.subject1, data2.subject2, data3.subject3, data4.subject4, data5.subject5, data6.subject6, data7.subject7, data8.subject8, data9.subject9, data10.subject10]
-    );
+     var subjects = [data1.subject1, data2.subject2, data3.subject3, data4.subject4, data5.subject5, data6.subject6, data7.subject7, data8.subject8, data9.subject9, data10.subject10]
+
+    const [subjectList, setSubjectList] = useState([])
+
+    var subjectListCheck = []
+
+    var moduleValor = 0
+
+    if(module == "Módulo 1"){
+      moduleValor = 1
+    }
+    if(module == "Módulo 2"){
+      moduleValor = 2
+    }
+
+    if(module == "Módulo 3"){
+      moduleValor = 3
+    }
+
+    async function getSubjectsList(){
+      const res = await API.get("/subjects/subjectList/" + moduleValor);
+      setSubjectList(res.data.message)     
+    }
+  
+    subjectList.forEach(subject => {
+      subjectListCheck = [...subjectListCheck, subject.id]
+    });
+  
+    console.log(subjectListCheck)
+    console.log(subjects)
 
     useEffect(() => {
       getSchedules()
       getScheduleInfo()
       getSubjectsList()
-    }, [setSchedules, setSubject, setSubjectList])
+    }, [setSchedules, setSubjectList])
+
+    
 
     var arrayData = [teacherData1, teacherData2, teacherData3, teacherData4, teacherData5, teacherData6, teacherData7, teacherData8, teacherData9, teacherData10]
 
@@ -135,7 +152,7 @@ const Schedule = () => {
         alert(`Erro ao cadastrar. ${err}`)
       }
     }
-
+    
   return (
     <div className='schedule'>
       <header className='schedule__header'> 
