@@ -51,6 +51,17 @@ const CreateTeacher = ({showModal, closeModal}) => {
     console.log(teacherArraySubjects)
     console.log(teacherArrayDays)
 
+    function addOrRemove(array, value){
+      var index = array.indexOf(value);
+
+      if(index===-1){
+        array.push(value);
+      }
+      else{
+        array.splice(index, 1);
+      }
+    }
+
     async function handleTeacherCreation(event) {
       event.preventDefault();
       if (teacherName < 1) {
@@ -142,11 +153,11 @@ const CreateTeacher = ({showModal, closeModal}) => {
                       <div className='form-teacher__days'>
                         <h4>S</h4>
                         <div className='form-teacher__input-day'>
-                          <input type='checkbox' value='1' onClick={((event) => {setArrayDays(arr => [...arr, event.target.value])})}/>
+                          <input type='checkbox' value='1' onClick={((event) => addOrRemove(teacherArrayDays, event.target.value))}/>
                           <label>Bloco 1</label>
                         </div>  
                         <div className='form-teacher__input-day'>
-                          <input type='checkbox' value='2' onClick={((event) => {setArrayDays(arr => [...arr, event.target.value])})}/>
+                          <input type='checkbox' value='2' onClick={((event) => addOrRemove(teacherArrayDays, event.target.value))}/>
                           <label>Bloco 2</label>
                         </div>
                       </div>
@@ -154,11 +165,11 @@ const CreateTeacher = ({showModal, closeModal}) => {
                       <div className='form-teacher__days'>
                       <h4>T</h4>
                         <div className='form-teacher__input-day'>
-                          <input type='checkbox' value='3' onClick={((event) => {setArrayDays(arr => [...arr, event.target.value])})}/>
+                          <input type='checkbox' value='3' onClick={((event) => addOrRemove(teacherArrayDays, event.target.value))}/>
                           <label>Bloco 1</label>
                         </div>
                         <div className='form-teacher__input-day'>
-                          <input type='checkbox' value='4' onClick={((event) => {setArrayDays(arr => [...arr, event.target.value])})}/>
+                          <input type='checkbox' value='4' onClick={((event) => addOrRemove(teacherArrayDays, event.target.value))}/>
                           <label>Bloco 2</label>
                         </div>
                       </div>
@@ -166,11 +177,11 @@ const CreateTeacher = ({showModal, closeModal}) => {
                       <div className='form-teacher__days'>
                       <h4>Q</h4>
                         <div className='form-teacher__input-day'>
-                          <input type='checkbox' value='5' onClick={((event) => {setArrayDays(arr => [...arr, event.target.value])})}/>
+                          <input type='checkbox' value='5' onClick={((event) => addOrRemove(teacherArrayDays, event.target.value))}/>
                           <label>Bloco 1</label>
                         </div>
                         <div className='form-teacher__input-day'>
-                          <input type='checkbox' value='6' onClick={((event) => {setArrayDays(arr => [...arr, event.target.value])})}/>
+                          <input type='checkbox' value='6' onClick={((event) => addOrRemove(teacherArrayDays, event.target.value))}/>
                           <label>Bloco 2</label>
                         </div>
                       </div>
@@ -178,11 +189,11 @@ const CreateTeacher = ({showModal, closeModal}) => {
                       <div className='form-teacher__days'>
                       <h4>Q</h4>
                         <div className='form-teacher__input-day'>
-                          <input type='checkbox' value='7' onClick={((event) => {setArrayDays(arr => [...arr, event.target.value])})}/>
+                          <input type='checkbox' value='7' onClick={((event) => addOrRemove(teacherArrayDays, event.target.value))}/>
                           <label>Bloco 1</label>
                         </div>
                         <div className='form-teacher__input-day'>
-                          <input type='checkbox' value='8' onClick={((event) => {setArrayDays(arr => [...arr, event.target.value])})}/>
+                          <input type='checkbox' value='8' onClick={((event) => addOrRemove(teacherArrayDays, event.target.value))}/>
                           <label>Bloco 2</label>
                         </div>
                       </div>
@@ -190,11 +201,11 @@ const CreateTeacher = ({showModal, closeModal}) => {
                       <div className='form-teacher__days'>
                       <h4>S</h4>
                         <div className='form-teacher__input-day'>
-                          <input type='checkbox' value='9' onClick={((event) => {setArrayDays(arr => [...arr, event.target.value])})}/>
+                          <input type='checkbox' value='9' onClick={((event) => addOrRemove(teacherArrayDays, event.target.value))}/>
                           <label>Bloco 1</label>
                         </div>
                         <div className='form-teacher__input-day'>
-                          <input type='checkbox' value='10' onClick={((event) => {setArrayDays(arr => [...arr, event.target.value])})}/>
+                          <input type='checkbox' value='10' onClick={((event) => addOrRemove(teacherArrayDays, event.target.value))}/>
                           <label>Bloco 2</label>
                         </div>
                       </div>
@@ -223,7 +234,7 @@ const CreateTeacher = ({showModal, closeModal}) => {
                             return (
                               <div className='form-teacher__input-schedules' style={{display: tab1State}}>
                                 <input type="checkbox" name={subject.nome} id={subject.id} onClick={(() => {
-                                  setArraySubjects(arr => [...arr, subject.id])
+                                  addOrRemove(teacherArraySubjects, subject.id)
                                 })} />
                                 <label for={subject.id}>{subject.nome}</label>
                               </div>
@@ -237,7 +248,7 @@ const CreateTeacher = ({showModal, closeModal}) => {
                             return (
                               <div className='form-teacher__input-schedules' style={{display: tab2State}}>
                                 <input type="checkbox" name={subject.nome} id={subject.id} onClick={(() => {
-                                  setArraySubjects(arr => [...arr, subject.id])
+                                  addOrRemove(teacherArraySubjects, subject.id)
                                 })} />
                                 <label for={subject.id}>{subject.nome}</label>
                               </div>
@@ -251,7 +262,7 @@ const CreateTeacher = ({showModal, closeModal}) => {
                             return (
                               <div className='form-teacher__input-schedules' style={{display: tab3State}}>
                                 <input type="checkbox" name={subject.nome} id={subject.id} onClick={(() => {
-                                  setArraySubjects(arr => [...arr, subject.id])
+                                  addOrRemove(teacherArraySubjects, subject.id)
                                 })} />
                                 <label for={subject.id}>{subject.nome}</label>
                               </div>
