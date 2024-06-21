@@ -12,7 +12,6 @@ const Schedule = () => {
   const classModule = location.state[1]
 
   const [scheduleID, setScheduleID] = useState();
-  const [module, setModule] = useState();
   const [classID, setSelectedClass] = useState('3')
   const [schedules, setSchedules] = useState([]);
   const [scheduleInfo, setScheduleInfo] = useState([])
@@ -25,8 +24,8 @@ const Schedule = () => {
   async function getScheduleInfo (){
     const res = await API.get("/teacherSchedule")
     setScheduleInfo(res.data.message)
-    setModule(res.data.message[0].modulo)
     setScheduleID((res.data.message[0].id).toString())
+    console.log((res.data.message[0].id).toString() + "Penis")
   }
 
     const [data1, setData1] = useState(['1'])
@@ -86,22 +85,11 @@ const Schedule = () => {
     const [subjectList, setSubjectList] = useState([])
 
     var subjectListCheck = []
-
-    var moduleValor = 0
-
-    if(module == "Módulo 1"){
-      moduleValor = 1
-    }
-    if(module == "Módulo 2"){
-      moduleValor = 2
-    }
-
-    if(module == "Módulo 3"){
-      moduleValor = 3
-    }
+  
+    console.log(classModule)
 
     async function getSubjectsList(){
-      const res = await API.get("/subjects/subjectList/" + moduleValor);
+      const res = await API.get("/subjects/subjectList/" + classModule);
       setSubjectList(res.data.message)     
     }
   
@@ -117,8 +105,6 @@ const Schedule = () => {
       getScheduleInfo()
       getSubjectsList()
     }, [setSchedules, setSubjectList])
-
-    
 
     var arrayData = [teacherData1, teacherData2, teacherData3, teacherData4, teacherData5, teacherData6, teacherData7, teacherData8, teacherData9, teacherData10]
 
