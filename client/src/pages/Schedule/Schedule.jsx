@@ -85,8 +85,6 @@ const Schedule = () => {
     const [subjectList, setSubjectList] = useState([])
 
     var subjectListCheck = []
-  
-    console.log(classModule)
 
     async function getSubjectsList(){
       const res = await API.get("/subjects/subjectList/" + classModule);
@@ -96,9 +94,16 @@ const Schedule = () => {
     subjectList.forEach(subject => {
       subjectListCheck = [...subjectListCheck, subject.id]
     });
-  
-    console.log(subjectListCheck)
-    console.log(subjects)
+
+    subjectListCheck.forEach(item => {
+      subjects.forEach(subject =>{
+        if(subject == item){
+          console.log(item, subject)
+          subjectListCheck.splice(subjectListCheck.indexOf(9), 1)
+        }
+      })
+    });
+
 
     useEffect(() => {
       getSchedules()
