@@ -73,7 +73,7 @@ h6 {
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  gap: 40px;
+  gap: 30px;
   padding: 6rem;
 }
 .login__title, .register__title {
@@ -84,7 +84,7 @@ h6 {
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  gap: 30px;
+  gap: 20px;
 }
 .login__wrapper-input, .register__wrapper-input {
   width: 100%;
@@ -103,6 +103,12 @@ h6 {
   align-items: center;
   gap: 10px;
   box-shadow: 0 3px 3px -3px #444;
+}
+.login__item > select, .register__item > select {
+  width: 100%;
+  border: none;
+  outline: none;
+  font-size: 1rem;
 }
 .login__icon, .register__icon {
   color: #000;

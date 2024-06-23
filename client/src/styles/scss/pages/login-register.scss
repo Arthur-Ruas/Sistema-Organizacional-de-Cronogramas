@@ -25,7 +25,7 @@
         align-items: center;
         justify-content: center;  
         flex-direction: column;  
-        gap: 40px;       
+        gap: 30px;       
         padding: 6rem;    
     }
 
@@ -38,7 +38,7 @@
         align-items: center;
         justify-content: center;
         flex-direction: column;
-        gap: 30px ;
+        gap: 20px ;
     }
         
     &__wrapper-input{
@@ -60,6 +60,13 @@
         align-items: center;
         gap: 10px;
         box-shadow: 0 3px 3px -3px $cinzaShadow;
+
+        > select{
+            width: 100%;
+            border: none;
+            outline: none;
+            font-size: 1rem;
+        }
     }
 
     &__icon{

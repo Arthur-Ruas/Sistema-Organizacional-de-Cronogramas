@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom';
 import API from '../../API';
 
@@ -10,12 +10,24 @@ import { RiLockPasswordLine } from 'react-icons/ri';
 import { RiLockPasswordFill } from 'react-icons/ri';
 import { GrFormView } from 'react-icons/gr';
 import { GrFormViewHide } from 'react-icons/gr';
+import { IoNewspaperOutline } from "react-icons/io5";
 
 import Button from '../../components/Button/Button';
 
 const Register = () => {
 
   const navigation = useNavigate()
+
+  const [course, setCourse] = useState([])
+
+  async function getCourse(){
+    const res = await API.get("/user/course")
+    setCourse(res.data.message)
+  }
+
+  useEffect(() =>{
+    getCourse()
+  }, [setCourse])
 
   const [inputType, setInputType] = useState("password")
   const [inputPasswordIcon, setInputPasswordIcon] = useState(<GrFormViewHide className='form__items__icones'/>)
@@ -31,6 +43,7 @@ const Register = () => {
   }
 
   const [userEmail, setUserEmail] = useState(null);
+  const [userCourse, setUserCourse] = useState(null);
   const [idEtec, setIdEtec] = useState(null);
   const [userLogin, setUserLogin] = useState(null);
   const [userPassword, setUserPassword] = useState(null);
@@ -59,7 +72,8 @@ const Register = () => {
       idEtec:idEtec,
       userLogin:userLogin,
       userPassword:userPassword,
-      confirmPassword:confirmUserPassword,        
+      confirmPassword:confirmUserPassword,    
+      course:userCourse    
     }
 
     try {
@@ -73,6 +87,7 @@ const Register = () => {
       setUserLogin("");
       setUserPassword("");
       setConfirmUserPassword("");
+      setCourse("")
 
       navigation('/home')
       
@@ -82,19 +97,33 @@ const Register = () => {
     }
   }
 
+  console.log(userCourse)
+
   return (
     <div className='register'>
       <div className="register__card">
         <div className='register__left'>
           <h1 className='register__title'>Cadastro</h1>
           <form className='login__form' onSubmit={handleRegister}>
-          <div className='register__item'>
+            <div className='register__item'>
               <MdEmail className='register__icon'/>
               <div className="register__input">
                   <input type="text" name="" id="" required
                   value={userEmail} onChange={(event)=> setUserEmail(event.target.value)}/>
                   <p className='register__placeholder'>Email</p>
               </div>
+            </div>
+            <div className='register__item'>
+              <IoNewspaperOutline className='register__icon'/>
+              <select name="course" id="course" onChange={(e) => (setUserCourse(e.target.value))}>
+                {
+                  course.map((course) =>{
+                    return(
+                      <option value={course.id}>{course.descricao}</option>
+                    )
+                  })
+                }
+              </select>
             </div>
             <div className='register__wrapper-input'>
               <div className='register__item'>
