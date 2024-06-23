@@ -9,6 +9,10 @@ const ItemSchedule = ({ id, nome, divisao, modulo, estado }) => {
         navigate('/viewSchedule', {state: ID})
     }
 
+    function editSchedule(ID){
+      navigate('/editSchedule', {state: ID})
+  }
+
   return (
     <div className='item-schedule'>
         <div className='item-schedule__info'>
@@ -17,7 +21,16 @@ const ItemSchedule = ({ id, nome, divisao, modulo, estado }) => {
             <h3>{modulo}</h3>
             <h4 className={`item-schedule__info__${estado}`}>{estado}</h4>
         </div> 
-        <button className='item-schedule__button-see-more' onClick={() =>{openProgressSchedule(id)}}>Ver horário</button>
+        {
+          estado == "Finalizado" &&(
+            <button className='item-schedule__button-see-more' onClick={() =>{openProgressSchedule(id)}}>Ver horário</button>
+          )
+        }
+        {
+          estado == "Andamento" && (
+            <button className='item-schedule__button-see-more' onClick={() =>{editSchedule(id)}}>Editar horário</button>
+          )
+        }
     </div>
   )
 }

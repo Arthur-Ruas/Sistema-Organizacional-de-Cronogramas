@@ -8,6 +8,7 @@ import Schedule from './pages/Schedule/Schedule';
 import ViewSchedule from './pages/ViewSchedule/ViewSchedule';
 import ListSchedule from './pages/ListSchedule/ListSchedule';
 import ClassRoom from './pages/ClassRoom/ClassRoom';
+import EditSchedule from './pages/EditSchedule/EditSchedule';
 
 const routes = () => {
   return (
@@ -21,6 +22,7 @@ const routes = () => {
         <Route path="/viewSchedule" element={<ViewSchedule/>}></Route>
         <Route path="/listSchedule" element={<ListSchedule/>}></Route>
         <Route path="/classRoom" element={<ClassRoom/>}></Route>
+        <Route path="/editSchedule" element={<EditSchedule/>}></Route>
       </Routes>
     </BrowserRouter>
   )
