@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import API from '../../API';
 
-const TeacherSchedule = ({ day, module, handlerOnChange }) => {
+const TeacherSchedule = ({ day, module, handlerOnChange, handleSubjectChange }) => {
 
     const [teacherName, setTeacherName] = useState('');
     const [teacherID, setTeacherID] = useState('');
@@ -67,7 +67,7 @@ const TeacherSchedule = ({ day, module, handlerOnChange }) => {
                     })
                 }   
             </select>
-            <select className='card-day__select' name={`subject${day}`} onChange={handlerOnChange} onClick={(e)=>{setSelectedSubject(e.target.value)}}>
+            <select className='card-day__select' name={`subject${day}`} id={`subject`} onChange={(e) => { handlerOnChange(e); handleSubjectChange(e.target.value) }}>
                 <option value='0'>Selecione...</option>
                 {
                     subjectArray.map((subject) =>{
@@ -77,7 +77,7 @@ const TeacherSchedule = ({ day, module, handlerOnChange }) => {
                     })
                 }
             </select>
-            <select className='card-day__select' name={`classRoom${day}`} onChange={handlerOnChange} onClick={(e)=>{setSelectedClassRoom(e.target.value)}}>
+            <select className='card-day__select' name={`classRoom${day}`} onChange={handlerOnChange}  onClick={(e)=>{setSelectedClassRoom(e.target.value)}}>
                 <option value='0'>Selecione...</option>
                 {
                     classRoomArray.map((classRoom) =>{

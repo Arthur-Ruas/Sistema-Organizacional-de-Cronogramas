@@ -23,7 +23,6 @@ const CreateSchedule = ({showModal, closeModal}) => {
       API.post('/schedule', dataSchedule);
 
       navigate('/createSchedule', {state: [classDivision, classModule]})
-      window.location.reload(false);
 
     } catch (err) {
       alert(`Erro ao cadastrar. ${err}`)

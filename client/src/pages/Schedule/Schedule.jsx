@@ -14,7 +14,10 @@ const Schedule = () => {
   const [scheduleID, setScheduleID] = useState();
   const [classID, setSelectedClass] = useState('3')
   const [schedules, setSchedules] = useState([]);
-  const [scheduleInfo, setScheduleInfo] = useState([])
+  const [scheduleInfo, setScheduleInfo] = useState([]);
+  const [checkSubject, setCheckSubject] = useState([]);
+  const [selectedSubjects, setSelectedSubjects] = useState({});
+
 
   async function getSchedules(){
     const res = await API.get("/schedule");
@@ -25,7 +28,7 @@ const Schedule = () => {
     const res = await API.get("/teacherSchedule")
     setScheduleInfo(res.data.message)
     setScheduleID((res.data.message[0].id).toString())
-    console.log((res.data.message[0].id).toString() + "Penis")
+    console.log((res.data.message[0].id).toString())
   }
 
     const [data1, setData1] = useState(['1'])
@@ -40,34 +43,44 @@ const Schedule = () => {
     const [data10, setData10] = useState(['10'])
 
     function handlerChangeCategory1(event){
-      setData1({...data1, [event.target.name] : event.target.value});
+      setData1({...data1, [event.target.name] : event.target.value}
+      );
     }
     function handlerChangeCategory2(event){
-      setData2({...data2, [event.target.name] : event.target.value});
+      setData2({...data2, [event.target.name] : event.target.value}
+      );
     }
     function handlerChangeCategory3(event){
-      setData3({...data3, [event.target.name] : event.target.value});
+      setData3({...data3, [event.target.name] : event.target.value}
+      );
     }
     function handlerChangeCategory4(event){
-      setData4({...data4, [event.target.name] : event.target.value});
+      setData4({...data4, [event.target.name] : event.target.value}
+      );
     }
     function handlerChangeCategory5(event){
-      setData5({...data5, [event.target.name] : event.target.value});
+      setData5({...data5, [event.target.name] : event.target.value}
+      );
     }
     function handlerChangeCategory6(event){
-      setData6({...data6, [event.target.name] : event.target.value});
+      setData6({...data6, [event.target.name] : event.target.value}
+      );
     }
     function handlerChangeCategory7(event){
-      setData7({...data7, [event.target.name] : event.target.value});
+      setData7({...data7, [event.target.name] : event.target.value}
+      );
     }
     function handlerChangeCategory8(event){
-      setData8({...data8, [event.target.name] : event.target.value});
+      setData8({...data8, [event.target.name] : event.target.value}
+      );
     }
     function handlerChangeCategory9(event){
-      setData9({...data9, [event.target.name] : event.target.value});
+      setData9({...data9, [event.target.name] : event.target.value}
+      );
     }
     function handlerChangeCategory10(event){
-      setData10({...data10, [event.target.name] : event.target.value});
+      setData10({...data10, [event.target.name] : event.target.value}
+      );
     }
     var teacherData1 = ['1', data1.teacher1, data1.subject1, data1.classRoom1]
     var teacherData2 = ['2', data2.teacher2, data2.subject2, data2.classRoom2]
@@ -80,38 +93,38 @@ const Schedule = () => {
     var teacherData9 = ['9', data9.teacher9, data9.subject9, data9.classRoom9]
     var teacherData10 = ['10', data10.teacher10, data10.subject10, data10.classRoom10]
 
-     var subjects = [data1.subject1, data2.subject2, data3.subject3, data4.subject4, data5.subject5, data6.subject6, data7.subject7, data8.subject8, data9.subject9, data10.subject10]
+  
 
     const [subjectList, setSubjectList] = useState([])
 
-    var subjectListCheck = []
 
     async function getSubjectsList(){
       const res = await API.get("/subjects/subjectList/" + classModule);
       setSubjectList(res.data.message)     
     }
-  
-    subjectList.forEach(subject => {
-      subjectListCheck = [...subjectListCheck, subject.id]
-    });
+   
+    var number_subject = 0;
 
-    subjectListCheck.forEach(item => {
-      subjects.forEach(subject =>{
-        if(subject == item){
-          console.log(item, subject)
-          subjectListCheck.splice(subjectListCheck.indexOf(9), 1)
-        }
-      })
-    });
-
+    const handleSubjectChange = (day, subjectID) => {
+      setSelectedSubjects(prev => {
+          const newSelectedSubjects = { ...prev };
+          newSelectedSubjects[day] = subjectID;
+          return newSelectedSubjects;
+      });
+  };
 
     useEffect(() => {
       getSchedules()
       getScheduleInfo()
       getSubjectsList()
-    }, [setSchedules, setSubjectList])
+    }, [setSchedules, setSubjectList, checkSubject])
+
+    useEffect(() => {
+      setCheckSubject(Object.values(selectedSubjects));
+  }, [selectedSubjects]);
 
     var arrayData = [teacherData1, teacherData2, teacherData3, teacherData4, teacherData5, teacherData6, teacherData7, teacherData8, teacherData9, teacherData10]
+
 
     async function inProgress(){
       const data = {scheduleID}
@@ -176,23 +189,23 @@ const Schedule = () => {
           </div>
           <div className='schedule__wrapper-days__day'>
             <h4>Segunda-Feira</h4>
-            <TeacherSchedule day='1' module={classModule} handlerOnChange={handlerChangeCategory1}/>
+            <TeacherSchedule day='1' module={classModule} handlerOnChange={handlerChangeCategory1} handleSubjectChange={(value) => handleSubjectChange('1', value)} />
           </div>
           <div className='schedule__wrapper-days__day'>
             <h4>Terça-Feira</h4>
-            <TeacherSchedule day='3' module={classModule} handlerOnChange={handlerChangeCategory3}/>
+            <TeacherSchedule day='3' module={classModule} handlerOnChange={handlerChangeCategory3} handleSubjectChange={(value) => handleSubjectChange('3', value)} />
           </div>
           <div className='schedule__wrapper-days__day'>
             <h4>Quarta-Feira</h4>
-            <TeacherSchedule day='5' module={classModule} handlerOnChange={handlerChangeCategory5}/>
+            <TeacherSchedule day='5' module={classModule} handlerOnChange={handlerChangeCategory5} handleSubjectChange={(value) => handleSubjectChange('5', value)} />
           </div>
           <div className='schedule__wrapper-days__day'>
             <h4>Quinta-Feira</h4>
-            <TeacherSchedule day='7' module={classModule} handlerOnChange={handlerChangeCategory7}/>
+            <TeacherSchedule day='7' module={classModule} handlerOnChange={handlerChangeCategory7} handleSubjectChange={(value) => handleSubjectChange('7', value)} />
           </div>
           <div className='schedule__wrapper-days__day'>
             <h4>Sexta-Feira</h4>
-            <TeacherSchedule day='9' module={classModule} handlerOnChange={handlerChangeCategory9}/>
+            <TeacherSchedule day='9' module={classModule} handlerOnChange={handlerChangeCategory9} handleSubjectChange={(value) => handleSubjectChange('9', value)} />
           </div>
         </div>
         <div className='schedule__interval'>
@@ -204,33 +217,36 @@ const Schedule = () => {
             <h4>22:45</h4>
           </div>
           <div className='schedule__wrapper-days__day'>
-            <TeacherSchedule day='2' module={classModule} handlerOnChange={handlerChangeCategory2}/>
+            <TeacherSchedule day='2' module={classModule} handlerOnChange={handlerChangeCategory2} handleSubjectChange={(value) => handleSubjectChange('2', value)} />
           </div>
           <div className='schedule__wrapper-days__day'>
-            <TeacherSchedule day='4' module={classModule} handlerOnChange={handlerChangeCategory4}/>
+            <TeacherSchedule day='4' module={classModule} handlerOnChange={handlerChangeCategory4} handleSubjectChange={(value) => handleSubjectChange('4', value)} />
           </div>
           <div className='schedule__wrapper-days__day'>
-            <TeacherSchedule day='6' module={classModule} handlerOnChange={handlerChangeCategory6}/>
+            <TeacherSchedule day='6' module={classModule} handlerOnChange={handlerChangeCategory6} handleSubjectChange={(value) => handleSubjectChange('6', value)} />
           </div>
           <div className='schedule__wrapper-days__day'>
-            <TeacherSchedule day='8' module={classModule} handlerOnChange={handlerChangeCategory8}/>
+            <TeacherSchedule day='8' module={classModule} handlerOnChange={handlerChangeCategory8} handleSubjectChange={(value) => handleSubjectChange('8', value)} />
           </div>
           <div className='schedule__wrapper-days__day'>
-            <TeacherSchedule day='10' module={classModule} handlerOnChange={handlerChangeCategory10}/>
+            <TeacherSchedule day='10' module={classModule} handlerOnChange={handlerChangeCategory10} handleSubjectChange={(value) => handleSubjectChange('10', value)} />
           </div>
         </div>
       </div>
       <div className='schedule__help'>  
         {
           subjectList.map((subject) =>{
-            return(
-              <div className='schedule__help__wrapper-item'>
-                <h4 className='schedule__help__item'>{subject.sigla}</h4>
-                <h4 className='schedule__help__info'>{subject.nome}</h4>
-              </div>             
-            )
-          })
-        }
+            number_subject +=1;
+            if (!checkSubject.includes(subject.id.toString())) {
+              return (
+                <div className='schedule__help__wrapper-item' key={subject.id}>
+                  <h4 className='schedule__help__item'>{subject.sigla}</h4>
+                  <h4 className='schedule__help__info'>{subject.nome}</h4>
+                </div>
+              );
+            }
+            return null;
+          })}
       </div>
     </div>
   )

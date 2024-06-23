@@ -15,6 +15,7 @@ API.interceptors.request.use((config) => {
   }, (error) => {
     return Promise.reject(error);
   });
+  
 
 // Redirecionar para a página de login
 API.interceptors.response.use(

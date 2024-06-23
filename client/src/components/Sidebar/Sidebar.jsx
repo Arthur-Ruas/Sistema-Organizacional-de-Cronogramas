@@ -10,6 +10,12 @@ import { IoHome } from "react-icons/io5";
 import { Link } from 'react-router-dom';
 
 const Sidebar = () => {
+
+    const logout = () => {
+        sessionStorage.removeItem('token');
+        window.location.href = '/';
+    };
+  
   return (
     <div className='sidebar'>
         <img className='sidebar__logo' src={Logo} alt="" />
@@ -44,7 +50,7 @@ const Sidebar = () => {
                     <p className='sidebar__text'>Conta</p>
                 </Link>
             </li>
-            <li className='sidebar__link'>
+            <li className='sidebar__link' onClick={logout}>
                 <CgLogOut className='sidebar__icon'/> 
                 <p className='sidebar__text'>Sair</p>
             </li>
