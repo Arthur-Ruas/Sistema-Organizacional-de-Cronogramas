@@ -43,7 +43,7 @@ const Register = () => {
   }
 
   const [userEmail, setUserEmail] = useState(null);
-  const [userCourse, setUserCourse] = useState(null);
+  const [userCourse, setUserCourse] = useState(1);
   const [idEtec, setIdEtec] = useState(null);
   const [userLogin, setUserLogin] = useState(null);
   const [userPassword, setUserPassword] = useState(null);
