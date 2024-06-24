@@ -21,7 +21,7 @@ const Register = () => {
   const [course, setCourse] = useState([])
 
   async function getCourse(){
-    const res = await API.get("/user/course")
+    const res = await API.get("/course")
     setCourse(res.data.message)
   }
 
@@ -73,15 +73,14 @@ const Register = () => {
       userLogin:userLogin,
       userPassword:userPassword,
       confirmPassword:confirmUserPassword,    
-      course:userCourse    
+      userCourse:userCourse    
     }
 
     try {
       const response = await API.post('/register', dataUser);
       const token = response.data.token;
       sessionStorage.setItem('token', token);
-      
-      alert("Usuário Cadastrado com sucesso!")
+
       setUserEmail("");
       setIdEtec("");
       setUserLogin("");
@@ -92,8 +91,7 @@ const Register = () => {
       navigation('/home')
       
     } catch(err) {
-      alert(`Erro ao cadastrar.`)
-      // alert(`Erro ao cadastrar. ${err.response.data.msg}`)
+      alert(`Erro ao cadastrar. ${err.response.data.msg}`)
     }
   }
 
