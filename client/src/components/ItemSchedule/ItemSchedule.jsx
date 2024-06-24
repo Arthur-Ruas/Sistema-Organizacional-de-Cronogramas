@@ -2,16 +2,16 @@ import React from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 
 const ItemSchedule = ({ id, nome, divisao, modulo, estado }) => {
-
+    
     const navigate = useNavigate()
-
+    
     function openProgressSchedule(ID){
-        navigate('/viewSchedule', {state: ID})
+      navigate('/viewSchedule', {state: ID})
     }
 
     function editSchedule(ID){
       navigate('/editSchedule', {state: ID})
-  }
+    }
 
   return (
     <div className='item-schedule'>

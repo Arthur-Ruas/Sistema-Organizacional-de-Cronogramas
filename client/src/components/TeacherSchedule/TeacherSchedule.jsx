@@ -67,7 +67,7 @@ const TeacherSchedule = ({ day, module, handlerOnChange, handleSubjectChange }) 
                     })
                 }   
             </select>
-            <select className='card-day__select' name={`subject${day}`} id={`subject`} onChange={(e) => { handlerOnChange(e); handleSubjectChange(e.target.value) }}>
+            <select className='card-day__select' name={`subject${day}`} onChange={(e) => { handlerOnChange(e); handleSubjectChange(e.target.value) }}>
                 <option value='0'>Selecione...</option>
                 {
                     subjectArray.map((subject) =>{

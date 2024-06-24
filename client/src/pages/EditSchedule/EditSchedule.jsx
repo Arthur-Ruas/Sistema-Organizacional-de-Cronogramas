@@ -6,15 +6,26 @@ import { useLocation, useNavigate } from 'react-router-dom';
 const EditSchedule = () => {
 
   const navigate = useNavigate()
-
+  
   const location = useLocation();
+  const [scheduleInfo, setScheduleInfo] = useState([]);
+
+  async function getScheduleInfo (){
+    const res = await API.get("/editSchedule/" + location.state)
+    setScheduleInfo(res.data.message)
+  }
+
+  useEffect(() =>{
+    getScheduleInfo()
+  }, [setScheduleInfo])
+  
+
   const scheduleID = location.state
   const classDivison = location.state[0]
   const classModule = location.state[1]
 
   const [classID, setSelectedClass] = useState('3')
   const [schedules, setSchedules] = useState([]);
-  const [scheduleInfo, setScheduleInfo] = useState([]);
   const [checkSubject, setCheckSubject] = useState([]);
   const [selectedSubjects, setSelectedSubjects] = useState({});
 
@@ -23,13 +34,7 @@ const EditSchedule = () => {
     const res = await API.get("/schedule");
     setSchedules(res.data.message)     
   }
-
-  async function getScheduleInfo (){
-    const res = await API.get("/teacherSchedule")
-    setScheduleInfo(res.data.message)
-    console.log((res.data.message[0].id).toString())
-  }
-
+  
     const [data1, setData1] = useState(['1'])
     const [data2, setData2] = useState(['2'])
     const [data3, setData3] = useState(['3'])
@@ -114,7 +119,6 @@ const EditSchedule = () => {
 
     useEffect(() => {
       getSchedules()
-      getScheduleInfo()
       getSubjectsList()
     }, [setSchedules, setSubjectList, checkSubject])
 
@@ -160,9 +164,18 @@ const EditSchedule = () => {
     <div className='schedule'>
       <header className='schedule__header'> 
           {
-            
-          }    
-          
+            scheduleInfo.map((info) => {
+              return(
+                <div className='schedule__info'>
+                  <h1>{info.nome}</h1>
+                  <div>
+                    <h4>Módulo: {info.modulo}</h4>
+                    <h4>Possuí divisão: {info.divisao_turma}</h4>
+                  </div>
+                </div> 
+              )
+            })
+          }     
       <div className="schedule__wrapper-button">
         <button className="schedule__button-cancel">Cancelar</button>
         <button className="schedule__button-save" onClick={() => {inProgress(); handleCreate()}}>Salvar</button>
