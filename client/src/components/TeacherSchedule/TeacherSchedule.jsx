@@ -35,7 +35,6 @@ const TeacherSchedule = ({ day, module, handlerOnChange, handleSubjectChange }) 
         const resClassRoom = await API.get("createSchedule/soc/classRoom/" + id)
 
         setClassRoomArray(resClassRoom.data.message)
-        console.log(resClassRoom)
     }
 
     useEffect(() =>{

@@ -9,32 +9,32 @@ const EditSchedule = () => {
   
   const location = useLocation();
   const [scheduleInfo, setScheduleInfo] = useState([]);
-
+  const [classModule, setClassModule] = useState()
+  
   async function getScheduleInfo (){
     const res = await API.get("/editSchedule/" + location.state)
     setScheduleInfo(res.data.message)
+    setClassModule(res.data.message[0].modulo)
   }
 
   useEffect(() =>{
     getScheduleInfo()
   }, [setScheduleInfo])
-  
 
   const scheduleID = location.state
   const classDivison = location.state[0]
-  const classModule = location.state[1]
+  
 
   const [classID, setSelectedClass] = useState('3')
   const [schedules, setSchedules] = useState([]);
   const [checkSubject, setCheckSubject] = useState([]);
   const [selectedSubjects, setSelectedSubjects] = useState({});
 
-
   async function getSchedules(){
     const res = await API.get("/schedule");
     setSchedules(res.data.message)     
   }
-  
+
     const [data1, setData1] = useState(['1'])
     const [data2, setData2] = useState(['2'])
     const [data3, setData3] = useState(['3'])
@@ -86,6 +86,7 @@ const EditSchedule = () => {
       setData10({...data10, [event.target.name] : event.target.value}
       );
     }
+
     var teacherData1 = ['1', data1.teacher1, data1.subject1, data1.classRoom1]
     var teacherData2 = ['2', data2.teacher2, data2.subject2, data2.classRoom2]
     var teacherData3 = ['3', data3.teacher3, data3.subject3, data3.classRoom3]
@@ -97,10 +98,7 @@ const EditSchedule = () => {
     var teacherData9 = ['9', data9.teacher9, data9.subject9, data9.classRoom9]
     var teacherData10 = ['10', data10.teacher10, data10.subject10, data10.classRoom10]
 
-  
-
     const [subjectList, setSubjectList] = useState([])
-
 
     async function getSubjectsList(){
       const res = await API.get("/subjects/subjectList/" + classModule);
