@@ -74,8 +74,8 @@ const HomeSearch = ({openModal}) => {
                       return(
                         <div>
                           <h1>{schedule.Nome}</h1>
-                          <h4>{schedule.Divisao}</h4>
-                          <h4>{schedule.Modulo}</h4>
+                          <h4>Possuí divisão de turma: {schedule.Divisao}</h4>
+                          <h4>Módulo: {schedule.Modulo}</h4>
                         </div>
                       )
                     })

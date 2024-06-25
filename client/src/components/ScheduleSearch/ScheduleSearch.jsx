@@ -44,11 +44,11 @@ const ScheduleSearch = ({ openModal, openFilterModal, filters }) => {
         </div>
       </header>
       <div className='schedule-search__content'>
-        <div className='schedule-search__content__label'>
-          <h1>Nome</h1>
-          <h2>Divisão</h2>
-          <h3>Modulo</h3>
-          <h4>Status</h4>
+        <div className='schedule-search__tag'>
+          <p>Nome</p>
+          <p>Divisão</p>
+          <p>Modulo</p>
+          <p>Status</p>
         </div>
         {
           filteredSchedules &&(
