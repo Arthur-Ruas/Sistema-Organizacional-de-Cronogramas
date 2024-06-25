@@ -252,7 +252,18 @@ const Schedule = () => {
         alert(`Erro ao cadastrar. ${err}`)
       }
     }
-    
+
+    async function handleCancel() {
+      try {
+        const response = await API.delete('/teacherSchedule/delete', { data: { scheduleID } });
+        if (response.status === 200) {
+          navigate('/home');
+        }
+      } catch (err) {
+        alert(`Erro ao deletar o horário. ${err.response.data.message}`);
+      }
+    }
+
   return (
     <div className='schedule'>
       <header className='schedule__header'> 
@@ -270,7 +281,7 @@ const Schedule = () => {
             })
           }         
         <div className="schedule__wrapper-button">
-          <button className="schedule__button-cancel">Cancelar</button>
+          <button className="schedule__button-cancel" onClick={handleCancel}>Cancelar</button>
           <button className="schedule__button-save" onClick={() => {inProgress(); if(classDivison == 1){handleCreateDivision()}else if(classDivison == 2){handleCreateNoDivision()}}}>Salvar</button>
           <button className="schedule__button-save" onClick={() => {finished(); if(classDivison == 1){handleCreateDivision()}else if(classDivison == 2){handleCreateNoDivision()}}}>Finalizar</button>
         </div>
