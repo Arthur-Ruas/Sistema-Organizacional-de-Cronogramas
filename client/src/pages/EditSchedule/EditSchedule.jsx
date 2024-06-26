@@ -250,19 +250,7 @@ const EditSchedule = () => {
         </div>
       </div>
       <div className='schedule__help'>  
-      {
-          subjectList.map((subject) =>{
-            number_subject +=1;
-            if (!checkSubject.includes(subject.id.toString())) {
-              return (
-                <div className='schedule__help__wrapper-item' key={subject.id}>
-                  <h4 className='schedule__help__item'>{subject.sigla}</h4>
-                  <h4 className='schedule__help__info'>{subject.nome}</h4>
-                </div>
-              );
-            }
-            return null;
-          })}
+     
       </div>
     </div>
     <div className='certeza' style={{display: modalOpen}}>
