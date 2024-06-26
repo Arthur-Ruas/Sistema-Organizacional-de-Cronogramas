@@ -291,8 +291,15 @@ const Schedule = () => {
           <div className='schedule__wrapper-days'>
             <div className='schedule__wrapper-days__first-block'>
               <div className='schedule__wrapper-days__label'>
-                <h4>18:50</h4>
-                <h4>20:42</h4>
+                <div>
+                  <h4>Bloco 1</h4>
+                  <h4>18:50</h4>
+                  <h4>Turma A</h4>
+                </div>
+                <div>
+                  <h4>20:42</h4>
+                  <h4>Turma B</h4>
+                </div>
               </div>
               <div className='schedule__wrapper-days__day'>
                 <h4>Segunda-Feira</h4>
@@ -325,8 +332,15 @@ const Schedule = () => {
             </div>
             <div className='schedule__wrapper-days__second-block'>
               <div className='schedule__wrapper-days__label'>
-                <h4>20:52</h4>
-                <h4>22:45</h4>
+                <div>
+                  <h4>Bloco 2</h4>
+                  <h4>20:52</h4>
+                  <h4>Turma A</h4>
+                </div>
+                <div>
+                  <h4>22:45</h4>
+                  <h4>Turma B</h4>
+                </div>
               </div>
               <div className='schedule__wrapper-days__day'>
                 <TeacherSchedule day='2' module={classModule} handlerOnChange={handlerChangeCategory2} handleSubjectChange={(value) => handleSubjectChange('2', value)} />
@@ -357,6 +371,7 @@ const Schedule = () => {
           <div className='schedule__wrapper-days'>
             <div className='schedule__wrapper-days__first-block'>
               <div className='schedule__wrapper-days__label'>
+                <h4>Bloco 1</h4>
                 <h4>18:50</h4>
                 <h4>20:42</h4>
               </div>
@@ -386,6 +401,7 @@ const Schedule = () => {
             </div>
             <div className='schedule__wrapper-days__second-block'>
               <div className='schedule__wrapper-days__label'>
+                <h4>Bloco 2</h4>
                 <h4>20:52</h4>
                 <h4>22:45</h4>
               </div>

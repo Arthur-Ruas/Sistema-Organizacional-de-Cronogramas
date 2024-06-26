@@ -24,9 +24,6 @@ const TeacherCard = ({teacherCardColor, teacherName, teacherId}) => {
           <div className='card-teacher__day'>
             <h4>{teacherData}</h4>
           </div>
-          <div className='card-teacher__subject'>
-            <h4>aaaaa</h4>
-          </div>
       </div>
   )
 }

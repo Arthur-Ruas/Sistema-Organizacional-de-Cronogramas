@@ -130,7 +130,6 @@ const TeacherInfo = ({name, color, observation, days, subjects, showInfo, closeI
       </div>
       <div className='teacher-info__wrapper-button'>
         <button className='teacher-info__close-button' type='button' onClick={() => closeInfo()}>Fechar</button>
-        <button className='teacher-info__edit-button'>Editar</button>
       </div>
     </div>
   )
