@@ -235,10 +235,10 @@ h6 {
 }
 
 .schedule {
-  max-height: 100vh;
+  background-color: #fff;
   display: flex;
   flex-direction: column;
-  padding: 1rem;
+  padding: 0.8rem;
   gap: 20px;
 }
 .schedule__header {
@@ -247,7 +247,7 @@ h6 {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0.8rem 2rem;
+  padding: 0.7rem 2rem;
   border-radius: 15px;
   box-shadow: 0px 2px 5px #aaa;
 }
@@ -284,7 +284,7 @@ h6 {
   text-align: center;
   justify-content: space-between;
   gap: 20px;
-  padding: 0.8rem;
+  padding: 0.7rem;
   border-radius: 15px;
   box-shadow: 0px 2px 5px #aaa;
 }
@@ -295,31 +295,68 @@ h6 {
 .schedule__wrapper-days__first-block, .schedule__wrapper-days__second-block {
   width: 100%;
   display: flex;
+  gap: 10px;
 }
 .schedule__wrapper-days__day {
   width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 }
 .schedule__wrapper-days__label {
   width: fit-content;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   flex-direction: column;
+  padding-block: 4rem;
 }
 .schedule__help {
   display: flex;
   gap: 10px;
+  padding-inline: 9rem;
 }
 .schedule__help__wrapper-item {
   position: relative;
 }
 .schedule__help__info {
   display: none;
+  white-space: nowrap;
 }
 .schedule__help__item:hover ~ h4 {
   position: absolute;
-  top: 0;
-  left: 0;
+  top: -25px;
+  left: 50%;
+  transform: translateX(-50%);
   display: block;
+}
+
+.certeza {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #fff;
+  width: 500px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 1rem 2rem;
+  border-radius: 5px;
+  z-index: 1000;
+}
+.certeza > h4 {
+  font-weight: 500;
+}
+.certeza > div {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+.certeza > div button {
+  display: flex;
+  padding: 0.5rem 1rem;
+  border-radius: 15px;
 }
 
 .view-schedule {
@@ -512,6 +549,8 @@ h6 {
 .card-day__select {
   padding: 0.5rem;
   border-radius: 10px;
+  font-size: 0.7rem;
+  overflow: hidden;
 }
 
 .schedule-search {
@@ -583,12 +622,8 @@ h6 {
   gap: 10px;
 }
 .item-schedule__info > h1 {
-  width: 40%;
-  font-size: 1.5rem;
-}
-.item-schedule__info > h3 {
-  width: 20%;
-  text-align: end;
+  flex: 1;
+  font-size: 1.1rem;
 }
 .item-schedule__info > h4 {
   width: 10%;

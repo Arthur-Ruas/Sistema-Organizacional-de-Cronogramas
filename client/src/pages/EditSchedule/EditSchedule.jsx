@@ -16,14 +16,12 @@ const EditSchedule = () => {
     setScheduleInfo(res.data.message)
     setClassModule(res.data.message[0].modulo)
   }
-
+  
   useEffect(() =>{
     getScheduleInfo()
   }, [setScheduleInfo])
 
   const scheduleID = location.state
-  const classDivison = location.state[0]
-  
 
   const [classID, setSelectedClass] = useState('3')
   const [schedules, setSchedules] = useState([]);
@@ -99,12 +97,11 @@ const EditSchedule = () => {
     var teacherData10 = ['10', data10.teacher10, data10.subject10, data10.classRoom10]
 
     const [subjectList, setSubjectList] = useState([])
-
     async function getSubjectsList(){
       const res = await API.get("/subjects/subjectList/" + classModule);
       setSubjectList(res.data.message)     
     }
-   
+    console.log(subjectList)
     var number_subject = 0;
 
     const handleSubjectChange = (day, subjectID) => {
@@ -157,9 +154,26 @@ const EditSchedule = () => {
         alert(`Erro ao cadastrar. ${err}`)
       }
     }
-    
+
+    function cancel(){
+      navigate('/home')
+    }
+
+    const [modalState,setModalState] = useState("brightness(100%)");
+    const [modalOpen, setModalOpen] = useState("none")
+  
+    function handleState() {
+        setModalState("brightness(50%)");
+        setModalOpen("flex")
+  
+        if(modalState == "brightness(50%)"){
+          setModalState("brightness(100%)")
+          setModalOpen("none")
+        }
+    }
   return (
-    <div className='schedule'>
+    <>
+    <div className='schedule' style={{filter: modalState}}>
       <header className='schedule__header'> 
           {
             scheduleInfo.map((info) => {
@@ -175,17 +189,18 @@ const EditSchedule = () => {
             })
           }     
       <div className="schedule__wrapper-button">
-        <button className="schedule__button-cancel">Cancelar</button>
+        <button className="schedule__button-cancel" onClick={() => {cancel()}}>Cancelar</button>
         <button className="schedule__button-save" onClick={() => {inProgress(); handleCreate()}}>Salvar</button>
-        <button className="schedule__button-save" onClick={() => {finished(); handleCreate()}}>Finalizar</button>
+        <button className="schedule__button-save" onClick={() => {handleState()}}>Finalizar</button>
       </div>
 
       </header>
       <div className='schedule__wrapper-days'>
         <div className='schedule__wrapper-days__first-block'>
           <div className='schedule__wrapper-days__label'>
-            <h4>18:50</h4>
-            <h4>20:42</h4>
+            <h4>Bloco 1</h4>
+              <h4>18:50</h4>
+              <h4>20:42</h4>
           </div>
           <div className='schedule__wrapper-days__day'>
             <h4>Segunda-Feira</h4>
@@ -213,6 +228,7 @@ const EditSchedule = () => {
         </div>
         <div className='schedule__wrapper-days__second-block'>
           <div className='schedule__wrapper-days__label'>
+            <h4>Bloco 2</h4>
             <h4>20:52</h4>
             <h4>22:45</h4>
           </div>
@@ -234,9 +250,30 @@ const EditSchedule = () => {
         </div>
       </div>
       <div className='schedule__help'>  
-        
+      {
+          subjectList.map((subject) =>{
+            number_subject +=1;
+            if (!checkSubject.includes(subject.id.toString())) {
+              return (
+                <div className='schedule__help__wrapper-item' key={subject.id}>
+                  <h4 className='schedule__help__item'>{subject.sigla}</h4>
+                  <h4 className='schedule__help__info'>{subject.nome}</h4>
+                </div>
+              );
+            }
+            return null;
+          })}
       </div>
     </div>
+    <div className='certeza' style={{display: modalOpen}}>
+    <h1>Atenção!</h1>
+    <h4>Tem certeza que deseja finalizar o horário? Não será possível alterar depois!</h4>
+    <div>
+      <button onClick={() => {handleState()}}>Cancelar</button>
+      <button className="schedule__button-save" onClick={() => {finished(); handleCreate()}}>Finalizar</button>
+    </div>
+  </div>
+  </>
   )
 }
 

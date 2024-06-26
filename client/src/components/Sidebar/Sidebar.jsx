@@ -32,24 +32,24 @@ const Sidebar = () => {
                     <p className='sidebar__text'>Professores</p>
                 </Link>                  
             </li>
-            <li className='sidebar__item'>
+            {/* <li className='sidebar__item'>
                 <Link to="/classRoom" className='sidebar__link'>
                     <SiGoogleclassroom className='sidebar__icon'/> 
                     <p className='sidebar__text'>Salas</p>
                 </Link>                  
-            </li>
+            </li> */}
             <li className='sidebar__item'>
                 <Link to="/listSchedule" className='sidebar__link'>
                     <GrSchedules className='sidebar__icon'/> 
                     <p className='sidebar__text'>Horários</p>
                 </Link>                  
             </li>
-            <li className='sidebar__item'>
+            {/* <li className='sidebar__item'>
                 <Link className='sidebar__link'>
                     <FaCircleUser className='sidebar__icon'/>
                     <p className='sidebar__text'>Conta</p>
                 </Link>
-            </li>
+            </li> */}
             <li className='sidebar__link' onClick={logout}>
                 <CgLogOut className='sidebar__icon'/> 
                 <p className='sidebar__text'>Sair</p>

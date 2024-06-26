@@ -264,8 +264,22 @@ const Schedule = () => {
       }
     }
 
+    const [modalState,setModalState] = useState("brightness(100%)");
+    const [modalOpen, setModalOpen] = useState("none")
+  
+    function handleState() {
+        setModalState("brightness(50%)");
+        setModalOpen("flex")
+  
+        if(modalState == "brightness(50%)"){
+          setModalState("brightness(100%)")
+          setModalOpen("none")
+        }
+    }
+
   return (
-    <div className='schedule'>
+    <>
+    <div className='schedule' style={{filter: modalState}}>
       <header className='schedule__header'> 
           {
             scheduleInfo.map((info) => {
@@ -283,7 +297,7 @@ const Schedule = () => {
         <div className="schedule__wrapper-button">
           <button className="schedule__button-cancel" onClick={handleCancel}>Cancelar</button>
           <button className="schedule__button-save" onClick={() => {inProgress(); if(classDivison == 1){handleCreateDivision()}else if(classDivison == 2){handleCreateNoDivision()}}}>Salvar</button>
-          <button className="schedule__button-save" onClick={() => {finished(); if(classDivison == 1){handleCreateDivision()}else if(classDivison == 2){handleCreateNoDivision()}}}>Finalizar</button>
+          <button className="schedule__button-save" onClick={() => {handleState()}}>Finalizar</button>
         </div>
       </header>
       {
@@ -440,6 +454,15 @@ const Schedule = () => {
           })}
       </div>
     </div>
+    <div className='certeza' style={{display: modalOpen}}>
+      <h1>Atenção!</h1>
+      <h4>Tem certeza que deseja finalizar o horário? Não será possível alterar depois!</h4>
+      <div>
+        <button onClick={() => {handleState()}}>Cancelar</button>
+        <button className="schedule__button-save" onClick={() => {finished(); if(classDivison == 1){handleCreateDivision()}else if(classDivison == 2){handleCreateNoDivision()}}}>Finalizar</button>
+      </div>
+    </div>
+    </>
   )
 }
 

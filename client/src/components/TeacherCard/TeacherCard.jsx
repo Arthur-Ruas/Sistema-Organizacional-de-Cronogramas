@@ -22,7 +22,7 @@ const TeacherCard = ({teacherCardColor, teacherName, teacherId}) => {
               <h4 className='card-teacher__teacher__nome'>{teacherName}</h4>
           </div>    
           <div className='card-teacher__day'>
-            <h4>{teacherData}</h4>
+           
           </div>
       </div>
   )

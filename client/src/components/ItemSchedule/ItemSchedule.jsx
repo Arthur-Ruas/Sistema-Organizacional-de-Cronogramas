@@ -17,8 +17,8 @@ const ItemSchedule = ({ id, nome, divisao, modulo, estado }) => {
     <div className='item-schedule'>
         <div className='item-schedule__info'>
             <h1>{nome}</h1>
-            <h3>{divisao}</h3>
-            <h3>{modulo}</h3>
+            <h4>Divisão: {divisao}</h4>
+            <h4>Módulo: {modulo}º</h4>
             <h4 className={`item-schedule__info__${estado}`}>{estado}</h4>
         </div> 
         {

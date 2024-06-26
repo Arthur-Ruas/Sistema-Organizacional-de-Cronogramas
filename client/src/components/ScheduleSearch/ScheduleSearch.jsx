@@ -46,8 +46,6 @@ const ScheduleSearch = ({ openModal, openFilterModal, filters }) => {
       <div className='schedule-search__content'>
         <div className='schedule-search__tag'>
           <p>Nome</p>
-          <p>Divisão</p>
-          <p>Modulo</p>
           <p>Status</p>
         </div>
         {

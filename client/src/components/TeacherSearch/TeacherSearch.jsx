@@ -24,7 +24,6 @@ const TeacherSearch = ({openForm, getID, openInfo}) => {
                 <h4 className='teacher-search__title'>Professores</h4>
             </div>
             <div className='teacher-search__right'>
-                <button className='teacher-search__button-filter'>Filtrar</button>
                 <button className='button-criar' onClick={() => openForm()}
                 >+ Criar Professor</button>
             </div>
@@ -32,8 +31,6 @@ const TeacherSearch = ({openForm, getID, openInfo}) => {
         <div className='teacher-search__content'>
           <div className='teacher-search__tag'>
             <p>Nome</p>
-            <p>Dias</p>
-            <p>Matérias</p>
           </div>
           <div className='teacher-search__wrapper-teacher-search'>
               {
